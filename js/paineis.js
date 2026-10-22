@@ -7,12 +7,7 @@ window.PAINEIS = [
     temas: ["Rendimento escolar", "SAEB", "IDEB"],
     atualizado: "Outubro de 2026",
     miniatura: "img/miniatura-indicadores.png",
-    destaques: [
-      { valor: "122", rotulo: "escolas" },
-      { valor: "15.420", rotulo: "matrículas" },
-      { valor: "95,6%", rotulo: "aprovação" },
-      { valor: "4,13", rotulo: "IDEB médio" }
-    ],
+    destaques: [],
     paginas: [
       "Início",
       "Visão Geral",
@@ -33,7 +28,7 @@ window.PAINEIS = [
       "Resultados das visitas técnicas da SUEP às unidades da rede estadual de EPT: oferta, docentes, permanência, infraestrutura e relação com o setor produtivo.",
     temas: ["Visitas técnicas", "Oferta", "Infraestrutura"],
     atualizado: "2026",
-    miniatura: "",
+    miniatura: "img/miniatura-visitas.png",
     destaques: [],
     paginas: [
       "Capa",
