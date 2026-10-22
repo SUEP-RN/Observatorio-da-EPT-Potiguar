@@ -112,7 +112,6 @@ window.Site = (function () {
       iframe.title = p.titulo;
       iframe.src = p.link.trim();
       iframe.setAttribute("allowfullscreen", "true");
-      iframe.loading = "lazy";
       caixa.appendChild(iframe);
       quadro.appendChild(caixa);
       var cheia = document.getElementById("tela-cheia");
