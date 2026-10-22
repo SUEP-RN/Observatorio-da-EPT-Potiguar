@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Painéis da EPT/RN</title>
+  <meta name="description" content="Painéis de dados da Educação Profissional e Tecnológica da rede estadual do Rio Grande do Norte (SUEP/SEEC-RN).">
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+  <header class="topo">
+    <div class="conteiner">
+      <a class="marca" href="index.html">
+        <span class="marca-logos">
+          <img src="img/logo-governo-rn.png" alt="Governo do Rio Grande do Norte">
+          <img src="img/logo-suep.png" alt="SUEP — Subcoordenadoria de Educação Profissional">
+        </span>
+        <span class="marca-texto">Painéis da EPT/RN<small>SUEP · SEEC/RN</small></span>
+      </a>
+      <nav class="menu" aria-label="Principal">
+        <a href="#paineis">Painéis</a>
+        <a href="#sobre">Sobre os dados</a>
+      </nav>
+    </div>
+  </header>
+  <div class="faixa" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+
+  <main>
+    <section class="abertura">
+      <div class="conteiner">
+        <div>
+          <span class="selo">Dados abertos · Educação Profissional</span>
+          <h1>Painéis da Educação Profissional e Tecnológica <em>do Rio Grande do Norte</em></h1>
+          <p>Indicadores da rede estadual de EPT reunidos em painéis interativos: matrículas, aprovação, evasão, SAEB, IDEB e os resultados das visitas técnicas da SUEP.</p>
+          <div class="numeros" id="numeros"></div>
+        </div>
+        <img class="ilustracao" src="img/ilustracao-rn.png" alt="Ilustração do mapa do Rio Grande do Norte com engrenagens, torres eólicas, uma árvore de circuitos e um capelo">
+      </div>
+    </section>
+
+    <section class="secao" id="paineis">
+      <div class="conteiner">
+        <div class="secao-topo">
+          <h2>Painéis disponíveis</h2>
+          <label class="busca">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+            <input id="busca" type="search" placeholder="Buscar painel ou tema" aria-label="Buscar painel ou tema">
+          </label>
+        </div>
+        <div class="grade" id="grade"></div>
+        <p class="vazio" id="vazio" hidden>Nenhum painel encontrado para essa busca.</p>
+      </div>
+    </section>
+
+    <section class="sobre" id="sobre">
+      <div class="conteiner">
+        <div>
+          <h3>De onde vêm os dados</h3>
+          <p>Planilhas de monitoramento da SUEP/SEEC-RN e resultados oficiais do INEP (SAEB e IDEB). A fonte de cada painel aparece na página dele.</p>
+        </div>
+        <div>
+          <h3>Como usar</h3>
+          <p>Abra um painel e use os filtros de DIREC, município, oferta e curso. Clique em barras e linhas das tabelas para filtrar o restante da página.</p>
+        </div>
+        <div>
+          <h3>Cuidados na leitura</h3>
+          <p>Taxas são ponderadas pelas matrículas. IDEB e SAEB consideram só escolas com nota aferida, por isso a cobertura é sempre informada.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="conteiner">
+      <span><strong>SUEP</strong> · Subcoordenadoria de Educação Profissional · SEEC/RN</span>
+      <span>Rede Estadual de EPT · Rio Grande do Norte</span>
+    </div>
+  </footer>
+
+  <script src="js/paineis.js"></script>
+  <script src="js/site.js"></script>
+  <script>Site.montarInicio();</script>
+</body>
+</html>
