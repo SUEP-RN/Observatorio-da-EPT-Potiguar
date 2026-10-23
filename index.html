@@ -4,46 +4,106 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Painéis da EPT/RN</title>
-  <meta name="description" content="Painéis de dados da Educação Profissional e Tecnológica da rede estadual do Rio Grande do Norte (SUEP/SEEC-RN).">
+  <meta name="description" content="Painéis de dados da Rede Estadual de Educação Profissional e Tecnológica do Rio Grande do Norte (SUEP/SEEC-RN).">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Rubik:wght@500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/estilo.css">
 </head>
 <body>
-  <header class="topo">
-    <div class="conteiner">
-      <a class="marca" href="index.html">
-        <span class="marca-logos">
-          <img src="img/logo-governo-rn.png" alt="Governo do Rio Grande do Norte">
-          <img src="img/logo-suep.png" alt="SUEP — Subcoordenadoria de Educação Profissional">
-        </span>
-        <span class="marca-texto">Painéis da EPT/RN<small>SUEP · SEEC/RN</small></span>
-      </a>
-      <nav class="menu" aria-label="Principal">
-        <a href="#paineis">Painéis</a>
-        <a href="#sobre">Sobre os dados</a>
-      </nav>
-    </div>
-  </header>
-  <div class="faixa" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+  <div id="topo"></div>
 
-  <main>
+  <main id="conteudo">
+    <!-- Abertura: azul da revista, caixa de título índigo, colagem de fotos e ondas de cor -->
     <section class="abertura">
+      <span class="bolha-coral" aria-hidden="true"></span>
       <div class="conteiner">
-        <div>
-          <span class="selo">Dados abertos · Educação Profissional</span>
-          <h1>Painéis da Educação Profissional e Tecnológica <em>do Rio Grande do Norte</em></h1>
-          <p>Indicadores da rede estadual de EPT reunidos em painéis interativos: matrículas, aprovação, evasão, SAEB, IDEB e os resultados das visitas técnicas da SUEP.</p>
-          <div class="numeros" id="numeros"></div>
+        <div class="abertura-texto">
+          <span class="sobretitulo" style="color: var(--amarelo)">Dados abertos · SUEP/SEEC-RN</span>
+          <h1 class="etiqueta" style="margin-top: 18px">Rede Estadual de EPT <em>em dados</em></h1>
+          <p>Matrículas, aprovação, evasão, SAEB, IDEB e as visitas técnicas às escolas, em painéis interativos para quem faz e acompanha a Educação Profissional no RN.</p>
+          <div class="acoes">
+            <a class="botao amarelo" href="#paineis">Ver os painéis →</a>
+            <a class="botao contorno" href="sobre.html">Conheça a SUEP</a>
+          </div>
+          <span class="linha-verde">Rio Grande do Norte · 2019–2026</span>
         </div>
-        <img class="ilustracao" src="img/ilustracao-rn.png" alt="Ilustração do mapa do Rio Grande do Norte com engrenagens, torres eólicas, uma árvore de circuitos e um capelo">
+        <div class="colagem" aria-hidden="true">
+          <span class="contorno"></span>
+          <img class="foto-grande" src="img/fotos/impressora-3d.jpg" alt="">
+          <img class="foto-pequena" src="img/fotos/edificacoes-dupla.jpg" alt="">
+          <img class="rn" src="img/ilustracao-rn-transparente.png" alt="">
+        </div>
+      </div>
+      <span class="engrenagem" aria-hidden="true">
+        <svg viewBox="0 0 100 100"><g fill="currentColor"><circle cx="50" cy="50" r="30"/><rect x="44" y="6" width="12" height="20" rx="3"/><rect x="44" y="74" width="12" height="20" rx="3"/><rect x="6" y="44" width="20" height="12" rx="3"/><rect x="74" y="44" width="20" height="12" rx="3"/><rect x="44" y="6" width="12" height="20" rx="3" transform="rotate(45 50 50)"/><rect x="44" y="74" width="12" height="20" rx="3" transform="rotate(45 50 50)"/><rect x="6" y="44" width="20" height="12" rx="3" transform="rotate(45 50 50)"/><rect x="74" y="44" width="20" height="12" rx="3" transform="rotate(45 50 50)"/></g><circle cx="50" cy="50" r="15" fill="#3771ae"/><circle cx="50" cy="50" r="8" fill="currentColor"/></svg>
+      </span>
+      <div class="ondas" aria-hidden="true">
+        <svg viewBox="0 0 1440 130" preserveAspectRatio="none">
+          <path d="M0 60 C 220 10, 420 120, 700 70 S 1160 0, 1440 50 V130 H0 Z" fill="#e9584f"/>
+          <path d="M0 88 C 260 50, 520 126, 820 90 S 1250 58, 1440 86 V130 H0 Z" fill="#a9c92b"/>
+          <path d="M0 102 C 300 80, 640 128, 960 104 S 1300 88, 1440 100 V130 H0 Z" fill="#fac133"/>
+          <path d="M0 116 C 320 98, 660 132, 980 116 S 1320 104, 1440 114 V130 H0 Z" fill="#fbfaf6"/>
+        </svg>
       </div>
     </section>
 
-    <section class="secao" id="paineis">
+    <!-- Números: destaque índigo + série histórica + cartões de apoio -->
+    <section class="numeros" aria-labelledby="titulo-numeros">
+      <div class="conteiner">
+        <div class="numeros-topo">
+          <div>
+            <span class="sobretitulo">Entre 2019 e 2026</span>
+            <h2 id="titulo-numeros">A EPT potiguar em números</h2>
+          </div>
+          <p>São 145 instituições em 80 municípios, com 18 cursos técnicos: a rede praticamente triplicou a oferta desde 2019.</p>
+        </div>
+
+        <div class="numeros-grade">
+          <div class="destaque-numero">
+            <span class="rotulo">Matrículas em 2026</span>
+            <strong>22.430</strong>
+            <span class="legenda-num">estudantes em cursos técnicos</span>
+            <span class="pilula"><b>+203%</b> desde 2019</span>
+            <p>O maior ciclo de expansão da EPT na história do Rio Grande do Norte.</p>
+          </div>
+
+          <div class="grafico">
+            <div class="grafico-topo">
+              <h3>Matrículas de EPT por ano</h3>
+              <div class="grafico-legenda" aria-hidden="true"><span><i></i>2019–2025</span><span><i class="atual"></i>2026</span></div>
+            </div>
+            <div class="barras" role="img" aria-label="Matrículas de EPT: 7.389 em 2019, 8.294 em 2020, 8.950 em 2021, 8.658 em 2022, 10.299 em 2023, 12.986 em 2024, 17.256 em 2025 e 22.430 em 2026">
+              <div class="barra"><small>7.389</small><b style="--h: 33"></b></div>
+              <div class="barra"><small>8.294</small><b style="--h: 37"></b></div>
+              <div class="barra"><small>8.950</small><b style="--h: 40"></b></div>
+              <div class="barra"><small>8.658</small><b style="--h: 39"></b></div>
+              <div class="barra"><small>10.299</small><b style="--h: 46"></b></div>
+              <div class="barra"><small>12.986</small><b style="--h: 58"></b></div>
+              <div class="barra"><small>17.256</small><b style="--h: 77"></b></div>
+              <div class="barra atual"><small>22.430</small><b style="--h: 100"></b></div>
+            </div>
+            <div class="anos" aria-hidden="true"><span>2019</span><span>2020</span><span>2021</span><span>2022</span><span>2023</span><span>2024</span><span>2025</span><span>2026</span></div>
+            <div class="anos inst" aria-hidden="true"><span>67 inst.</span><span>67 inst.</span><span>67 inst.</span><span>65 inst.</span><span>73 inst.</span><span>86 inst.</span><span>139 inst.</span><span>145 inst.</span></div>
+          </div>
+        </div>
+
+        <p class="fonte">Fontes: Censo Escolar/INEP (2019–2025) e revista “Rede Estadual de EPT: História, Saberes e Transformação” (2026) · SUEP/SEEC-RN.</p>
+      </div>
+    </section>
+
+    <!-- Painéis -->
+    <section class="secao" id="paineis" aria-labelledby="titulo-paineis">
       <div class="conteiner">
         <div class="secao-topo">
-          <h2>Painéis disponíveis</h2>
+          <div>
+            <span class="sobretitulo">Painéis interativos</span>
+            <h2 id="titulo-paineis" class="etiqueta pequena" style="margin-top: 12px">Explore os dados</h2>
+            <p>Filtre por DIREC, município, curso e escola. Cada painel abre aqui mesmo, sem precisar de login.</p>
+          </div>
           <label class="busca">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+            <span aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span>
             <input id="busca" type="search" placeholder="Buscar painel ou tema" aria-label="Buscar painel ou tema">
           </label>
         </div>
@@ -52,33 +112,65 @@
       </div>
     </section>
 
-    <section class="sobre" id="sobre">
+    <!-- A EPT nas escolas: fotos da revista -->
+    <section class="acontece" aria-labelledby="titulo-acontece">
+      <span class="bolha-lima" aria-hidden="true"></span>
       <div class="conteiner">
         <div>
-          <h3>De onde vêm os dados</h3>
-          <p>Planilhas de monitoramento da SUEP/SEEC-RN e resultados oficiais do INEP (SAEB e IDEB). A fonte de cada painel aparece na página dele.</p>
+          <span class="sobretitulo" style="color: var(--amarelo)">Nas escolas, CEEPs e IERNs</span>
+          <h2 id="titulo-acontece" style="margin-top: 14px">Por trás de cada número, <em>um estudante aprendendo uma profissão</em></h2>
+          <p>Laboratórios, aulas de campo, projetos integradores e estágios: é assim que a formação técnica acontece na rede estadual, da capital ao interior.</p>
+          <a class="botao amarelo" href="sobre.html">Conheça a rede →</a>
         </div>
+        <div class="mosaico">
+          <img class="m1" src="img/fotos/eletronica-grupo.jpg" alt="Estudantes e professor soldando um circuito eletrônico em laboratório">
+          <img class="m2" src="img/fotos/mineracao-capacetes.jpg" alt="Turma de Mineração com capacetes analisando amostras em aula de campo">
+          <img class="m3" src="img/fotos/laboratorio-quimica.jpg" alt="Estudante de jaleco e máscara operando equipamento de laboratório">
+          <img class="m4" src="img/fotos/estudante-eletronica.jpg" alt="Estudante sorrindo durante prática de eletrônica">
+          <img class="m5" src="img/fotos/laboratorio-informatica.jpg" alt="Aula no laboratório de informática">
+        </div>
+      </div>
+    </section>
+
+    <!-- Vozes da Rede -->
+    <section class="vozes" aria-labelledby="titulo-vozes">
+      <div class="conteiner">
+        <h2 id="titulo-vozes" class="etiqueta pequena" style="margin-bottom: 34px">Quem passou pela EPT conta</h2>
+        <div class="vozes-grade">
+          <figure class="voz">
+            <span class="voz-titulo"><svg viewBox="0 0 54 34" aria-hidden="true"><path fill="#e9584f" d="M13 0a13 13 0 0 1 13 13c0 9-6 17-13 21l-3-3c3-3 5-6 5-8A13 13 0 0 1 13 0zm27 0a13 13 0 0 1 13 13c0 9-6 17-13 21l-3-3c3-3 5-6 5-8A13 13 0 0 1 40 0z"/></svg>VOZES DA REDE</span>
+            <blockquote>“O curso técnico impacta diretamente na sua vida — mas você tem de saber usar o que tem em mãos. Hoje, estou estudando e trabalhando na área.”</blockquote>
+            <figcaption><strong>Victor Rafael Almeida da Silva</strong>Técnico em Edificações no CEEP Dr. Rui Pereira · hoje cursa Engenharia Civil na UFRN</figcaption>
+          </figure>
+          <figure class="voz">
+            <span class="voz-titulo"><svg viewBox="0 0 54 34" aria-hidden="true"><path fill="#e9584f" d="M13 0a13 13 0 0 1 13 13c0 9-6 17-13 21l-3-3c3-3 5-6 5-8A13 13 0 0 1 13 0zm27 0a13 13 0 0 1 13 13c0 9-6 17-13 21l-3-3c3-3 5-6 5-8A13 13 0 0 1 40 0z"/></svg>VOZES DA REDE</span>
+            <blockquote>“Muita coisa que a gente vê no curso prepara a gente para o mundo do trabalho. Saímos preparados para aproveitar as próximas oportunidades que conquistamos.”</blockquote>
+            <figcaption><strong>Kauã Richard Carvalho</strong>Técnico em Edificações no CEEP Dr. Rui Pereira dos Santos</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Instagram -->
+    <section class="chamada" aria-labelledby="titulo-insta">
+      <span class="bolha" aria-hidden="true"></span>
+      <div class="conteiner">
         <div>
-          <h3>Como usar</h3>
-          <p>Abra um painel e use os filtros de DIREC, município, oferta e curso. Clique em barras e linhas das tabelas para filtrar o restante da página.</p>
+          <h2 id="titulo-insta">Acompanhe a SUEP no Instagram</h2>
+          <p>Notícias, seminários, visitas técnicas e o dia a dia da Educação Profissional no RN.</p>
         </div>
-        <div>
-          <h3>Cuidados na leitura</h3>
-          <p>Taxas são ponderadas pelas matrículas. IDEB e SAEB consideram só escolas com nota aferida, por isso a cobertura é sempre informada.</p>
-        </div>
+        <a class="botao amarelo" data-instagram target="_blank" rel="noopener" href="#">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          Seguir a SUEP
+        </a>
       </div>
     </section>
   </main>
 
-  <footer class="rodape">
-    <div class="conteiner">
-      <span><strong>SUEP</strong> · Subcoordenadoria de Educação Profissional · SEEC/RN</span>
-      <span>Rede Estadual de EPT · Rio Grande do Norte</span>
-    </div>
-  </footer>
+  <footer class="rodape" id="rodape"></footer>
 
   <script src="js/paineis.js"></script>
   <script src="js/site.js"></script>
-  <script>Site.montarInicio();</script>
+  <script>Site.iniciar("inicio");</script>
 </body>
 </html>

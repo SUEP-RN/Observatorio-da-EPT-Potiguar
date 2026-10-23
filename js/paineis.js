@@ -1,3 +1,14 @@
+/* CONTATO: aparece no rodapé de todas as páginas.
+   Preencha o e-mail da SUEP (enquanto estiver vazio, a linha de e-mail não aparece). */
+window.CONTATO = {
+  email: "suep@educar.rn.gov.br",
+  endereco: ["Av. Senador Salgado Filho", "Lagoa Nova · Natal/RN", "CEP 59064-901"],
+  // Na revista aparece @suepseecrn; confira qual é o perfil certo
+  instagram: "https://www.instagram.com/suespseecrn/"
+};
+
+/* PAINÉIS: para publicar um painel, cole em "link" o endereço do Power BI
+   (Arquivo › Inserir relatório › Publicar na Web). */
 window.PAINEIS = [
   {
     id: "indicadores-ept-2025",

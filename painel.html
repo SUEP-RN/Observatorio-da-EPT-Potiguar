@@ -4,59 +4,48 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Painel · Painéis da EPT/RN</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Rubik:wght@500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/estilo.css">
 </head>
 <body>
-  <header class="topo">
-    <div class="conteiner">
-      <a class="marca" href="index.html">
-        <span class="marca-logos">
-          <img src="img/logo-governo-rn.png" alt="Governo do Rio Grande do Norte">
-          <img src="img/logo-suep.png" alt="SUEP — Subcoordenadoria de Educação Profissional">
-        </span>
-        <span class="marca-texto">Painéis da EPT/RN<small>SUEP · SEEC/RN</small></span>
-      </a>
-      <nav class="menu" aria-label="Principal">
-        <a href="index.html#paineis">Todos os painéis</a>
-        <a href="index.html#sobre">Sobre os dados</a>
-      </nav>
-    </div>
-  </header>
-  <div class="faixa" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+  <div id="topo"></div>
 
-  <main class="conteiner">
-    <nav class="trilha" aria-label="Você está em"><a href="index.html">Painéis</a> › <span id="trilha-titulo"></span></nav>
-    <div class="cabecalho-painel">
-      <div>
-        <h1 id="titulo"></h1>
+  <main id="conteudo">
+    <section class="painel-abertura">
+      <span class="bolha-coral" style="position:absolute; right:-140px; top:-160px; width:380px; height:380px; background:var(--coral); border-radius:46% 54% 60% 40% / 50% 45% 55% 50%;" aria-hidden="true"></span>
+      <div class="conteiner">
+        <nav class="trilha" aria-label="Você está em"><a href="index.html#paineis">Painéis</a> › <span id="trilha-titulo"></span></nav>
+        <h1 class="etiqueta" id="titulo"></h1>
         <p id="resumo"></p>
+        <a class="botao amarelo" id="tela-cheia" target="_blank" rel="noopener" hidden>Abrir em tela cheia ↗</a>
       </div>
-      <a class="botao secundario" id="tela-cheia" target="_blank" rel="noopener" hidden>Abrir em tela cheia ↗</a>
+    </section>
+
+    <div class="conteiner quadro-envolve">
+      <div class="quadro" id="quadro"></div>
     </div>
 
-    <div class="quadro" id="quadro"></div>
-
-    <div class="detalhes">
-      <div class="caixa">
-        <h2>Páginas deste painel</h2>
-        <ol id="paginas"></ol>
-      </div>
-      <div class="caixa">
-        <h2>Fonte e atualização</h2>
-        <p id="fonte"></p>
+    <div class="conteiner">
+      <div class="detalhes fim-pagina">
+        <div class="caixa">
+          <h2>Páginas deste painel</h2>
+          <ol id="paginas"></ol>
+        </div>
+        <div class="caixa">
+          <h2>Fonte e atualização</h2>
+          <p id="fonte"></p>
+        </div>
       </div>
     </div>
   </main>
 
-  <footer class="rodape">
-    <div class="conteiner">
-      <span><strong>SUEP</strong> · Subcoordenadoria de Educação Profissional · SEEC/RN</span>
-      <a href="index.html">Voltar para todos os painéis</a>
-    </div>
-  </footer>
+  <footer class="rodape" id="rodape"></footer>
 
   <script src="js/paineis.js"></script>
   <script src="js/site.js"></script>
-  <script>Site.montarPainel();</script>
+  <script>Site.iniciar("painel");</script>
 </body>
 </html>
