@@ -1,12 +1,12 @@
-/* Monta as partes comuns (topo, rodapé) e as listas a partir de js/paineis.js.
-   Dois sites usam este arquivo:
-     - site público (raiz): Site.iniciar("inicio" | "sobre")
-     - site dos painéis (pasta paineis/): Site.iniciar("lista" | "painel", "paineis")
-   Não precisa editar este arquivo: textos e links ficam em paineis.js. */
+/* Monta as partes comuns (topo, rodapé) e as listas.
+   O mesmo arquivo serve aos dois sites, que ficam em endereços separados:
+     - site público da SUEP/EPT: Site.iniciar("inicio" | "sobre")
+     - site dos painéis (uso interno): Site.iniciar("lista" | "painel", "paineis")
+   Não precisa editar este arquivo: contato em js/contato.js e painéis em js/paineis.js. */
 window.Site = (function () {
   var paineis = window.PAINEIS || [];
   var contato = window.CONTATO || {};
-  var BASE = "";        // caminho até a raiz do site público ("" ou "../")
+  var BASE = "";
   var SITE = "publico";
 
   var ICONES = {
@@ -40,10 +40,13 @@ window.Site = (function () {
 
     var itens, nome, sub, inicio;
     if (SITE === "paineis") {
-      itens = [["index.html", "Painéis", "lista"], [raiz("index.html"), "Site da SUEP", ""], [raiz("sobre.html"), "A SUEP e a EPT", ""]];
-      nome = "Painéis da EPT/RN"; sub = "Dados da Rede Estadual de Educação Profissional"; inicio = "index.html";
+      itens = [["index.html", "Painéis", "lista"]];
+      if (contato.sitePublico) {
+        itens.push([contato.sitePublico, "Site da SUEP", ""], [contato.sitePublico + "sobre.html", "A SUEP e a EPT", ""]);
+      }
+      nome = "Painéis da EPT/RN"; sub = "Uso interno · SUEP/SEEC-RN"; inicio = "index.html";
     } else {
-      itens = [["index.html", "Início", "inicio"], ["sobre.html", "A SUEP e a EPT", "sobre"], ["paineis/index.html", "Painéis de dados", ""]];
+      itens = [["index.html", "Início", "inicio"], ["sobre.html", "A SUEP e a EPT", "sobre"]];
       nome = "SUEP · EPT/RN"; sub = "Subcoordenadoria de Educação Profissional e Tecnológica"; inicio = "index.html";
     }
     var menu = itens.map(function (i) {
@@ -225,7 +228,6 @@ window.Site = (function () {
 
   function iniciar(pagina, site) {
     SITE = site === "paineis" ? "paineis" : "publico";
-    BASE = SITE === "paineis" ? "../" : "";
     montarTopo(pagina);
     montarRodape();
     ligarInstagram();
