@@ -196,6 +196,37 @@ h1, h2, h3 { font-family: var(--titulo); line-height: 1.12; margin: 0; }
 .painel-rodape small { color: var(--suave); }
 .vazio { text-align: center; color: var(--suave); padding: 32px; }
 
+/* ---------------------------------------------------------------- chamada para o site dos painéis */
+.chamada-paineis { background: #3771ae; color: #fff; padding: 76px 0; position: relative; overflow: hidden; }
+.chamada-paineis::before { content: ""; position: absolute; left: -120px; bottom: -150px; width: 340px; height: 340px; border-radius: 50%; background: var(--coral); }
+.chamada-paineis .conteiner { position: relative; display: grid; grid-template-columns: 0.95fr 1.05fr; gap: 56px; align-items: center; }
+.chamada-paineis h2 { font-size: clamp(1.9rem, 3.6vw, 2.7rem); margin-top: 14px; }
+.chamada-paineis p { color: #e7edfb; font-size: 1.0625rem; margin: 16px 0 22px; max-width: 46ch; }
+.chamada-lista { list-style: none; margin: 0 0 28px; padding: 0; display: grid; gap: 12px; }
+.chamada-lista li { border-left: 4px solid var(--amarelo); padding: 2px 0 2px 14px; }
+.chamada-lista li:nth-child(2) { border-left-color: var(--lima); }
+.chamada-lista b { display: block; font: 700 1.0625rem var(--titulo); }
+.chamada-lista span { color: #cfdaf3; font-size: 0.9375rem; }
+.chamada-tela { position: relative; display: block; min-height: 340px; }
+.chamada-tela img { position: absolute; width: 74%; border-radius: 18px; box-shadow: 0 22px 44px rgba(10, 18, 60, .4); border: 6px solid #fff; transition: transform .25s ease; }
+.chamada-tela img:first-child { left: 0; top: 0; transform: rotate(-3deg); }
+.chamada-tela img:last-child { right: 0; bottom: 0; transform: rotate(3deg); }
+.chamada-tela:hover img:first-child { transform: rotate(-1deg) translateY(-4px); }
+.chamada-tela:hover img:last-child { transform: rotate(1deg) translateY(-4px); }
+
+/* abertura do site dos painéis */
+.lista-abertura { background: var(--indigo); color: #fff; position: relative; overflow: hidden; }
+.lista-abertura .conteiner { position: relative; padding-top: 52px; padding-bottom: 140px; }
+.lista-abertura h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); }
+.lista-abertura h1 em { font-style: normal; color: var(--amarelo); }
+.lista-abertura p { color: #d6dcf5; font-size: 1.125rem; max-width: 58ch; margin: 18px 0 0; }
+.lista-abertura .bolha { position: absolute; right: -120px; top: -140px; width: 420px; height: 420px; border-radius: 46% 54% 60% 40% / 50% 45% 55% 50%; background: #3771ae; }
+.lista-abertura .bolha.coral { right: 140px; top: auto; bottom: -220px; width: 300px; height: 300px; background: var(--coral); }
+.contagem { display: inline-block; margin-top: 22px; font: 700 0.875rem var(--titulo); background: rgba(255,255,255,.1); padding: 6px 14px; border-radius: 99px; color: var(--amarelo); }
+.lista-corpo { margin-top: -70px; position: relative; z-index: 2; }
+.lista-corpo .secao-topo { background: var(--branco); border-radius: 20px; padding: 18px 22px; box-shadow: 0 10px 30px rgba(34,43,99,.1); margin-bottom: 32px; align-items: center; }
+.lista-corpo .secao-topo p { margin: 0; }
+
 /* ---------------------------------------------------------------- fotos */
 .acontece { background: var(--indigo); color: #fff; position: relative; overflow: hidden; padding: 84px 0 90px; }
 .acontece .conteiner { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 56px; align-items: center; position: relative; }
@@ -346,7 +377,8 @@ h1, h2, h3 { font-family: var(--titulo); line-height: 1.12; margin: 0; }
 @media (max-width: 960px) {
   .abertura .conteiner, .sobre-abertura .conteiner, .acontece .conteiner, .pesquisa-grade { grid-template-columns: 1fr; }
   .colagem { min-height: 360px; max-width: 560px; }
-  .numeros-grade { grid-template-columns: 1fr; }
+  .numeros-grade, .chamada-paineis .conteiner { grid-template-columns: 1fr; }
+  .chamada-tela { min-height: 300px; max-width: 560px; }
   .cifras { grid-template-columns: 1fr 1fr; }  .movimentos, .unidades, .modalidades { grid-template-columns: repeat(2, 1fr); }
   .rodape-grade { grid-template-columns: 1fr 1fr; }
   .vozes-grade { grid-template-columns: 1fr; }

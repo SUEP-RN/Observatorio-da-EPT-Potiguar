@@ -1,12 +1,16 @@
-/* Monta as partes comuns (barra, topo, rodapé) e as listas a partir de js/paineis.js.
+/* Monta as partes comuns (topo, rodapé) e as listas a partir de js/paineis.js.
+   Dois sites usam este arquivo:
+     - site público (raiz): Site.iniciar("inicio" | "sobre")
+     - site dos painéis (pasta paineis/): Site.iniciar("lista" | "painel", "paineis")
    Não precisa editar este arquivo: textos e links ficam em paineis.js. */
 window.Site = (function () {
   var paineis = window.PAINEIS || [];
   var contato = window.CONTATO || {};
+  var BASE = "";        // caminho até a raiz do site público ("" ou "../")
+  var SITE = "publico";
 
   var ICONES = {
-    instagram: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>',
-    busca: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>'
+    instagram: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>'
   };
 
   function el(tag, classe, texto) {
@@ -15,11 +19,12 @@ window.Site = (function () {
     if (texto !== undefined) e.textContent = texto;
     return e;
   }
+  function raiz(caminho) { return BASE + caminho; }
+  function imagem(caminho) { return /^https?:/.test(caminho) ? caminho : raiz(caminho); }
 
   function linkValido(link) {
     return typeof link === "string" && /^https:\/\/app\.powerbi\.com\/view\?r=/.test(link.trim());
   }
-
   function semAcento(t) {
     return (t || "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
   }
@@ -33,19 +38,26 @@ window.Site = (function () {
     faixa.setAttribute("aria-hidden", "true");
     faixa.innerHTML = "<i></i><i></i><i></i><i></i>";
 
-    var topo = el("header", "topo");
-    var itens = [["index.html", "Início", "inicio"], ["index.html#paineis", "Painéis", "paineis"],
-                 ["sobre.html", "A SUEP e a EPT", "sobre"]];
+    var itens, nome, sub, inicio;
+    if (SITE === "paineis") {
+      itens = [["index.html", "Painéis", "lista"], [raiz("index.html"), "Site da SUEP", ""], [raiz("sobre.html"), "A SUEP e a EPT", ""]];
+      nome = "Painéis da EPT/RN"; sub = "Dados da Rede Estadual de Educação Profissional"; inicio = "index.html";
+    } else {
+      itens = [["index.html", "Início", "inicio"], ["sobre.html", "A SUEP e a EPT", "sobre"], ["paineis/index.html", "Painéis de dados", ""]];
+      nome = "SUEP · EPT/RN"; sub = "Subcoordenadoria de Educação Profissional e Tecnológica"; inicio = "index.html";
+    }
     var menu = itens.map(function (i) {
-      return '<a href="' + i[0] + '"' + (i[2] === atual ? ' aria-current="page"' : "") + ">" + i[1] + "</a>";
+      return '<a href="' + i[0] + '"' + (i[2] && i[2] === atual ? ' aria-current="page"' : "") + ">" + i[1] + "</a>";
     }).join("");
+
+    var topo = el("header", "topo");
     topo.innerHTML =
       '<div class="conteiner">' +
-        '<a class="marca" href="index.html" aria-label="Painéis da EPT/RN, página inicial">' +
-          '<img src="img/logo-governo-rn.png" alt="Governo do Rio Grande do Norte">' +
+        '<a class="marca" href="' + inicio + '" aria-label="' + nome + ', página inicial">' +
+          '<img src="' + raiz("img/logo-governo-rn.png") + '" alt="Governo do Rio Grande do Norte">' +
           '<span class="divisor" aria-hidden="true"></span>' +
-          '<img src="img/logo-suep.png" alt="SUEP">' +
-          '<span class="marca-nome">Painéis da EPT/RN<small>Rede Estadual de Educação Profissional</small></span>' +
+          '<img src="' + raiz("img/logo-suep.png") + '" alt="SUEP">' +
+          '<span class="marca-nome">' + nome + "<small>" + sub + "</small></span>" +
         "</a>" +
         '<nav class="menu" aria-label="Principal">' + menu +
           (contato.instagram ? '<a class="menu-insta" href="' + contato.instagram + '" target="_blank" rel="noopener" aria-label="Instagram da SUEP">' + ICONES.instagram + "</a>" : "") +
@@ -71,9 +83,10 @@ window.Site = (function () {
     grade.id = "contato";
 
     var c1 = el("div");
-    c1.innerHTML =
-      '<span class="rodape-logos"><img src="img/logo-governo-rn.png" alt="Governo do Rio Grande do Norte"><img src="img/logo-suep.png" alt="SUEP"></span>';
-    c1.appendChild(el("p", null, "Painéis de dados da Rede Estadual de Educação Profissional e Tecnológica do Rio Grande do Norte."));
+    c1.innerHTML = '<span class="rodape-logos"><img src="' + raiz("img/logo-governo-rn.png") + '" alt="Governo do Rio Grande do Norte"><img src="' + raiz("img/logo-suep.png") + '" alt="SUEP"></span>';
+    c1.appendChild(el("p", null, SITE === "paineis"
+      ? "Painéis de dados da Rede Estadual de Educação Profissional e Tecnológica do Rio Grande do Norte."
+      : "Educação Profissional e Tecnológica na rede pública estadual do Rio Grande do Norte."));
     grade.appendChild(c1);
 
     var c2 = el("div");
@@ -120,14 +133,14 @@ window.Site = (function () {
     var art = el("article", "painel");
     art.dataset.busca = semAcento([p.titulo, p.resumo].concat(p.temas || []).join(" "));
 
-    var imagem = el("div", "painel-imagem");
+    var caixa = el("div", "painel-imagem");
     var img = el("img");
-    img.src = p.miniatura || "img/ilustracao-rn.png";
+    img.src = imagem(p.miniatura || "img/ilustracao-rn.png");
     img.alt = "Capa do painel " + p.titulo;
     img.loading = "lazy";
-    imagem.appendChild(img);
-    imagem.appendChild(el("span", "selo" + (publicado ? "" : " em-breve"), publicado ? "Disponível" : "Em breve"));
-    art.appendChild(imagem);
+    caixa.appendChild(img);
+    caixa.appendChild(el("span", "selo" + (publicado ? "" : " em-breve"), publicado ? "Disponível" : "Em breve"));
+    art.appendChild(caixa);
 
     var corpo = el("div", "painel-corpo");
     corpo.appendChild(el("h3", null, p.titulo));
@@ -147,10 +160,12 @@ window.Site = (function () {
     return art;
   }
 
-  function montarInicio() {
+  function montarLista() {
     var grade = document.getElementById("grade");
     if (!grade) return;
     paineis.forEach(function (p) { grade.appendChild(cartao(p)); });
+    var total = document.getElementById("total-paineis");
+    if (total) total.textContent = paineis.length + (paineis.length === 1 ? " painel" : " painéis");
     var busca = document.getElementById("busca");
     var vazio = document.getElementById("vazio");
     busca.addEventListener("input", function () {
@@ -192,7 +207,7 @@ window.Site = (function () {
     } else {
       var ag = el("div", "aguardando");
       var img = el("img");
-      img.src = p.miniatura || "img/ilustracao-rn.png";
+      img.src = imagem(p.miniatura || "img/ilustracao-rn.png");
       img.alt = "";
       ag.appendChild(img);
       ag.appendChild(el("h2", null, "Este painel será publicado em breve"));
@@ -208,11 +223,13 @@ window.Site = (function () {
     });
   }
 
-  function iniciar(pagina) {
+  function iniciar(pagina, site) {
+    SITE = site === "paineis" ? "paineis" : "publico";
+    BASE = SITE === "paineis" ? "../" : "";
     montarTopo(pagina);
     montarRodape();
     ligarInstagram();
-    if (pagina === "inicio") montarInicio();
+    if (pagina === "lista") montarLista();
     if (pagina === "painel") montarPainel();
   }
 

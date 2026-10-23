@@ -23,7 +23,7 @@
           <h1 class="etiqueta">Rede Estadual de EPT <em>em dados</em></h1>
           <p>Matrículas, aprovação, evasão, SAEB, IDEB e as visitas técnicas às escolas, em painéis interativos para quem faz e acompanha a Educação Profissional no RN.</p>
           <div class="acoes">
-            <a class="botao amarelo" href="#paineis">Ver os painéis →</a>
+            <a class="botao amarelo" href="paineis/index.html">Ver os painéis →</a>
             <a class="botao contorno" href="sobre.html">Conheça a SUEP</a>
           </div>
           <span class="linha-verde">Rio Grande do Norte · 2019–2026</span>
@@ -92,25 +92,25 @@
       </div>
     </section>
 
-    <!-- Painéis -->
-    <section class="secao" id="paineis" aria-labelledby="titulo-paineis">
+    <!-- Chamada para o site dos painéis -->
+    <section class="chamada-paineis" id="paineis" aria-labelledby="titulo-paineis">
       <div class="conteiner">
-        <div class="secao-topo">
-          <div>
-            <span class="sobretitulo">Painéis interativos</span>
-            <h2 id="titulo-paineis" class="etiqueta pequena" style="margin-top: 12px">Explore os dados</h2>
-            <p>Filtre por DIREC, município, curso e escola. Cada painel abre aqui mesmo, sem precisar de login.</p>
-          </div>
-          <label class="busca">
-            <span aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span>
-            <input id="busca" type="search" placeholder="Buscar painel ou tema" aria-label="Buscar painel ou tema">
-          </label>
+        <div class="chamada-texto">
+          <span class="sobretitulo" style="color: var(--amarelo)">Painéis de dados</span>
+          <h2 id="titulo-paineis">Quer ir além dos números?</h2>
+          <p>Os painéis interativos da SUEP mostram os indicadores por DIREC, município, curso e escola, com filtros e rankings. Tudo feito em Power BI, a partir do monitoramento da rede e das visitas técnicas.</p>
+          <ul class="chamada-lista">
+            <li><b>Indicadores de Qualidade da EPT 2025</b><span>aprovação, retenção, evasão, SAEB e IDEB · 7 páginas</span></li>
+            <li><b>Visitas Técnicas 2026</b><span>oferta, docentes, permanência e infraestrutura · 11 páginas</span></li>
+          </ul>
+          <a class="botao amarelo" href="paineis/index.html">Acessar os painéis →</a>
         </div>
-        <div class="grade" id="grade"></div>
-        <p class="vazio" id="vazio" hidden>Nenhum painel encontrado para essa busca.</p>
+        <a class="chamada-tela" href="paineis/index.html" aria-label="Abrir o site dos painéis">
+          <img src="img/miniatura-indicadores.png" alt="Capa do painel Indicadores de Qualidade da EPT 2025">
+          <img src="img/miniatura-visitas.png" alt="Capa do painel Visitas Técnicas 2026">
+        </a>
       </div>
     </section>
-
     <!-- A EPT nas escolas: fotos da revista -->
     <section class="acontece" aria-labelledby="titulo-acontece">
       <span class="bolha-lima" aria-hidden="true"></span>
