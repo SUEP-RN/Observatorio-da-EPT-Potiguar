@@ -238,11 +238,12 @@ h1, h2, h3 { font-family: var(--titulo); line-height: 1.12; margin: 0; }
 /* divisórias: abas de pasta com as cores da revista */
 .docs { margin-top: -40px; position: relative; z-index: 2; }
 .divisorias { display: flex; gap: 6px; flex-wrap: wrap; align-items: flex-end; padding-left: 14px; }
-.divisoria { --c: var(--coral); --t: #fff; font: inherit; cursor: pointer; border: 0; text-align: left; background: var(--c); color: var(--t); border-radius: 18px 18px 0 0; padding: 12px 20px 12px; min-height: 64px; display: flex; flex-direction: column; justify-content: center; opacity: .78; transform: translateY(6px); transition: transform .15s ease, opacity .15s ease; }
+/* abas sólidas, encostadas na borda da pasta: a ativa é mais alta, as outras mais baixas */
+.divisoria { --c: var(--coral); --t: #fff; font: inherit; cursor: pointer; border: 0; text-align: left; background: var(--c); color: var(--t); border-radius: 18px 18px 0 0; padding: 10px 20px; min-height: 56px; display: flex; flex-direction: column; justify-content: center; transition: min-height .15s ease, filter .15s ease; }
 .divisoria span { font: 700 1rem/1.2 var(--titulo); }
 .divisoria small { font-size: 0.8125rem; opacity: .85; }
-.divisoria:hover { opacity: .95; transform: translateY(2px); }
-.divisoria.ativa { opacity: 1; transform: none; padding-bottom: 18px; }
+.divisoria:hover { filter: brightness(1.05); min-height: 60px; }
+.divisoria.ativa { min-height: 70px; padding-top: 14px; box-shadow: 0 -4px 14px rgba(34, 43, 99, .12); }
 .divisoria[data-cor="1"] { --c: var(--amarelo); --t: var(--indigo); }
 .divisoria[data-cor="2"] { --c: var(--lima); --t: var(--indigo); }
 .divisoria[data-cor="3"] { --c: var(--ceu); --t: var(--indigo); }
