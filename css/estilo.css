@@ -237,17 +237,17 @@ h1, h2, h3 { font-family: var(--titulo); line-height: 1.12; margin: 0; }
 
 /* divisórias: abas de pasta com as cores da revista */
 .docs { margin-top: -40px; position: relative; z-index: 2; }
-.divisorias { display: flex; gap: 6px; flex-wrap: wrap; align-items: flex-end; padding-left: 14px; }
+.divisorias { display: flex; gap: 6px; flex-wrap: wrap; align-items: flex-end; justify-content: center; }
 /* abas sólidas, encostadas na borda da pasta: a ativa é mais alta, as outras mais baixas */
-.divisoria { --c: var(--coral); --t: #fff; font: inherit; cursor: pointer; border: 0; text-align: left; background: var(--c); color: var(--t); border-radius: 18px 18px 0 0; padding: 10px 20px; min-height: 56px; display: flex; flex-direction: column; justify-content: center; transition: min-height .15s ease, filter .15s ease; }
+.divisoria { --c: var(--coral); --t: #fff; font: inherit; cursor: pointer; border: 3px solid #fff; border-bottom: 0; text-align: left; background: var(--c); color: var(--t); border-radius: 18px 18px 0 0; padding: 10px 20px; min-height: 56px; display: flex; flex-direction: column; justify-content: center; box-shadow: 0 -1px 0 1px rgba(34, 43, 99, .1); transition: min-height .15s ease, filter .15s ease; }
 .divisoria span { font: 700 1rem/1.2 var(--titulo); }
 .divisoria small { font-size: 0.8125rem; opacity: .85; }
 .divisoria:hover { filter: brightness(1.05); min-height: 60px; }
-.divisoria.ativa { min-height: 70px; padding-top: 14px; box-shadow: 0 -4px 14px rgba(34, 43, 99, .12); }
+.divisoria.ativa { min-height: 70px; padding-top: 14px; box-shadow: 0 -1px 0 1px rgba(34, 43, 99, .1), 0 -6px 16px rgba(34, 43, 99, .14); }
 .divisoria[data-cor="1"] { --c: var(--amarelo); --t: var(--indigo); }
 .divisoria[data-cor="2"] { --c: var(--lima); --t: var(--indigo); }
 .divisoria[data-cor="3"] { --c: var(--ceu); --t: var(--indigo); }
-.pasta { --c: var(--coral); background: var(--branco); border-top: 8px solid var(--c); border-radius: 0 22px 22px 22px; box-shadow: 0 1px 0 var(--cinza-claro), 0 18px 40px rgba(34, 43, 99, .1); padding: 10px 28px 26px; }
+.pasta { --c: var(--coral); background: var(--branco); border-top: 8px solid var(--c); border-radius: 22px; box-shadow: 0 1px 0 var(--cinza-claro), 0 18px 40px rgba(34, 43, 99, .1); padding: 10px 28px 26px; }
 .pasta[data-cor="1"] { --c: var(--amarelo); }
 .pasta[data-cor="2"] { --c: var(--lima); }
 .pasta[data-cor="3"] { --c: var(--ceu); }
