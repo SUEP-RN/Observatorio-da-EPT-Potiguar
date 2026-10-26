@@ -101,6 +101,8 @@ h1, h2, h3 { font-family: var(--titulo); line-height: 1.12; margin: 0; }
 .abertura .bolha-coral { position: absolute; left: -160px; top: -120px; width: 420px; height: 420px; background: var(--coral); border-radius: 46% 54% 60% 40% / 50% 45% 55% 50%; opacity: .95; }
 .abertura .conteiner { position: relative; display: grid; grid-template-columns: 1.05fr 1fr; gap: 48px; align-items: center; padding-top: 64px; padding-bottom: 150px; }
 .abertura .etiqueta { font-size: clamp(2rem, 4.6vw, 3.4rem); }
+.abertura .etiqueta em { display: block; } /* parte amarela sempre numa linha própria */
+.etiqueta .trecho { white-space: nowrap; } /* quebra de linha só entre os pares de palavras */
 .abertura-texto p { font-size: 1.1875rem; color: #eef2ff; max-width: 34ch; margin: 22px 0 28px; }
 .abertura-texto .linha-verde { font: 700 1rem var(--titulo); color: var(--lima-claro); display: block; margin-top: 18px; }
 .acoes { display: flex; gap: 12px; flex-wrap: wrap; }
