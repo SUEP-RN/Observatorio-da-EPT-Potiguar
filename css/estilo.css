@@ -264,6 +264,13 @@ h1, h2, h3 { font-family: var(--titulo); line-height: 1.12; margin: 0; }
 .tipo-xlsx { background: #eef4d6; color: #587a14; }
 .tipo-pptx { background: #fdf1d2; color: #a87406; }
 .tipo-pasta { background: #e7eefa; color: var(--indigo); }
+/* miniatura da 1ª página */
+.doc-capa { flex: none; position: relative; display: block; width: 64px; height: 86px; border-radius: 6px; overflow: hidden; background: #fff; box-shadow: 0 0 0 1px var(--cinza-claro), 0 3px 8px rgba(34, 43, 99, .12); transition: transform .15s ease; }
+.doc-capa img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+.doc:hover .doc-capa { transform: translateY(-2px) rotate(-1.5deg); }
+.doc-selo { position: absolute; left: 3px; bottom: 3px; font: 800 0.5625rem/1 var(--titulo); letter-spacing: .04em; padding: 3px 4px; border-radius: 4px; background: #fde7e5; color: #c53a32; }
+.doc-selo.tipo-docx { background: #e3ecf8; color: #2f5b9e; }
+.doc-selo.tipo-pptx { background: #fdf1d2; color: #a87406; }
 .doc-info { flex: 1; min-width: 0; }
 .doc-info strong { display: block; font: 600 1rem/1.35 var(--titulo); color: var(--tinta); }
 .doc-info span { display: block; font-size: 0.8125rem; color: var(--suave); margin-top: 2px; }
@@ -456,7 +463,8 @@ h1, h2, h3 { font-family: var(--titulo); line-height: 1.12; margin: 0; }
   .divisoria span { font-size: 0.875rem; }
   .pasta { padding: 6px 14px 18px; border-radius: 0 0 18px 18px; }
   .doc { flex-wrap: wrap; }
-  .doc-info { flex-basis: calc(100% - 70px); }
-  .doc-botao { margin-left: 64px; }
+  .doc { gap: 12px; }
+  .doc-info { flex-basis: calc(100% - 80px); }
+  .doc-botao { margin-left: 76px; }
   .voz { padding: 60px 20px 24px; }
 }

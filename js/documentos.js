@@ -32,7 +32,8 @@ window.DOCUMENTOS = [
         "ordem":  500,
         "arquivo":  "docs/estruturas/cursos-tecnicos-de-1-200h-concomitante-administracao.pdf",
         "tipo":  "PDF",
-        "tamanho":  812618
+        "tamanho":  812618,
+        "miniatura":  "docs/miniaturas/estruturas-cursos-tecnicos-de-1-200h-concomitante-administracao.jpg"
     },
     {
         "cat":  "estruturas",
@@ -43,7 +44,8 @@ window.DOCUMENTOS = [
         "ordem":  500,
         "arquivo":  "docs/estruturas/cursos-tecnicos-de-1-200h-concomitante-agroecologia.pdf",
         "tipo":  "PDF",
-        "tamanho":  780563
+        "tamanho":  780563,
+        "miniatura":  "docs/miniaturas/estruturas-cursos-tecnicos-de-1-200h-concomitante-agroecologia.jpg"
     },
     {
         "cat":  "estruturas",
@@ -54,7 +56,8 @@ window.DOCUMENTOS = [
         "ordem":  500,
         "arquivo":  "docs/estruturas/cursos-tecnicos-de-1-200h-concomitante-alimentos-diurno.pdf",
         "tipo":  "PDF",
-        "tamanho":  824691
+        "tamanho":  824691,
+        "miniatura":  "docs/miniaturas/estruturas-cursos-tecnicos-de-1-200h-concomitante-alimentos-diurno.jpg"
     },
     {
         "cat":  "estruturas",
@@ -65,7 +68,8 @@ window.DOCUMENTOS = [
         "ordem":  500,
         "arquivo":  "docs/estruturas/cursos-tecnicos-de-1-200h-concomitante-eletrotecnica.pdf",
         "tipo":  "PDF",
-        "tamanho":  775163
+        "tamanho":  775163,
+        "miniatura":  "docs/miniaturas/estruturas-cursos-tecnicos-de-1-200h-concomitante-eletrotecnica.jpg"
     },
     {
         "cat":  "estruturas",
@@ -76,7 +80,8 @@ window.DOCUMENTOS = [
         "ordem":  500,
         "arquivo":  "docs/estruturas/cursos-tecnicos-de-1-200h-concomitante-informatica.pdf",
         "tipo":  "PDF",
-        "tamanho":  764880
+        "tamanho":  764880,
+        "miniatura":  "docs/miniaturas/estruturas-cursos-tecnicos-de-1-200h-concomitante-informatica.jpg"
     },
     {
         "cat":  "estruturas",
@@ -87,7 +92,8 @@ window.DOCUMENTOS = [
         "ordem":  500,
         "arquivo":  "docs/estruturas/cursos-tecnicos-de-1-200h-concomitante-mineracao.pdf",
         "tipo":  "PDF",
-        "tamanho":  794210
+        "tamanho":  794210,
+        "miniatura":  "docs/miniaturas/estruturas-cursos-tecnicos-de-1-200h-concomitante-mineracao.jpg"
     },
     {
         "cat":  "estruturas",
@@ -98,7 +104,8 @@ window.DOCUMENTOS = [
         "ordem":  500,
         "arquivo":  "docs/estruturas/cursos-tecnicos-de-1-200h-concomitante-redes-de-computadores.pdf",
         "tipo":  "PDF",
-        "tamanho":  780538
+        "tamanho":  780538,
+        "miniatura":  "docs/miniaturas/estruturas-cursos-tecnicos-de-1-200h-concomitante-redes-de-computadores.jpg"
     },
     {
         "cat":  "estruturas",
@@ -109,7 +116,8 @@ window.DOCUMENTOS = [
         "ordem":  500,
         "arquivo":  "docs/estruturas/cursos-tecnicos-de-1-200h-concomitante-seguranca-do-trabalho.pdf",
         "tipo":  "PDF",
-        "tamanho":  756432
+        "tamanho":  756432,
+        "miniatura":  "docs/miniaturas/estruturas-cursos-tecnicos-de-1-200h-concomitante-seguranca-do-trabalho.jpg"
     },
     {
         "cat":  "estruturas",
@@ -120,7 +128,8 @@ window.DOCUMENTOS = [
         "ordem":  500,
         "arquivo":  "docs/estruturas/cursos-tecnicos-de-1-200h-concomitante-sistemas-de-energia-renovavel.pdf",
         "tipo":  "PDF",
-        "tamanho":  806828
+        "tamanho":  806828,
+        "miniatura":  "docs/miniaturas/estruturas-cursos-tecnicos-de-1-200h-concomitante-sistemas-de-energia-renovavel.jpg"
     },
     {
         "cat":  "estruturas",
@@ -131,7 +140,8 @@ window.DOCUMENTOS = [
         "ordem":  500,
         "arquivo":  "docs/estruturas/cursos-tecnicos-de-1-200h-subsequente-eletrotecnica.pdf",
         "tipo":  "PDF",
-        "tamanho":  1267791
+        "tamanho":  1267791,
+        "miniatura":  "docs/miniaturas/estruturas-cursos-tecnicos-de-1-200h-subsequente-eletrotecnica.jpg"
     },
     {
         "cat":  "estruturas",
@@ -142,7 +152,8 @@ window.DOCUMENTOS = [
         "ordem":  500,
         "arquivo":  "docs/estruturas/cursos-tecnicos-2-000h-ejatec-modular-administracao.pdf",
         "tipo":  "PDF",
-        "tamanho":  211084
+        "tamanho":  211084,
+        "miniatura":  "docs/miniaturas/estruturas-cursos-tecnicos-2-000h-ejatec-modular-administracao.jpg"
     },
     {
         "cat":  "estruturas",
@@ -153,7 +164,8 @@ window.DOCUMENTOS = [
         "ordem":  500,
         "arquivo":  "docs/estruturas/cursos-tecnicos-2-000h-ejatec-modular-logistica.pdf",
         "tipo":  "PDF",
-        "tamanho":  211885
+        "tamanho":  211885,
+        "miniatura":  "docs/miniaturas/estruturas-cursos-tecnicos-2-000h-ejatec-modular-logistica.jpg"
     },
     {
         "cat":  "estruturas",
@@ -164,7 +176,8 @@ window.DOCUMENTOS = [
         "ordem":  500,
         "arquivo":  "docs/estruturas/cursos-tecnicos-2-000h-ejatec-semestral-e-sequencial-administracao-diurno.pdf",
         "tipo":  "PDF",
-        "tamanho":  3267499
+        "tamanho":  3267499,
+        "miniatura":  "docs/miniaturas/estruturas-cursos-tecnicos-2-000h-ejatec-semestral-e-sequencial-administracao-diurno.jpg"
     },
     {
         "cat":  "estruturas",
@@ -175,7 +188,8 @@ window.DOCUMENTOS = [
         "ordem":  500,
         "arquivo":  "docs/estruturas/cursos-tecnicos-2-000h-ejatec-semestral-e-sequencial-administracao-noturno.pdf",
         "tipo":  "PDF",
-        "tamanho":  3207185
+        "tamanho":  3207185,
+        "miniatura":  "docs/miniaturas/estruturas-cursos-tecnicos-2-000h-ejatec-semestral-e-sequencial-administracao-noturno.jpg"
     },
     {
         "cat":  "estruturas",
@@ -186,7 +200,8 @@ window.DOCUMENTOS = [
         "ordem":  500,
         "arquivo":  "docs/estruturas/cursos-tecnicos-3-oooh-tempo-parcial-administracao.pdf",
         "tipo":  "PDF",
-        "tamanho":  939798
+        "tamanho":  939798,
+        "miniatura":  "docs/miniaturas/estruturas-cursos-tecnicos-3-oooh-tempo-parcial-administracao.jpg"
     },
     {
         "cat":  "estruturas",
@@ -197,7 +212,8 @@ window.DOCUMENTOS = [
         "ordem":  500,
         "arquivo":  "docs/estruturas/cursos-tecnicos-3-oooh-tempo-parcial-agroecologia.pdf",
         "tipo":  "PDF",
-        "tamanho":  956349
+        "tamanho":  956349,
+        "miniatura":  "docs/miniaturas/estruturas-cursos-tecnicos-3-oooh-tempo-parcial-agroecologia.jpg"
     },
     {
         "cat":  "estruturas",
@@ -208,7 +224,8 @@ window.DOCUMENTOS = [
         "ordem":  500,
         "arquivo":  "docs/estruturas/cursos-tecnicos-3-oooh-tempo-parcial-alimentos.pdf",
         "tipo":  "PDF",
-        "tamanho":  970933
+        "tamanho":  970933,
+        "miniatura":  "docs/miniaturas/estruturas-cursos-tecnicos-3-oooh-tempo-parcial-alimentos.jpg"
     },
     {
         "cat":  "estruturas",
@@ -219,7 +236,8 @@ window.DOCUMENTOS = [
         "ordem":  500,
         "arquivo":  "docs/estruturas/cursos-tecnicos-3-oooh-tempo-parcial-edificacoes.pdf",
         "tipo":  "PDF",
-        "tamanho":  979443
+        "tamanho":  979443,
+        "miniatura":  "docs/miniaturas/estruturas-cursos-tecnicos-3-oooh-tempo-parcial-edificacoes.jpg"
     },
     {
         "cat":  "estruturas",
@@ -230,7 +248,8 @@ window.DOCUMENTOS = [
         "ordem":  500,
         "arquivo":  "docs/estruturas/cursos-tecnicos-3-oooh-tempo-parcial-eletrotecnica.pdf",
         "tipo":  "PDF",
-        "tamanho":  929474
+        "tamanho":  929474,
+        "miniatura":  "docs/miniaturas/estruturas-cursos-tecnicos-3-oooh-tempo-parcial-eletrotecnica.jpg"
     },
     {
         "cat":  "estruturas",
@@ -241,7 +260,8 @@ window.DOCUMENTOS = [
         "ordem":  500,
         "arquivo":  "docs/estruturas/cursos-tecnicos-3-oooh-tempo-parcial-guia-de-turismo.pdf",
         "tipo":  "PDF",
-        "tamanho":  961825
+        "tamanho":  961825,
+        "miniatura":  "docs/miniaturas/estruturas-cursos-tecnicos-3-oooh-tempo-parcial-guia-de-turismo.jpg"
     },
     {
         "cat":  "estruturas",
@@ -252,7 +272,8 @@ window.DOCUMENTOS = [
         "ordem":  500,
         "arquivo":  "docs/estruturas/cursos-tecnicos-3-oooh-tempo-parcial-informatica.pdf",
         "tipo":  "PDF",
-        "tamanho":  938373
+        "tamanho":  938373,
+        "miniatura":  "docs/miniaturas/estruturas-cursos-tecnicos-3-oooh-tempo-parcial-informatica.jpg"
     },
     {
         "cat":  "estruturas",
@@ -263,7 +284,8 @@ window.DOCUMENTOS = [
         "ordem":  500,
         "arquivo":  "docs/estruturas/cursos-tecnicos-3-oooh-tempo-parcial-logistica.pdf",
         "tipo":  "PDF",
-        "tamanho":  942534
+        "tamanho":  942534,
+        "miniatura":  "docs/miniaturas/estruturas-cursos-tecnicos-3-oooh-tempo-parcial-logistica.jpg"
     },
     {
         "cat":  "estruturas",
@@ -274,7 +296,8 @@ window.DOCUMENTOS = [
         "ordem":  500,
         "arquivo":  "docs/estruturas/cursos-tecnicos-3-oooh-tempo-parcial-manutencao-e-suporte-em-informatica.pdf",
         "tipo":  "PDF",
-        "tamanho":  956598
+        "tamanho":  956598,
+        "miniatura":  "docs/miniaturas/estruturas-cursos-tecnicos-3-oooh-tempo-parcial-manutencao-e-suporte-em-informatica.jpg"
     },
     {
         "cat":  "estruturas",
@@ -285,7 +308,8 @@ window.DOCUMENTOS = [
         "ordem":  500,
         "arquivo":  "docs/estruturas/cursos-tecnicos-3-oooh-tempo-parcial-meio-ambiente.pdf",
         "tipo":  "PDF",
-        "tamanho":  936221
+        "tamanho":  936221,
+        "miniatura":  "docs/miniaturas/estruturas-cursos-tecnicos-3-oooh-tempo-parcial-meio-ambiente.jpg"
     },
     {
         "cat":  "estruturas",
@@ -296,7 +320,8 @@ window.DOCUMENTOS = [
         "ordem":  500,
         "arquivo":  "docs/estruturas/cursos-tecnicos-3-oooh-tempo-parcial-mineracao.pdf",
         "tipo":  "PDF",
-        "tamanho":  948075
+        "tamanho":  948075,
+        "miniatura":  "docs/miniaturas/estruturas-cursos-tecnicos-3-oooh-tempo-parcial-mineracao.jpg"
     },
     {
         "cat":  "estruturas",
@@ -307,7 +332,8 @@ window.DOCUMENTOS = [
         "ordem":  500,
         "arquivo":  "docs/estruturas/cursos-tecnicos-3-oooh-tempo-parcial-nutricao-e-dietetica.pdf",
         "tipo":  "PDF",
-        "tamanho":  948253
+        "tamanho":  948253,
+        "miniatura":  "docs/miniaturas/estruturas-cursos-tecnicos-3-oooh-tempo-parcial-nutricao-e-dietetica.jpg"
     },
     {
         "cat":  "estruturas",
@@ -318,7 +344,8 @@ window.DOCUMENTOS = [
         "ordem":  500,
         "arquivo":  "docs/estruturas/cursos-tecnicos-3-oooh-tempo-parcial-orientacoes-basicas-das-estruturas.pdf",
         "tipo":  "PDF",
-        "tamanho":  1846947
+        "tamanho":  1846947,
+        "miniatura":  "docs/miniaturas/estruturas-cursos-tecnicos-3-oooh-tempo-parcial-orientacoes-basicas-das-estruturas.jpg"
     },
     {
         "cat":  "estruturas",
@@ -329,7 +356,8 @@ window.DOCUMENTOS = [
         "ordem":  500,
         "arquivo":  "docs/estruturas/cursos-tecnicos-3-oooh-tempo-parcial-planejamento-e-controle-da-producao.pdf",
         "tipo":  "PDF",
-        "tamanho":  889817
+        "tamanho":  889817,
+        "miniatura":  "docs/miniaturas/estruturas-cursos-tecnicos-3-oooh-tempo-parcial-planejamento-e-controle-da-producao.jpg"
     },
     {
         "cat":  "estruturas",
@@ -340,7 +368,8 @@ window.DOCUMENTOS = [
         "ordem":  500,
         "arquivo":  "docs/estruturas/cursos-tecnicos-3-oooh-tempo-parcial-seguranca-do-trabalho.pdf",
         "tipo":  "PDF",
-        "tamanho":  918469
+        "tamanho":  918469,
+        "miniatura":  "docs/miniaturas/estruturas-cursos-tecnicos-3-oooh-tempo-parcial-seguranca-do-trabalho.jpg"
     },
     {
         "cat":  "estruturas",
@@ -351,7 +380,8 @@ window.DOCUMENTOS = [
         "ordem":  500,
         "arquivo":  "docs/estruturas/cursos-tecnicos-3-oooh-tempo-parcial-sistemas-de-energia-renovavel.pdf",
         "tipo":  "PDF",
-        "tamanho":  917830
+        "tamanho":  917830,
+        "miniatura":  "docs/miniaturas/estruturas-cursos-tecnicos-3-oooh-tempo-parcial-sistemas-de-energia-renovavel.jpg"
     },
     {
         "cat":  "estruturas",
@@ -362,7 +392,8 @@ window.DOCUMENTOS = [
         "ordem":  500,
         "arquivo":  "docs/estruturas/cursos-tecnicos-3-oooh-tempo-parcial-vestuario.pdf",
         "tipo":  "PDF",
-        "tamanho":  922105
+        "tamanho":  922105,
+        "miniatura":  "docs/miniaturas/estruturas-cursos-tecnicos-3-oooh-tempo-parcial-vestuario.jpg"
     },
     {
         "cat":  "estruturas",
@@ -373,7 +404,8 @@ window.DOCUMENTOS = [
         "ordem":  500,
         "arquivo":  "docs/estruturas/cursos-tecnicos-4-500h-tempo-integral-administracao.pdf",
         "tipo":  "PDF",
-        "tamanho":  984944
+        "tamanho":  984944,
+        "miniatura":  "docs/miniaturas/estruturas-cursos-tecnicos-4-500h-tempo-integral-administracao.jpg"
     },
     {
         "cat":  "estruturas",
@@ -384,7 +416,8 @@ window.DOCUMENTOS = [
         "ordem":  500,
         "arquivo":  "docs/estruturas/cursos-tecnicos-4-500h-tempo-integral-agroecologia.pdf",
         "tipo":  "PDF",
-        "tamanho":  5186626
+        "tamanho":  5186626,
+        "miniatura":  "docs/miniaturas/estruturas-cursos-tecnicos-4-500h-tempo-integral-agroecologia.jpg"
     },
     {
         "cat":  "estruturas",
@@ -395,7 +428,8 @@ window.DOCUMENTOS = [
         "ordem":  500,
         "arquivo":  "docs/estruturas/cursos-tecnicos-4-500h-tempo-integral-agroecologia-4-000h.pdf",
         "tipo":  "PDF",
-        "tamanho":  984287
+        "tamanho":  984287,
+        "miniatura":  "docs/miniaturas/estruturas-cursos-tecnicos-4-500h-tempo-integral-agroecologia-4-000h.jpg"
     },
     {
         "cat":  "estruturas",
@@ -406,7 +440,8 @@ window.DOCUMENTOS = [
         "ordem":  500,
         "arquivo":  "docs/estruturas/cursos-tecnicos-4-500h-tempo-integral-alimentos.pdf",
         "tipo":  "PDF",
-        "tamanho":  1015378
+        "tamanho":  1015378,
+        "miniatura":  "docs/miniaturas/estruturas-cursos-tecnicos-4-500h-tempo-integral-alimentos.jpg"
     },
     {
         "cat":  "estruturas",
@@ -417,7 +452,8 @@ window.DOCUMENTOS = [
         "ordem":  500,
         "arquivo":  "docs/estruturas/cursos-tecnicos-4-500h-tempo-integral-edificacoes.pdf",
         "tipo":  "PDF",
-        "tamanho":  971178
+        "tamanho":  971178,
+        "miniatura":  "docs/miniaturas/estruturas-cursos-tecnicos-4-500h-tempo-integral-edificacoes.jpg"
     },
     {
         "cat":  "estruturas",
@@ -428,7 +464,8 @@ window.DOCUMENTOS = [
         "ordem":  500,
         "arquivo":  "docs/estruturas/cursos-tecnicos-4-500h-tempo-integral-eletrotecnica.pdf",
         "tipo":  "PDF",
-        "tamanho":  1005627
+        "tamanho":  1005627,
+        "miniatura":  "docs/miniaturas/estruturas-cursos-tecnicos-4-500h-tempo-integral-eletrotecnica.jpg"
     },
     {
         "cat":  "estruturas",
@@ -439,7 +476,8 @@ window.DOCUMENTOS = [
         "ordem":  500,
         "arquivo":  "docs/estruturas/cursos-tecnicos-4-500h-tempo-integral-informatica.pdf",
         "tipo":  "PDF",
-        "tamanho":  977737
+        "tamanho":  977737,
+        "miniatura":  "docs/miniaturas/estruturas-cursos-tecnicos-4-500h-tempo-integral-informatica.jpg"
     },
     {
         "cat":  "estruturas",
@@ -450,7 +488,8 @@ window.DOCUMENTOS = [
         "ordem":  500,
         "arquivo":  "docs/estruturas/cursos-tecnicos-4-500h-tempo-integral-logistica.pdf",
         "tipo":  "PDF",
-        "tamanho":  1002823
+        "tamanho":  1002823,
+        "miniatura":  "docs/miniaturas/estruturas-cursos-tecnicos-4-500h-tempo-integral-logistica.jpg"
     },
     {
         "cat":  "estruturas",
@@ -461,7 +500,8 @@ window.DOCUMENTOS = [
         "ordem":  500,
         "arquivo":  "docs/estruturas/cursos-tecnicos-4-500h-tempo-integral-manutencao-e-suporte-em-informatica.pdf",
         "tipo":  "PDF",
-        "tamanho":  988762
+        "tamanho":  988762,
+        "miniatura":  "docs/miniaturas/estruturas-cursos-tecnicos-4-500h-tempo-integral-manutencao-e-suporte-em-informatica.jpg"
     },
     {
         "cat":  "estruturas",
@@ -472,7 +512,8 @@ window.DOCUMENTOS = [
         "ordem":  500,
         "arquivo":  "docs/estruturas/cursos-tecnicos-4-500h-tempo-integral-meio-ambiente.pdf",
         "tipo":  "PDF",
-        "tamanho":  990013
+        "tamanho":  990013,
+        "miniatura":  "docs/miniaturas/estruturas-cursos-tecnicos-4-500h-tempo-integral-meio-ambiente.jpg"
     },
     {
         "cat":  "estruturas",
@@ -483,7 +524,8 @@ window.DOCUMENTOS = [
         "ordem":  500,
         "arquivo":  "docs/estruturas/cursos-tecnicos-4-500h-tempo-integral-nutricao-e-dietetica.pdf",
         "tipo":  "PDF",
-        "tamanho":  1000106
+        "tamanho":  1000106,
+        "miniatura":  "docs/miniaturas/estruturas-cursos-tecnicos-4-500h-tempo-integral-nutricao-e-dietetica.jpg"
     },
     {
         "cat":  "estruturas",
@@ -494,7 +536,8 @@ window.DOCUMENTOS = [
         "ordem":  500,
         "arquivo":  "docs/estruturas/cursos-tecnicos-4-500h-tempo-integral-orientacoes-basicas-das-estruturas.pdf",
         "tipo":  "PDF",
-        "tamanho":  5047030
+        "tamanho":  5047030,
+        "miniatura":  "docs/miniaturas/estruturas-cursos-tecnicos-4-500h-tempo-integral-orientacoes-basicas-das-estruturas.jpg"
     },
     {
         "cat":  "estruturas",
@@ -505,7 +548,8 @@ window.DOCUMENTOS = [
         "ordem":  500,
         "arquivo":  "docs/estruturas/cursos-tecnicos-4-500h-tempo-integral-planejamento-e-controle-da-producao.pdf",
         "tipo":  "PDF",
-        "tamanho":  998693
+        "tamanho":  998693,
+        "miniatura":  "docs/miniaturas/estruturas-cursos-tecnicos-4-500h-tempo-integral-planejamento-e-controle-da-producao.jpg"
     },
     {
         "cat":  "estruturas",
@@ -516,7 +560,8 @@ window.DOCUMENTOS = [
         "ordem":  500,
         "arquivo":  "docs/estruturas/cursos-tecnicos-4-500h-tempo-integral-redes-de-computadores.pdf",
         "tipo":  "PDF",
-        "tamanho":  962797
+        "tamanho":  962797,
+        "miniatura":  "docs/miniaturas/estruturas-cursos-tecnicos-4-500h-tempo-integral-redes-de-computadores.jpg"
     },
     {
         "cat":  "estruturas",
@@ -527,7 +572,8 @@ window.DOCUMENTOS = [
         "ordem":  500,
         "arquivo":  "docs/estruturas/cursos-tecnicos-4-500h-tempo-integral-seguranca-do-trabalho.pdf",
         "tipo":  "PDF",
-        "tamanho":  974495
+        "tamanho":  974495,
+        "miniatura":  "docs/miniaturas/estruturas-cursos-tecnicos-4-500h-tempo-integral-seguranca-do-trabalho.jpg"
     },
     {
         "cat":  "estruturas",
@@ -538,7 +584,8 @@ window.DOCUMENTOS = [
         "ordem":  500,
         "arquivo":  "docs/estruturas/cursos-tecnicos-4-500h-tempo-integral-sistemas-de-energia-renovavel.pdf",
         "tipo":  "PDF",
-        "tamanho":  1005953
+        "tamanho":  1005953,
+        "miniatura":  "docs/miniaturas/estruturas-cursos-tecnicos-4-500h-tempo-integral-sistemas-de-energia-renovavel.jpg"
     },
     {
         "cat":  "estruturas",
@@ -549,7 +596,8 @@ window.DOCUMENTOS = [
         "ordem":  500,
         "arquivo":  "docs/estruturas/cursos-tecnicos-4-500h-tempo-integral-vestuario.pdf",
         "tipo":  "PDF",
-        "tamanho":  1011200
+        "tamanho":  1011200,
+        "miniatura":  "docs/miniaturas/estruturas-cursos-tecnicos-4-500h-tempo-integral-vestuario.jpg"
     },
     {
         "cat":  "legislacao",
@@ -560,7 +608,8 @@ window.DOCUMENTOS = [
         "ordem":  101,
         "arquivo":  "docs/legislacao/lei-da-politica-nacional-de-ept.pdf",
         "tipo":  "PDF",
-        "tamanho":  175175
+        "tamanho":  175175,
+        "miniatura":  "docs/miniaturas/legislacao-lei-da-politica-nacional-de-ept.jpg"
     },
     {
         "cat":  "legislacao",
@@ -571,7 +620,8 @@ window.DOCUMENTOS = [
         "ordem":  102,
         "arquivo":  "docs/legislacao/decreto-da-politica-nacional-de-ept.pdf",
         "tipo":  "PDF",
-        "tamanho":  113888
+        "tamanho":  113888,
+        "miniatura":  "docs/miniaturas/legislacao-decreto-da-politica-nacional-de-ept.jpg"
     },
     {
         "cat":  "legislacao",
@@ -582,7 +632,8 @@ window.DOCUMENTOS = [
         "ordem":  103,
         "arquivo":  "docs/legislacao/diretrizes-gerais-da-ept-2021.pdf",
         "tipo":  "PDF",
-        "tamanho":  179951
+        "tamanho":  179951,
+        "miniatura":  "docs/miniaturas/legislacao-diretrizes-gerais-da-ept-2021.jpg"
     },
     {
         "cat":  "legislacao",
@@ -593,7 +644,8 @@ window.DOCUMENTOS = [
         "ordem":  104,
         "arquivo":  "docs/legislacao/criacao-do-sistec.pdf",
         "tipo":  "PDF",
-        "tamanho":  88400
+        "tamanho":  88400,
+        "miniatura":  "docs/miniaturas/legislacao-criacao-do-sistec.jpg"
     },
     {
         "cat":  "legislacao",
@@ -604,7 +656,8 @@ window.DOCUMENTOS = [
         "ordem":  200,
         "arquivo":  "docs/legislacao/diretrizes-operacionais-da-eja-2025.pdf",
         "tipo":  "PDF",
-        "tamanho":  169917
+        "tamanho":  169917,
+        "miniatura":  "docs/miniaturas/legislacao-diretrizes-operacionais-da-eja-2025.jpg"
     },
     {
         "cat":  "legislacao",
@@ -615,7 +668,8 @@ window.DOCUMENTOS = [
         "ordem":  200,
         "arquivo":  "docs/legislacao/lei-do-sistema-nacional-de-educacao-sne.pdf",
         "tipo":  "PDF",
-        "tamanho":  266489
+        "tamanho":  266489,
+        "miniatura":  "docs/miniaturas/legislacao-lei-do-sistema-nacional-de-educacao-sne.jpg"
     },
     {
         "cat":  "legislacao",
@@ -626,7 +680,8 @@ window.DOCUMENTOS = [
         "ordem":  200,
         "arquivo":  "docs/legislacao/plano-nacional-de-educacao-2026-2036.pdf",
         "tipo":  "PDF",
-        "tamanho":  658382
+        "tamanho":  658382,
+        "miniatura":  "docs/miniaturas/legislacao-plano-nacional-de-educacao-2026-2036.jpg"
     },
     {
         "cat":  "legislacao",
@@ -637,7 +692,8 @@ window.DOCUMENTOS = [
         "ordem":  201,
         "arquivo":  "docs/legislacao/lei-n-14-945-2023-ensino-medio.pdf",
         "tipo":  "PDF",
-        "tamanho":  206734
+        "tamanho":  206734,
+        "miniatura":  "docs/miniaturas/legislacao-lei-n-14-945-2023-ensino-medio.jpg"
     },
     {
         "cat":  "legislacao",
@@ -648,7 +704,8 @@ window.DOCUMENTOS = [
         "ordem":  202,
         "arquivo":  "docs/legislacao/diretrizes-do-ensino-medio-2024.pdf",
         "tipo":  "PDF",
-        "tamanho":  264570
+        "tamanho":  264570,
+        "miniatura":  "docs/miniaturas/legislacao-diretrizes-do-ensino-medio-2024.jpg"
     },
     {
         "cat":  "legislacao",
@@ -659,7 +716,8 @@ window.DOCUMENTOS = [
         "ordem":  301,
         "arquivo":  "docs/legislacao/decreto-politica-estadual-de-ept-e-criacao-dos-ierns.pdf",
         "tipo":  "PDF",
-        "tamanho":  261343
+        "tamanho":  261343,
+        "miniatura":  "docs/miniaturas/legislacao-decreto-politica-estadual-de-ept-e-criacao-dos-ierns.jpg"
     },
     {
         "cat":  "legislacao",
@@ -670,7 +728,8 @@ window.DOCUMENTOS = [
         "ordem":  302,
         "arquivo":  "docs/legislacao/diretrizes-estaduais-de-ept.pdf",
         "tipo":  "PDF",
-        "tamanho":  9070707
+        "tamanho":  9070707,
+        "miniatura":  "docs/miniaturas/legislacao-diretrizes-estaduais-de-ept.jpg"
     },
     {
         "cat":  "legislacao",
@@ -681,7 +740,8 @@ window.DOCUMENTOS = [
         "ordem":  303,
         "arquivo":  "docs/legislacao/decreto-organograma-dos-ierns.pdf",
         "tipo":  "PDF",
-        "tamanho":  2857455
+        "tamanho":  2857455,
+        "miniatura":  "docs/miniaturas/legislacao-decreto-organograma-dos-ierns.jpg"
     },
     {
         "cat":  "legislacao",
@@ -692,7 +752,8 @@ window.DOCUMENTOS = [
         "ordem":  304,
         "arquivo":  "docs/legislacao/portaria-de-aprovacao-dos-cursos-tecnicos-integrados-da-rede-estadual-de-ensino.pdf",
         "tipo":  "PDF",
-        "tamanho":  70028
+        "tamanho":  70028,
+        "miniatura":  "docs/miniaturas/legislacao-portaria-de-aprovacao-dos-cursos-tecnicos-integrados-da-rede-estadual-de-ensino.jpg"
     },
     {
         "cat":  "legislacao",
@@ -703,7 +764,8 @@ window.DOCUMENTOS = [
         "ordem":  305,
         "arquivo":  "docs/legislacao/portaria-sei-funcoes-e-organograma-dos-ierns.pdf",
         "tipo":  "PDF",
-        "tamanho":  358075
+        "tamanho":  358075,
+        "miniatura":  "docs/miniaturas/legislacao-portaria-sei-funcoes-e-organograma-dos-ierns.jpg"
     },
     {
         "cat":  "legislacao",
@@ -714,7 +776,8 @@ window.DOCUMENTOS = [
         "ordem":  401,
         "arquivo":  "docs/legislacao/plano-estadual-de-educacao-do-rn.pdf",
         "tipo":  "PDF",
-        "tamanho":  277063
+        "tamanho":  277063,
+        "miniatura":  "docs/miniaturas/legislacao-plano-estadual-de-educacao-do-rn.jpg"
     },
     {
         "cat":  "legislacao",
@@ -725,7 +788,8 @@ window.DOCUMENTOS = [
         "ordem":  402,
         "arquivo":  "docs/legislacao/plano-de-cargos-e-carreira-seec-rn.pdf",
         "tipo":  "PDF",
-        "tamanho":  224876
+        "tamanho":  224876,
+        "miniatura":  "docs/miniaturas/legislacao-plano-de-cargos-e-carreira-seec-rn.jpg"
     },
     {
         "cat":  "legislacao",
@@ -736,7 +800,8 @@ window.DOCUMENTOS = [
         "ordem":  403,
         "arquivo":  "docs/legislacao/lei-da-gestao-democratica.pdf",
         "tipo":  "PDF",
-        "tamanho":  167532
+        "tamanho":  167532,
+        "miniatura":  "docs/miniaturas/legislacao-lei-da-gestao-democratica.jpg"
     },
     {
         "cat":  "legislacao",
@@ -747,7 +812,8 @@ window.DOCUMENTOS = [
         "ordem":  404,
         "arquivo":  "docs/legislacao/portaria-de-avaliacao-do-rn.pdf",
         "tipo":  "PDF",
-        "tamanho":  155936
+        "tamanho":  155936,
+        "miniatura":  "docs/miniaturas/legislacao-portaria-de-avaliacao-do-rn.jpg"
     },
     {
         "cat":  "legislacao",
@@ -758,7 +824,8 @@ window.DOCUMENTOS = [
         "ordem":  405,
         "arquivo":  "docs/legislacao/portaria-do-regime-de-progressao-parcial.pdf",
         "tipo":  "PDF",
-        "tamanho":  72097
+        "tamanho":  72097,
+        "miniatura":  "docs/miniaturas/legislacao-portaria-do-regime-de-progressao-parcial.jpg"
     },
     {
         "cat":  "legislacao",
@@ -769,7 +836,8 @@ window.DOCUMENTOS = [
         "ordem":  406,
         "arquivo":  "docs/legislacao/conselhos-de-classe.pdf",
         "tipo":  "PDF",
-        "tamanho":  169938
+        "tamanho":  169938,
+        "miniatura":  "docs/miniaturas/legislacao-conselhos-de-classe.jpg"
     },
     {
         "cat":  "legislacao",
@@ -780,7 +848,8 @@ window.DOCUMENTOS = [
         "ordem":  407,
         "arquivo":  "docs/legislacao/organizacao-de-turmas.pdf",
         "tipo":  "PDF",
-        "tamanho":  156443
+        "tamanho":  156443,
+        "miniatura":  "docs/miniaturas/legislacao-organizacao-de-turmas.jpg"
     },
     {
         "cat":  "legislacao",
@@ -791,7 +860,8 @@ window.DOCUMENTOS = [
         "ordem":  408,
         "arquivo":  "docs/legislacao/portaria-de-alocacao-n-2-788-2023.pdf",
         "tipo":  "PDF",
-        "tamanho":  507717
+        "tamanho":  507717,
+        "miniatura":  "docs/miniaturas/legislacao-portaria-de-alocacao-n-2-788-2023.jpg"
     },
     {
         "cat":  "legislacao",
@@ -802,7 +872,8 @@ window.DOCUMENTOS = [
         "ordem":  409,
         "arquivo":  "docs/legislacao/politica-estadual-de-tempo-integral.pdf",
         "tipo":  "PDF",
-        "tamanho":  230617
+        "tamanho":  230617,
+        "miniatura":  "docs/miniaturas/legislacao-politica-estadual-de-tempo-integral.jpg"
     },
     {
         "cat":  "legislacao",
@@ -813,7 +884,8 @@ window.DOCUMENTOS = [
         "ordem":  410,
         "arquivo":  "docs/legislacao/regimento-interno-do-conselho-escolar.pdf",
         "tipo":  "PDF",
-        "tamanho":  36959
+        "tamanho":  36959,
+        "miniatura":  "docs/miniaturas/legislacao-regimento-interno-do-conselho-escolar.jpg"
     },
     {
         "cat":  "orientadores",
@@ -824,7 +896,8 @@ window.DOCUMENTOS = [
         "ordem":  0,
         "arquivo":  "docs/orientadores/revista-rede-estadual-de-ept-historia-saberes-e-transformacao-2019-2026.pdf",
         "tipo":  "PDF",
-        "tamanho":  23557940
+        "tamanho":  23557940,
+        "miniatura":  "docs/miniaturas/orientadores-revista-rede-estadual-de-ept-historia-saberes-e-transformacao-2019-2026.jpg"
     },
     {
         "cat":  "orientadores",
@@ -835,7 +908,8 @@ window.DOCUMENTOS = [
         "ordem":  1,
         "arquivo":  "docs/orientadores/caderno-de-orientacoes-pedagogicas-da-ept-julho-de-2026.pdf",
         "tipo":  "PDF",
-        "tamanho":  3334573
+        "tamanho":  3334573,
+        "miniatura":  "docs/miniaturas/orientadores-caderno-de-orientacoes-pedagogicas-da-ept-julho-de-2026.jpg"
     },
     {
         "cat":  "orientadores",
@@ -846,7 +920,8 @@ window.DOCUMENTOS = [
         "ordem":  1,
         "arquivo":  "docs/orientadores/caderno-de-orientacoes-pedagogicas-abril-de-2026.pdf",
         "tipo":  "PDF",
-        "tamanho":  3262067
+        "tamanho":  3262067,
+        "miniatura":  "docs/miniaturas/orientadores-caderno-de-orientacoes-pedagogicas-abril-de-2026.jpg"
     },
     {
         "cat":  "orientadores",
@@ -857,7 +932,8 @@ window.DOCUMENTOS = [
         "ordem":  1,
         "arquivo":  "docs/orientadores/caderno-de-orientacoes-pedagogicas-maio-de-2026.pdf",
         "tipo":  "PDF",
-        "tamanho":  3175975
+        "tamanho":  3175975,
+        "miniatura":  "docs/miniaturas/orientadores-caderno-de-orientacoes-pedagogicas-maio-de-2026.jpg"
     },
     {
         "cat":  "orientadores",
@@ -868,7 +944,8 @@ window.DOCUMENTOS = [
         "ordem":  1,
         "arquivo":  "docs/orientadores/caderno-pedagogico-ept-2025.pdf",
         "tipo":  "PDF",
-        "tamanho":  4849458
+        "tamanho":  4849458,
+        "miniatura":  "docs/miniaturas/orientadores-caderno-pedagogico-ept-2025.jpg"
     },
     {
         "cat":  "orientadores",
@@ -879,7 +956,8 @@ window.DOCUMENTOS = [
         "ordem":  2,
         "arquivo":  "docs/orientadores/modelo-guia-de-ppp-para-a-instituicao-educacional.docx",
         "tipo":  "DOCX",
-        "tamanho":  1744318
+        "tamanho":  1744318,
+        "miniatura":  "docs/miniaturas/orientadores-modelo-guia-de-ppp-para-a-instituicao-educacional.jpg"
     },
     {
         "cat":  "orientadores",
@@ -890,7 +968,8 @@ window.DOCUMENTOS = [
         "ordem":  2,
         "arquivo":  "docs/orientadores/pppi-da-educacao-profissional-e-tecnologica-da-rede-estadual-do-rn.pdf",
         "tipo":  "PDF",
-        "tamanho":  743700
+        "tamanho":  743700,
+        "miniatura":  "docs/miniaturas/orientadores-pppi-da-educacao-profissional-e-tecnologica-da-rede-estadual-do-rn.jpg"
     },
     {
         "cat":  "orientadores",
@@ -901,7 +980,8 @@ window.DOCUMENTOS = [
         "ordem":  3,
         "arquivo":  "docs/orientadores/acompanhar-solicitacao-no-cnap.pdf",
         "tipo":  "PDF",
-        "tamanho":  888415
+        "tamanho":  888415,
+        "miniatura":  "docs/miniaturas/orientadores-acompanhar-solicitacao-no-cnap.jpg"
     },
     {
         "cat":  "orientadores",
@@ -912,7 +992,8 @@ window.DOCUMENTOS = [
         "ordem":  3,
         "arquivo":  "docs/orientadores/acordo-de-cooperacao-tecnica.docx",
         "tipo":  "DOCX",
-        "tamanho":  16426
+        "tamanho":  16426,
+        "miniatura":  "docs/miniaturas/orientadores-acordo-de-cooperacao-tecnica.jpg"
     },
     {
         "cat":  "orientadores",
@@ -923,7 +1004,8 @@ window.DOCUMENTOS = [
         "ordem":  3,
         "arquivo":  "docs/orientadores/atribuicoes-dos-profissionais-na-implementacao-da-aprendizagem-profissional.pdf",
         "tipo":  "PDF",
-        "tamanho":  625458
+        "tamanho":  625458,
+        "miniatura":  "docs/miniaturas/orientadores-atribuicoes-dos-profissionais-na-implementacao-da-aprendizagem-profissional.jpg"
     },
     {
         "cat":  "orientadores",
@@ -934,7 +1016,8 @@ window.DOCUMENTOS = [
         "ordem":  3,
         "arquivo":  "docs/orientadores/atribuicoes-dos-profissionais-na-implementacao-da-aprendizagem-profissional-vers.pdf",
         "tipo":  "PDF",
-        "tamanho":  648141
+        "tamanho":  648141,
+        "miniatura":  "docs/miniaturas/orientadores-atribuicoes-dos-profissionais-na-implementacao-da-aprendizagem-profissional-vers.jpg"
     },
     {
         "cat":  "orientadores",
@@ -945,7 +1028,8 @@ window.DOCUMENTOS = [
         "ordem":  3,
         "arquivo":  "docs/orientadores/cadastramento-de-curso-passo-a-passo.pdf",
         "tipo":  "PDF",
-        "tamanho":  1579790
+        "tamanho":  1579790,
+        "miniatura":  "docs/miniaturas/orientadores-cadastramento-de-curso-passo-a-passo.jpg"
     },
     {
         "cat":  "orientadores",
@@ -956,7 +1040,8 @@ window.DOCUMENTOS = [
         "ordem":  3,
         "arquivo":  "docs/orientadores/calendario-da-aprendizagem-profissional.pdf",
         "tipo":  "PDF",
-        "tamanho":  861827
+        "tamanho":  861827,
+        "miniatura":  "docs/miniaturas/orientadores-calendario-da-aprendizagem-profissional.jpg"
     },
     {
         "cat":  "orientadores",
@@ -967,7 +1052,8 @@ window.DOCUMENTOS = [
         "ordem":  3,
         "arquivo":  "docs/orientadores/cartilha-da-implementacao-da-aprendizagem-profissional.pdf",
         "tipo":  "PDF",
-        "tamanho":  1935861
+        "tamanho":  1935861,
+        "miniatura":  "docs/miniaturas/orientadores-cartilha-da-implementacao-da-aprendizagem-profissional.jpg"
     },
     {
         "cat":  "orientadores",
@@ -978,7 +1064,8 @@ window.DOCUMENTOS = [
         "ordem":  3,
         "arquivo":  "docs/orientadores/documento-de-praticas-profissionais-em-ept-versao-on-line.pdf",
         "tipo":  "PDF",
-        "tamanho":  3482605
+        "tamanho":  3482605,
+        "miniatura":  "docs/miniaturas/orientadores-documento-de-praticas-profissionais-em-ept-versao-on-line.jpg"
     },
     {
         "cat":  "orientadores",
@@ -989,7 +1076,8 @@ window.DOCUMENTOS = [
         "ordem":  3,
         "arquivo":  "docs/orientadores/documentos-necessarios-na-habilitacao-da-entidade-formadora.pdf",
         "tipo":  "PDF",
-        "tamanho":  561908
+        "tamanho":  561908,
+        "miniatura":  "docs/miniaturas/orientadores-documentos-necessarios-na-habilitacao-da-entidade-formadora.jpg"
     },
     {
         "cat":  "orientadores",
@@ -1000,7 +1088,8 @@ window.DOCUMENTOS = [
         "ordem":  3,
         "arquivo":  "docs/orientadores/documentos-necessarios-no-cadastramento-de-curso.pdf",
         "tipo":  "PDF",
-        "tamanho":  1332115
+        "tamanho":  1332115,
+        "miniatura":  "docs/miniaturas/orientadores-documentos-necessarios-no-cadastramento-de-curso.jpg"
     },
     {
         "cat":  "orientadores",
@@ -1011,7 +1100,8 @@ window.DOCUMENTOS = [
         "ordem":  3,
         "arquivo":  "docs/orientadores/ficha-tecnica-cartilha.docx",
         "tipo":  "DOCX",
-        "tamanho":  13431
+        "tamanho":  13431,
+        "miniatura":  "docs/miniaturas/orientadores-ficha-tecnica-cartilha.jpg"
     },
     {
         "cat":  "orientadores",
@@ -1022,7 +1112,8 @@ window.DOCUMENTOS = [
         "ordem":  3,
         "arquivo":  "docs/orientadores/habilitacao-da-entidade-formadora.pdf",
         "tipo":  "PDF",
-        "tamanho":  848105
+        "tamanho":  848105,
+        "miniatura":  "docs/miniaturas/orientadores-habilitacao-da-entidade-formadora.jpg"
     },
     {
         "cat":  "orientadores",
@@ -1033,7 +1124,8 @@ window.DOCUMENTOS = [
         "ordem":  3,
         "arquivo":  "docs/orientadores/modelo-banco-de-dados-demonstracao-de-interesse.docx",
         "tipo":  "DOCX",
-        "tamanho":  134408
+        "tamanho":  134408,
+        "miniatura":  "docs/miniaturas/orientadores-modelo-banco-de-dados-demonstracao-de-interesse.jpg"
     },
     {
         "cat":  "orientadores",
@@ -1055,7 +1147,8 @@ window.DOCUMENTOS = [
         "ordem":  3,
         "arquivo":  "docs/orientadores/modelo-de-contrato-da-aprendizagem-profissional.docx",
         "tipo":  "DOCX",
-        "tamanho":  22269
+        "tamanho":  22269,
+        "miniatura":  "docs/miniaturas/orientadores-modelo-de-contrato-da-aprendizagem-profissional.jpg"
     },
     {
         "cat":  "orientadores",
@@ -1066,7 +1159,8 @@ window.DOCUMENTOS = [
         "ordem":  3,
         "arquivo":  "docs/orientadores/modelo-de-curriculo.docx",
         "tipo":  "DOCX",
-        "tamanho":  357943
+        "tamanho":  357943,
+        "miniatura":  "docs/miniaturas/orientadores-modelo-de-curriculo.jpg"
     },
     {
         "cat":  "orientadores",
@@ -1077,7 +1171,8 @@ window.DOCUMENTOS = [
         "ordem":  3,
         "arquivo":  "docs/orientadores/modelo-de-declaracao-de-contratacao-plano-de-instrutores.docx",
         "tipo":  "DOCX",
-        "tamanho":  139359
+        "tamanho":  139359,
+        "miniatura":  "docs/miniaturas/orientadores-modelo-de-declaracao-de-contratacao-plano-de-instrutores.jpg"
     },
     {
         "cat":  "orientadores",
@@ -1110,7 +1205,8 @@ window.DOCUMENTOS = [
         "ordem":  3,
         "arquivo":  "docs/orientadores/parecer-seguranca-faixa-etaria.docx",
         "tipo":  "DOCX",
-        "tamanho":  223908
+        "tamanho":  223908,
+        "miniatura":  "docs/miniaturas/orientadores-parecer-seguranca-faixa-etaria.jpg"
     },
     {
         "cat":  "orientadores",
@@ -1132,7 +1228,8 @@ window.DOCUMENTOS = [
         "ordem":  3,
         "arquivo":  "docs/orientadores/plano-de-curso-1200hs.docx",
         "tipo":  "DOCX",
-        "tamanho":  506364
+        "tamanho":  506364,
+        "miniatura":  "docs/miniaturas/orientadores-plano-de-curso-1200hs.jpg"
     },
     {
         "cat":  "orientadores",
@@ -1143,7 +1240,8 @@ window.DOCUMENTOS = [
         "ordem":  3,
         "arquivo":  "docs/orientadores/plano-de-curso-800hs.docx",
         "tipo":  "DOCX",
-        "tamanho":  506308
+        "tamanho":  506308,
+        "miniatura":  "docs/miniaturas/orientadores-plano-de-curso-800hs.jpg"
     },
     {
         "cat":  "orientadores",
@@ -1154,7 +1252,8 @@ window.DOCUMENTOS = [
         "ordem":  3,
         "arquivo":  "docs/orientadores/plano-de-curso-da-aprendizagem-profissional.pdf",
         "tipo":  "PDF",
-        "tamanho":  953788
+        "tamanho":  953788,
+        "miniatura":  "docs/miniaturas/orientadores-plano-de-curso-da-aprendizagem-profissional.jpg"
     },
     {
         "cat":  "orientadores",
@@ -1165,7 +1264,8 @@ window.DOCUMENTOS = [
         "ordem":  3,
         "arquivo":  "docs/orientadores/portfolio-de-parcerias-modelo-de-apresentacao-institucional-da-escola.pptx",
         "tipo":  "PPTX",
-        "tamanho":  3519082
+        "tamanho":  3519082,
+        "miniatura":  "docs/miniaturas/orientadores-portfolio-de-parcerias-modelo-de-apresentacao-institucional-da-escola.jpg"
     },
     {
         "cat":  "orientadores",
@@ -1176,7 +1276,8 @@ window.DOCUMENTOS = [
         "ordem":  3,
         "arquivo":  "docs/orientadores/procuracao-acesso-ao-portal-de-servicos-gov-br.docx",
         "tipo":  "DOCX",
-        "tamanho":  224847
+        "tamanho":  224847,
+        "miniatura":  "docs/miniaturas/orientadores-procuracao-acesso-ao-portal-de-servicos-gov-br.jpg"
     },
     {
         "cat":  "orientadores",
@@ -1187,7 +1288,8 @@ window.DOCUMENTOS = [
         "ordem":  3,
         "arquivo":  "docs/orientadores/relacao-das-escolas-piloto-para-a-cartilha.docx",
         "tipo":  "DOCX",
-        "tamanho":  9657
+        "tamanho":  9657,
+        "miniatura":  "docs/miniaturas/orientadores-relacao-das-escolas-piloto-para-a-cartilha.jpg"
     },
     {
         "cat":  "orientadores",
@@ -1198,7 +1300,8 @@ window.DOCUMENTOS = [
         "ordem":  3,
         "arquivo":  "docs/orientadores/tutorial-modelo-de-formulario-banco-de-dados-digital.pdf",
         "tipo":  "PDF",
-        "tamanho":  1595954
+        "tamanho":  1595954,
+        "miniatura":  "docs/miniaturas/orientadores-tutorial-modelo-de-formulario-banco-de-dados-digital.jpg"
     },
     {
         "cat":  "orientadores",
@@ -1209,7 +1312,8 @@ window.DOCUMENTOS = [
         "ordem":  4,
         "arquivo":  "docs/orientadores/documento-de-ensino-pesquisa-extensao-e-inovacao-da-rede-estadual-de-ensino-do-r.pdf",
         "tipo":  "PDF",
-        "tamanho":  5688512
+        "tamanho":  5688512,
+        "miniatura":  "docs/miniaturas/orientadores-documento-de-ensino-pesquisa-extensao-e-inovacao-da-rede-estadual-de-ensino-do-r.jpg"
     },
     {
         "cat":  "orientadores",
@@ -1220,7 +1324,8 @@ window.DOCUMENTOS = [
         "ordem":  5,
         "arquivo":  "docs/orientadores/programa-de-formacao-continuada-em-ept.pdf",
         "tipo":  "PDF",
-        "tamanho":  8106439
+        "tamanho":  8106439,
+        "miniatura":  "docs/miniaturas/orientadores-programa-de-formacao-continuada-em-ept.jpg"
     },
     {
         "cat":  "orientadores",
@@ -1231,7 +1336,8 @@ window.DOCUMENTOS = [
         "ordem":  6,
         "arquivo":  "docs/orientadores/cartilha-pague-tec-equivalente.pdf",
         "tipo":  "PDF",
-        "tamanho":  1572513
+        "tamanho":  1572513,
+        "miniatura":  "docs/miniaturas/orientadores-cartilha-pague-tec-equivalente.jpg"
     },
     {
         "cat":  "orientadores",
@@ -1242,7 +1348,8 @@ window.DOCUMENTOS = [
         "ordem":  6,
         "arquivo":  "docs/orientadores/checklist-para-planejamento.pdf",
         "tipo":  "PDF",
-        "tamanho":  1180853
+        "tamanho":  1180853,
+        "miniatura":  "docs/miniaturas/orientadores-checklist-para-planejamento.jpg"
     },
     {
         "cat":  "orientadores",
@@ -1264,7 +1371,8 @@ window.DOCUMENTOS = [
         "ordem":  6,
         "arquivo":  "docs/orientadores/modelo-de-plano-de-trabalho.docx",
         "tipo":  "DOCX",
-        "tamanho":  850169
+        "tamanho":  850169,
+        "miniatura":  "docs/miniaturas/orientadores-modelo-de-plano-de-trabalho.jpg"
     },
     {
         "cat":  "orientadores",
@@ -1275,7 +1383,8 @@ window.DOCUMENTOS = [
         "ordem":  7,
         "arquivo":  "docs/orientadores/caderno-1-conceituacao.pdf",
         "tipo":  "PDF",
-        "tamanho":  3041551
+        "tamanho":  3041551,
+        "miniatura":  "docs/miniaturas/orientadores-caderno-1-conceituacao.jpg"
     },
     {
         "cat":  "orientadores",
@@ -1286,7 +1395,8 @@ window.DOCUMENTOS = [
         "ordem":  7,
         "arquivo":  "docs/orientadores/caderno-2-planos.pdf",
         "tipo":  "PDF",
-        "tamanho":  3397904
+        "tamanho":  3397904,
+        "miniatura":  "docs/miniaturas/orientadores-caderno-2-planos.jpg"
     },
     {
         "cat":  "orientadores",
@@ -1297,7 +1407,8 @@ window.DOCUMENTOS = [
         "ordem":  7,
         "arquivo":  "docs/orientadores/caderno-3-diretrizes-operacionais.pdf",
         "tipo":  "PDF",
-        "tamanho":  4286592
+        "tamanho":  4286592,
+        "miniatura":  "docs/miniaturas/orientadores-caderno-3-diretrizes-operacionais.jpg"
     },
     {
         "cat":  "orientadores",
@@ -1308,7 +1419,8 @@ window.DOCUMENTOS = [
         "ordem":  8,
         "arquivo":  "docs/orientadores/catalogo-nacional-de-cursos-tecnicos-cnct.pdf",
         "tipo":  "PDF",
-        "tamanho":  3370365
+        "tamanho":  3370365,
+        "miniatura":  "docs/miniaturas/orientadores-catalogo-nacional-de-cursos-tecnicos-cnct.jpg"
     },
     {
         "cat":  "orientadores",
@@ -1319,7 +1431,8 @@ window.DOCUMENTOS = [
         "ordem":  9,
         "arquivo":  "docs/orientadores/documento-orientador-ia-educacao-basica.pdf",
         "tipo":  "PDF",
-        "tamanho":  1683748
+        "tamanho":  1683748,
+        "miniatura":  "docs/miniaturas/orientadores-documento-orientador-ia-educacao-basica.jpg"
     },
     {
         "cat":  "orientadores",
@@ -1330,7 +1443,8 @@ window.DOCUMENTOS = [
         "ordem":  10,
         "arquivo":  "docs/orientadores/diretrizes-curriculares-do-ensino-de-computacao-na-educacao-basica-no-rio-grande.pdf",
         "tipo":  "PDF",
-        "tamanho":  22685778
+        "tamanho":  22685778,
+        "miniatura":  "docs/miniaturas/orientadores-diretrizes-curriculares-do-ensino-de-computacao-na-educacao-basica-no-rio-grande.jpg"
     },
     {
         "cat":  "orientadores",
@@ -1341,7 +1455,8 @@ window.DOCUMENTOS = [
         "ordem":  10,
         "arquivo":  "docs/orientadores/itinerario-de-aprofundamento-do-ensino-medio-potiguar-observar-especificidades-d.pdf",
         "tipo":  "PDF",
-        "tamanho":  2971087
+        "tamanho":  2971087,
+        "miniatura":  "docs/miniaturas/orientadores-itinerario-de-aprofundamento-do-ensino-medio-potiguar-observar-especificidades-d.jpg"
     },
     {
         "cat":  "orientadores",
@@ -1352,7 +1467,8 @@ window.DOCUMENTOS = [
         "ordem":  10,
         "arquivo":  "docs/orientadores/projetos-integradores-da-fgb.pdf",
         "tipo":  "PDF",
-        "tamanho":  1147316
+        "tamanho":  1147316,
+        "miniatura":  "docs/miniaturas/orientadores-projetos-integradores-da-fgb.jpg"
     },
     {
         "cat":  "orientadores",
@@ -1363,7 +1479,8 @@ window.DOCUMENTOS = [
         "ordem":  10,
         "arquivo":  "docs/orientadores/recomposicao-de-aprendizagem-orientacoes-gerais.pdf",
         "tipo":  "PDF",
-        "tamanho":  34347303
+        "tamanho":  34347303,
+        "miniatura":  "docs/miniaturas/orientadores-recomposicao-de-aprendizagem-orientacoes-gerais.jpg"
     },
     {
         "cat":  "orientadores",
@@ -1374,7 +1491,8 @@ window.DOCUMENTOS = [
         "ordem":  10,
         "arquivo":  "docs/orientadores/referencial-curricular-do-ensino-medio-potiguar.pdf",
         "tipo":  "PDF",
-        "tamanho":  5137039
+        "tamanho":  5137039,
+        "miniatura":  "docs/miniaturas/orientadores-referencial-curricular-do-ensino-medio-potiguar.jpg"
     },
     {
         "cat":  "orientadores",
@@ -1385,7 +1503,8 @@ window.DOCUMENTOS = [
         "ordem":  11,
         "arquivo":  "docs/orientadores/analise-da-oferta-de-ept-da-rede-estadual.pdf",
         "tipo":  "PDF",
-        "tamanho":  7361372
+        "tamanho":  7361372,
+        "miniatura":  "docs/miniaturas/orientadores-analise-da-oferta-de-ept-da-rede-estadual.jpg"
     },
     {
         "cat":  "orientadores",
@@ -1396,7 +1515,8 @@ window.DOCUMENTOS = [
         "ordem":  11,
         "arquivo":  "docs/orientadores/diagnostico-da-oferta-de-ept-da-rede-estadual.pdf",
         "tipo":  "PDF",
-        "tamanho":  3338813
+        "tamanho":  3338813,
+        "miniatura":  "docs/miniaturas/orientadores-diagnostico-da-oferta-de-ept-da-rede-estadual.jpg"
     },
     {
         "cat":  "orientadores",
@@ -1407,7 +1527,8 @@ window.DOCUMENTOS = [
         "ordem":  11,
         "arquivo":  "docs/orientadores/planejamento-da-oferta-de-ept-da-rede-estadual.pdf",
         "tipo":  "PDF",
-        "tamanho":  6170765
+        "tamanho":  6170765,
+        "miniatura":  "docs/miniaturas/orientadores-planejamento-da-oferta-de-ept-da-rede-estadual.jpg"
     },
     {
         "cat":  "orientadores",
@@ -1418,7 +1539,8 @@ window.DOCUMENTOS = [
         "ordem":  11,
         "arquivo":  "docs/orientadores/plano-de-expansao-da-oferta-de-ept-da-rede-estadual.pdf",
         "tipo":  "PDF",
-        "tamanho":  2623949
+        "tamanho":  2623949,
+        "miniatura":  "docs/miniaturas/orientadores-plano-de-expansao-da-oferta-de-ept-da-rede-estadual.jpg"
     },
     {
         "cat":  "ppc",
@@ -1429,7 +1551,8 @@ window.DOCUMENTOS = [
         "ordem":  1,
         "arquivo":  "docs/ppc/ppc-administracao-2.pdf",
         "tipo":  "PDF",
-        "tamanho":  4165086
+        "tamanho":  4165086,
+        "miniatura":  "docs/miniaturas/ppc-ppc-administracao-2.jpg"
     },
     {
         "cat":  "ppc",
@@ -1440,7 +1563,8 @@ window.DOCUMENTOS = [
         "ordem":  1,
         "arquivo":  "docs/ppc/ppc-agroecologia-2.pdf",
         "tipo":  "PDF",
-        "tamanho":  3967884
+        "tamanho":  3967884,
+        "miniatura":  "docs/miniaturas/ppc-ppc-agroecologia-2.jpg"
     },
     {
         "cat":  "ppc",
@@ -1451,7 +1575,8 @@ window.DOCUMENTOS = [
         "ordem":  1,
         "arquivo":  "docs/ppc/ppc-alimentos-2.pdf",
         "tipo":  "PDF",
-        "tamanho":  3068714
+        "tamanho":  3068714,
+        "miniatura":  "docs/miniaturas/ppc-ppc-alimentos-2.jpg"
     },
     {
         "cat":  "ppc",
@@ -1462,7 +1587,8 @@ window.DOCUMENTOS = [
         "ordem":  1,
         "arquivo":  "docs/ppc/ppc-edificacoes-2.pdf",
         "tipo":  "PDF",
-        "tamanho":  3756198
+        "tamanho":  3756198,
+        "miniatura":  "docs/miniaturas/ppc-ppc-edificacoes-2.jpg"
     },
     {
         "cat":  "ppc",
@@ -1473,7 +1599,8 @@ window.DOCUMENTOS = [
         "ordem":  1,
         "arquivo":  "docs/ppc/ppc-eletrotecnica.pdf",
         "tipo":  "PDF",
-        "tamanho":  3382050
+        "tamanho":  3382050,
+        "miniatura":  "docs/miniaturas/ppc-ppc-eletrotecnica.jpg"
     },
     {
         "cat":  "ppc",
@@ -1484,7 +1611,8 @@ window.DOCUMENTOS = [
         "ordem":  1,
         "arquivo":  "docs/ppc/ppc-guia-de-turismo-2.pdf",
         "tipo":  "PDF",
-        "tamanho":  3341839
+        "tamanho":  3341839,
+        "miniatura":  "docs/miniaturas/ppc-ppc-guia-de-turismo-2.jpg"
     },
     {
         "cat":  "ppc",
@@ -1495,7 +1623,8 @@ window.DOCUMENTOS = [
         "ordem":  1,
         "arquivo":  "docs/ppc/ppc-informatica.pdf",
         "tipo":  "PDF",
-        "tamanho":  4194995
+        "tamanho":  4194995,
+        "miniatura":  "docs/miniaturas/ppc-ppc-informatica.jpg"
     },
     {
         "cat":  "ppc",
@@ -1506,7 +1635,8 @@ window.DOCUMENTOS = [
         "ordem":  1,
         "arquivo":  "docs/ppc/ppc-logistica-2.pdf",
         "tipo":  "PDF",
-        "tamanho":  2355792
+        "tamanho":  2355792,
+        "miniatura":  "docs/miniaturas/ppc-ppc-logistica-2.jpg"
     },
     {
         "cat":  "ppc",
@@ -1517,7 +1647,8 @@ window.DOCUMENTOS = [
         "ordem":  1,
         "arquivo":  "docs/ppc/ppc-manutencao-e-suporte-em-informatica.pdf",
         "tipo":  "PDF",
-        "tamanho":  3227646
+        "tamanho":  3227646,
+        "miniatura":  "docs/miniaturas/ppc-ppc-manutencao-e-suporte-em-informatica.jpg"
     },
     {
         "cat":  "ppc",
@@ -1528,7 +1659,8 @@ window.DOCUMENTOS = [
         "ordem":  1,
         "arquivo":  "docs/ppc/ppc-meio-ambiente-2.pdf",
         "tipo":  "PDF",
-        "tamanho":  3236189
+        "tamanho":  3236189,
+        "miniatura":  "docs/miniaturas/ppc-ppc-meio-ambiente-2.jpg"
     },
     {
         "cat":  "ppc",
@@ -1539,7 +1671,8 @@ window.DOCUMENTOS = [
         "ordem":  1,
         "arquivo":  "docs/ppc/ppc-mineracao-2.pdf",
         "tipo":  "PDF",
-        "tamanho":  4194441
+        "tamanho":  4194441,
+        "miniatura":  "docs/miniaturas/ppc-ppc-mineracao-2.jpg"
     },
     {
         "cat":  "ppc",
@@ -1550,7 +1683,8 @@ window.DOCUMENTOS = [
         "ordem":  1,
         "arquivo":  "docs/ppc/ppc-nutricao-e-dietetica-2.pdf",
         "tipo":  "PDF",
-        "tamanho":  3352953
+        "tamanho":  3352953,
+        "miniatura":  "docs/miniaturas/ppc-ppc-nutricao-e-dietetica-2.jpg"
     },
     {
         "cat":  "ppc",
@@ -1561,7 +1695,8 @@ window.DOCUMENTOS = [
         "ordem":  1,
         "arquivo":  "docs/ppc/ppc-planejamento-e-controle-da-producao-2.pdf",
         "tipo":  "PDF",
-        "tamanho":  3300254
+        "tamanho":  3300254,
+        "miniatura":  "docs/miniaturas/ppc-ppc-planejamento-e-controle-da-producao-2.jpg"
     },
     {
         "cat":  "ppc",
@@ -1572,7 +1707,8 @@ window.DOCUMENTOS = [
         "ordem":  1,
         "arquivo":  "docs/ppc/ppc-quimica.pdf",
         "tipo":  "PDF",
-        "tamanho":  3377396
+        "tamanho":  3377396,
+        "miniatura":  "docs/miniaturas/ppc-ppc-quimica.jpg"
     },
     {
         "cat":  "ppc",
@@ -1583,7 +1719,8 @@ window.DOCUMENTOS = [
         "ordem":  1,
         "arquivo":  "docs/ppc/ppc-redes-de-computadores-2.pdf",
         "tipo":  "PDF",
-        "tamanho":  3825062
+        "tamanho":  3825062,
+        "miniatura":  "docs/miniaturas/ppc-ppc-redes-de-computadores-2.jpg"
     },
     {
         "cat":  "ppc",
@@ -1594,7 +1731,8 @@ window.DOCUMENTOS = [
         "ordem":  1,
         "arquivo":  "docs/ppc/ppc-seguranca-do-trabalho-2.pdf",
         "tipo":  "PDF",
-        "tamanho":  4198805
+        "tamanho":  4198805,
+        "miniatura":  "docs/miniaturas/ppc-ppc-seguranca-do-trabalho-2.jpg"
     },
     {
         "cat":  "ppc",
@@ -1605,7 +1743,8 @@ window.DOCUMENTOS = [
         "ordem":  1,
         "arquivo":  "docs/ppc/ppc-sistemas-de-energia-renovavel-2.pdf",
         "tipo":  "PDF",
-        "tamanho":  4077573
+        "tamanho":  4077573,
+        "miniatura":  "docs/miniaturas/ppc-ppc-sistemas-de-energia-renovavel-2.jpg"
     },
     {
         "cat":  "ppc",
@@ -1616,7 +1755,8 @@ window.DOCUMENTOS = [
         "ordem":  1,
         "arquivo":  "docs/ppc/ppc-vestuario-2.pdf",
         "tipo":  "PDF",
-        "tamanho":  3431046
+        "tamanho":  3431046,
+        "miniatura":  "docs/miniaturas/ppc-ppc-vestuario-2.jpg"
     },
     {
         "cat":  "ppc",
@@ -1627,7 +1767,8 @@ window.DOCUMENTOS = [
         "ordem":  2,
         "arquivo":  "docs/ppc/ppc-administracao.pdf",
         "tipo":  "PDF",
-        "tamanho":  1336295
+        "tamanho":  1336295,
+        "miniatura":  "docs/miniaturas/ppc-ppc-administracao.jpg"
     },
     {
         "cat":  "ppc",
@@ -1638,7 +1779,8 @@ window.DOCUMENTOS = [
         "ordem":  2,
         "arquivo":  "docs/ppc/ppc-agroecologia.pdf",
         "tipo":  "PDF",
-        "tamanho":  3670061
+        "tamanho":  3670061,
+        "miniatura":  "docs/miniaturas/ppc-ppc-agroecologia.jpg"
     },
     {
         "cat":  "ppc",
@@ -1649,7 +1791,8 @@ window.DOCUMENTOS = [
         "ordem":  2,
         "arquivo":  "docs/ppc/ppc-alimentos.pdf",
         "tipo":  "PDF",
-        "tamanho":  1307364
+        "tamanho":  1307364,
+        "miniatura":  "docs/miniaturas/ppc-ppc-alimentos.jpg"
     },
     {
         "cat":  "ppc",
@@ -1660,7 +1803,8 @@ window.DOCUMENTOS = [
         "ordem":  2,
         "arquivo":  "docs/ppc/ppc-edificacoes.pdf",
         "tipo":  "PDF",
-        "tamanho":  2296577
+        "tamanho":  2296577,
+        "miniatura":  "docs/miniaturas/ppc-ppc-edificacoes.jpg"
     },
     {
         "cat":  "ppc",
@@ -1671,7 +1815,8 @@ window.DOCUMENTOS = [
         "ordem":  2,
         "arquivo":  "docs/ppc/ppc-eletrotecnica-2.pdf",
         "tipo":  "PDF",
-        "tamanho":  2969116
+        "tamanho":  2969116,
+        "miniatura":  "docs/miniaturas/ppc-ppc-eletrotecnica-2.jpg"
     },
     {
         "cat":  "ppc",
@@ -1682,7 +1827,8 @@ window.DOCUMENTOS = [
         "ordem":  2,
         "arquivo":  "docs/ppc/ppc-guia-de-turismo.pdf",
         "tipo":  "PDF",
-        "tamanho":  2188269
+        "tamanho":  2188269,
+        "miniatura":  "docs/miniaturas/ppc-ppc-guia-de-turismo.jpg"
     },
     {
         "cat":  "ppc",
@@ -1693,7 +1839,8 @@ window.DOCUMENTOS = [
         "ordem":  2,
         "arquivo":  "docs/ppc/ppc-informatica-2.pdf",
         "tipo":  "PDF",
-        "tamanho":  2634955
+        "tamanho":  2634955,
+        "miniatura":  "docs/miniaturas/ppc-ppc-informatica-2.jpg"
     },
     {
         "cat":  "ppc",
@@ -1704,7 +1851,8 @@ window.DOCUMENTOS = [
         "ordem":  2,
         "arquivo":  "docs/ppc/ppc-logistica.pdf",
         "tipo":  "PDF",
-        "tamanho":  2125032
+        "tamanho":  2125032,
+        "miniatura":  "docs/miniaturas/ppc-ppc-logistica.jpg"
     },
     {
         "cat":  "ppc",
@@ -1715,7 +1863,8 @@ window.DOCUMENTOS = [
         "ordem":  2,
         "arquivo":  "docs/ppc/ppc-manutencao-e-suporte-em-informatica-2.pdf",
         "tipo":  "PDF",
-        "tamanho":  2334819
+        "tamanho":  2334819,
+        "miniatura":  "docs/miniaturas/ppc-ppc-manutencao-e-suporte-em-informatica-2.jpg"
     },
     {
         "cat":  "ppc",
@@ -1726,7 +1875,8 @@ window.DOCUMENTOS = [
         "ordem":  2,
         "arquivo":  "docs/ppc/ppc-meio-ambiente.pdf",
         "tipo":  "PDF",
-        "tamanho":  2964803
+        "tamanho":  2964803,
+        "miniatura":  "docs/miniaturas/ppc-ppc-meio-ambiente.jpg"
     },
     {
         "cat":  "ppc",
@@ -1737,7 +1887,8 @@ window.DOCUMENTOS = [
         "ordem":  2,
         "arquivo":  "docs/ppc/ppc-mineracao.pdf",
         "tipo":  "PDF",
-        "tamanho":  2794262
+        "tamanho":  2794262,
+        "miniatura":  "docs/miniaturas/ppc-ppc-mineracao.jpg"
     },
     {
         "cat":  "ppc",
@@ -1748,7 +1899,8 @@ window.DOCUMENTOS = [
         "ordem":  2,
         "arquivo":  "docs/ppc/ppc-nutricao-e-dietetica.pdf",
         "tipo":  "PDF",
-        "tamanho":  2563040
+        "tamanho":  2563040,
+        "miniatura":  "docs/miniaturas/ppc-ppc-nutricao-e-dietetica.jpg"
     },
     {
         "cat":  "ppc",
@@ -1759,7 +1911,8 @@ window.DOCUMENTOS = [
         "ordem":  2,
         "arquivo":  "docs/ppc/ppc-planejamento-e-controle-da-producao.pdf",
         "tipo":  "PDF",
-        "tamanho":  2347898
+        "tamanho":  2347898,
+        "miniatura":  "docs/miniaturas/ppc-ppc-planejamento-e-controle-da-producao.jpg"
     },
     {
         "cat":  "ppc",
@@ -1770,7 +1923,8 @@ window.DOCUMENTOS = [
         "ordem":  2,
         "arquivo":  "docs/ppc/ppc-quimica-2.pdf",
         "tipo":  "PDF",
-        "tamanho":  2346815
+        "tamanho":  2346815,
+        "miniatura":  "docs/miniaturas/ppc-ppc-quimica-2.jpg"
     },
     {
         "cat":  "ppc",
@@ -1781,7 +1935,8 @@ window.DOCUMENTOS = [
         "ordem":  2,
         "arquivo":  "docs/ppc/ppc-redes-de-computadores.pdf",
         "tipo":  "PDF",
-        "tamanho":  2590968
+        "tamanho":  2590968,
+        "miniatura":  "docs/miniaturas/ppc-ppc-redes-de-computadores.jpg"
     },
     {
         "cat":  "ppc",
@@ -1792,7 +1947,8 @@ window.DOCUMENTOS = [
         "ordem":  2,
         "arquivo":  "docs/ppc/ppc-seguranca-do-trabalho.pdf",
         "tipo":  "PDF",
-        "tamanho":  2842748
+        "tamanho":  2842748,
+        "miniatura":  "docs/miniaturas/ppc-ppc-seguranca-do-trabalho.jpg"
     },
     {
         "cat":  "ppc",
@@ -1803,7 +1959,8 @@ window.DOCUMENTOS = [
         "ordem":  2,
         "arquivo":  "docs/ppc/ppc-sistemas-de-energia-renovavel.pdf",
         "tipo":  "PDF",
-        "tamanho":  3005059
+        "tamanho":  3005059,
+        "miniatura":  "docs/miniaturas/ppc-ppc-sistemas-de-energia-renovavel.jpg"
     },
     {
         "cat":  "ppc",
@@ -1814,6 +1971,7 @@ window.DOCUMENTOS = [
         "ordem":  2,
         "arquivo":  "docs/ppc/ppc-vestuario.pdf",
         "tipo":  "PDF",
-        "tamanho":  2356545
+        "tamanho":  2356545,
+        "miniatura":  "docs/miniaturas/ppc-ppc-vestuario.jpg"
     }
 ];

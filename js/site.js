@@ -259,7 +259,24 @@ window.Site = (function () {
 
     function linha(d) {
       var li = el("li", "doc");
-      var tipo = el("span", "doc-tipo tipo-" + (d.tipo || "").toLowerCase(), d.tipo === "PASTA" ? "DRIVE" : d.tipo);
+      var rotulo = d.tipo === "PASTA" ? "DRIVE" : d.tipo;
+      var tipo;
+      if (d.miniatura) {
+        // miniatura da 1ª página do documento, com o tipo num selo por cima
+        tipo = el("a", "doc-capa");
+        tipo.href = encodeURI(d.arquivo);
+        tipo.setAttribute("download", "");
+        tipo.setAttribute("tabindex", "-1");
+        tipo.setAttribute("aria-hidden", "true");
+        var img = el("img");
+        img.src = encodeURI(d.miniatura);
+        img.alt = "";
+        img.loading = "lazy";
+        tipo.appendChild(img);
+        tipo.appendChild(el("span", "doc-selo tipo-" + (d.tipo || "").toLowerCase(), rotulo));
+      } else {
+        tipo = el("span", "doc-tipo tipo-" + (d.tipo || "").toLowerCase(), rotulo);
+      }
       var info = el("div", "doc-info");
       info.appendChild(el("strong", null, d.titulo));
       var meta = [];
