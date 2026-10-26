@@ -227,6 +227,49 @@ h1, h2, h3 { font-family: var(--titulo); line-height: 1.12; margin: 0; }
 .lista-corpo .secao-topo { background: var(--branco); border-radius: 20px; padding: 18px 22px; box-shadow: 0 10px 30px rgba(34,43,99,.1); margin-bottom: 32px; align-items: center; }
 .lista-corpo .secao-topo p { margin: 0; }
 
+/* ---------------------------------------------------------------- página Documentos */
+.docs-abertura { --azul-capa: #3771ae; background: var(--azul-capa); color: #fff; position: relative; overflow: hidden; }
+.docs-abertura .bolha-coral { position: absolute; right: -150px; top: -170px; width: 420px; height: 420px; background: var(--coral); border-radius: 46% 54% 60% 40% / 50% 45% 55% 50%; }
+.docs-abertura .conteiner { position: relative; padding-top: 56px; padding-bottom: 150px; }
+.docs-abertura .etiqueta { font-size: clamp(2rem, 4.6vw, 3.2rem); }
+.docs-abertura p { color: #eef2ff; font-size: 1.1875rem; max-width: 56ch; margin: 20px 0 24px; }
+.docs-busca { max-width: 560px; background: #fff; border-color: transparent; }
+
+/* divisórias: abas de pasta com as cores da revista */
+.docs { margin-top: -40px; position: relative; z-index: 2; }
+.divisorias { display: flex; gap: 6px; flex-wrap: wrap; align-items: flex-end; padding-left: 14px; }
+.divisoria { --c: var(--coral); --t: #fff; font: inherit; cursor: pointer; border: 0; text-align: left; background: var(--c); color: var(--t); border-radius: 18px 18px 0 0; padding: 12px 20px 12px; min-height: 64px; display: flex; flex-direction: column; justify-content: center; opacity: .78; transform: translateY(6px); transition: transform .15s ease, opacity .15s ease; }
+.divisoria span { font: 700 1rem/1.2 var(--titulo); }
+.divisoria small { font-size: 0.8125rem; opacity: .85; }
+.divisoria:hover { opacity: .95; transform: translateY(2px); }
+.divisoria.ativa { opacity: 1; transform: none; padding-bottom: 18px; }
+.divisoria[data-cor="1"] { --c: var(--amarelo); --t: var(--indigo); }
+.divisoria[data-cor="2"] { --c: var(--lima); --t: var(--indigo); }
+.divisoria[data-cor="3"] { --c: var(--ceu); --t: var(--indigo); }
+.pasta { --c: var(--coral); background: var(--branco); border-top: 8px solid var(--c); border-radius: 0 22px 22px 22px; box-shadow: 0 1px 0 var(--cinza-claro), 0 18px 40px rgba(34, 43, 99, .1); padding: 10px 28px 26px; }
+.pasta[data-cor="1"] { --c: var(--amarelo); }
+.pasta[data-cor="2"] { --c: var(--lima); }
+.pasta[data-cor="3"] { --c: var(--ceu); }
+.pasta[data-cor="busca"] { --c: var(--indigo); border-radius: 22px; }
+.docs-resultado { margin: 14px 0 0; font: 600 0.9375rem var(--titulo); color: var(--indigo); }
+.docs-resultado:empty { display: none; }
+.doc-grupo { padding-top: 20px; }
+.doc-grupo h2 { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; font-size: 1.1875rem; color: var(--indigo); padding-bottom: 10px; border-bottom: 2px solid var(--cinza-claro); }
+.doc-grupo h2 small { font: 500 0.8125rem var(--texto); color: var(--suave); }
+.doc-lista { list-style: none; margin: 0; padding: 0; }
+.doc { display: flex; align-items: center; gap: 14px; padding: 12px 6px; border-bottom: 1px solid #f0eee8; }
+.doc:hover { background: #fbfaf6; }
+.doc-tipo { flex: none; width: 50px; text-align: center; font: 800 0.6875rem/1 var(--titulo); letter-spacing: .04em; padding: 8px 0; border-radius: 8px; background: #fde7e5; color: #c53a32; }
+.tipo-docx { background: #e3ecf8; color: #2f5b9e; }
+.tipo-xlsx { background: #eef4d6; color: #587a14; }
+.tipo-pptx { background: #fdf1d2; color: #a87406; }
+.tipo-pasta { background: #e7eefa; color: var(--indigo); }
+.doc-info { flex: 1; min-width: 0; }
+.doc-info strong { display: block; font: 600 1rem/1.35 var(--titulo); color: var(--tinta); }
+.doc-info span { display: block; font-size: 0.8125rem; color: var(--suave); margin-top: 2px; }
+.doc-botao { flex: none; padding: 9px 14px; background: var(--indigo); color: #fff; border-radius: 12px; font-size: 0.875rem; }
+.doc-botao:hover { background: var(--azul-escuro); transform: none; }
+
 /* ---------------------------------------------------------------- fotos */
 .acontece { background: var(--indigo); color: #fff; position: relative; overflow: hidden; padding: 84px 0 90px; }
 .acontece .conteiner { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 56px; align-items: center; position: relative; }
@@ -408,5 +451,12 @@ h1, h2, h3 { font-family: var(--titulo); line-height: 1.12; margin: 0; }
   .caixa ol { columns: 1; }
   .barra-gov .conteiner { justify-content: center; }
   .so-largo, .acesso > span { display: none; }
+  .divisorias { padding-left: 0; }
+  .divisoria { flex: 1 1 45%; border-radius: 14px 14px 0 0; padding: 10px 12px; min-height: 56px; }
+  .divisoria span { font-size: 0.875rem; }
+  .pasta { padding: 6px 14px 18px; border-radius: 0 0 18px 18px; }
+  .doc { flex-wrap: wrap; }
+  .doc-info { flex-basis: calc(100% - 70px); }
+  .doc-botao { margin-left: 64px; }
   .voz { padding: 60px 20px 24px; }
 }

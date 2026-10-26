@@ -46,7 +46,7 @@ window.Site = (function () {
       }
       nome = "Painéis da EPT/RN"; sub = "Uso interno · SUEP/SEEC-RN"; inicio = "index.html";
     } else {
-      itens = [["index.html", "Início", "inicio"], ["sobre.html", "A SUEP e a EPT", "sobre"]];
+      itens = [["index.html", "Início", "inicio"], ["sobre.html", "A SUEP e a EPT", "sobre"], ["documentos.html", "Documentos", "documentos"]];
       nome = "SUEP · EPT/RN"; sub = "Subcoordenadoria de Educação Profissional e Tecnológica"; inicio = "index.html";
     }
     var menu = itens.map(function (i) {
@@ -219,6 +219,113 @@ window.Site = (function () {
     }
   }
 
+  /* ------------------------------------------------------------ documentos para download */
+  var ICONE_BAIXAR = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"/><path d="m7 10 5 5 5-5"/><path d="M5 20h14"/></svg>';
+  var ICONE_ABRIR = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6"/><path d="M20 4 10 14"/><path d="M19 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/></svg>';
+
+  function tamanho(b) {
+    if (!b) return "";
+    var mb = b / 1048576;
+    return mb >= 1 ? mb.toFixed(1).replace(".", ",") + " MB" : Math.max(1, Math.round(b / 1024)) + " KB";
+  }
+
+  function montarDocumentos() {
+    var docs = window.DOCUMENTOS || [];
+    var cats = window.DOC_CATEGORIAS || [];
+    var abas = document.getElementById("divisorias");
+    var lista = document.getElementById("docs-lista");
+    var pasta = document.getElementById("pasta");
+    var resultado = document.getElementById("docs-resultado");
+    var busca = document.getElementById("docs-busca");
+    if (!abas) return;
+    docs.forEach(function (d) { d._busca = semAcento([d.titulo, d.sub, d.nota, d.tipo].join(" ")); });
+
+    var atual = (location.hash || "").replace("#", "");
+    if (!cats.some(function (c) { return c.id === atual; })) atual = cats[0] && cats[0].id;
+
+    cats.forEach(function (c, i) {
+      var b = el("button", "divisoria");
+      b.type = "button";
+      b.setAttribute("role", "tab");
+      b.dataset.cat = c.id;
+      b.dataset.cor = String(i % 4);
+      var qtd = docs.filter(function (d) { return d.cat === c.id; }).length;
+      b.innerHTML = "<span></span><small></small>";
+      b.querySelector("span").textContent = c.nome;
+      b.querySelector("small").textContent = qtd + (qtd === 1 ? " item" : " itens");
+      b.addEventListener("click", function () { atual = c.id; busca.value = ""; history.replaceState(null, "", "#" + c.id); desenhar(); });
+      abas.appendChild(b);
+    });
+
+    function linha(d) {
+      var li = el("li", "doc");
+      var tipo = el("span", "doc-tipo tipo-" + (d.tipo || "").toLowerCase(), d.tipo === "PASTA" ? "DRIVE" : d.tipo);
+      var info = el("div", "doc-info");
+      info.appendChild(el("strong", null, d.titulo));
+      var meta = [];
+      if (d.versao) meta.push(d.versao);
+      if (d.nota) meta.push(d.nota);
+      if (d.tamanho) meta.push(tamanho(d.tamanho));
+      if (meta.length) info.appendChild(el("span", null, meta.join(" · ")));
+      var a = el("a", "botao doc-botao");
+      if (d.link) {
+        a.href = d.link; a.target = "_blank"; a.rel = "noopener";
+        a.innerHTML = ICONE_ABRIR + "<span>Abrir</span>";
+        a.setAttribute("aria-label", "Abrir no Google Drive: " + d.titulo);
+      } else {
+        a.href = encodeURI(d.arquivo);
+        a.setAttribute("download", "");
+        a.innerHTML = ICONE_BAIXAR + "<span>Baixar</span>";
+        a.setAttribute("aria-label", "Baixar " + d.titulo + " (" + d.tipo + ", " + tamanho(d.tamanho) + ")");
+      }
+      li.appendChild(tipo); li.appendChild(info); li.appendChild(a);
+      return li;
+    }
+
+    function desenhar() {
+      var termo = semAcento(busca.value.trim());
+      var visiveis = termo
+        ? docs.filter(function (d) { return termo.split(/\s+/).every(function (p) { return d._busca.indexOf(p) >= 0; }); })
+        : docs.filter(function (d) { return d.cat === atual; });
+      Array.prototype.forEach.call(abas.children, function (b) {
+        var ativa = !termo && b.dataset.cat === atual;
+        b.classList.toggle("ativa", ativa);
+        b.setAttribute("aria-selected", ativa ? "true" : "false");
+      });
+      var corAtual = termo ? "busca" : String(cats.map(function (c) { return c.id; }).indexOf(atual) % 4);
+      pasta.dataset.cor = corAtual;
+      lista.innerHTML = "";
+      resultado.textContent = termo
+        ? visiveis.length + (visiveis.length === 1 ? " documento encontrado" : " documentos encontrados") + " para “" + busca.value.trim() + "”"
+        : "";
+      if (!visiveis.length) { lista.appendChild(el("p", "vazio", "Nenhum documento encontrado. Tente outra palavra.")); return; }
+      var grupos = [];
+      visiveis.forEach(function (d) {
+        var chave = (termo ? cats.filter(function (c) { return c.id === d.cat; })[0].nome + " · " : "") + d.sub;
+        var g = grupos.filter(function (x) { return x.nome === chave; })[0];
+        if (!g) { g = { nome: chave, itens: [] }; grupos.push(g); }
+        g.itens.push(d);
+      });
+      grupos.forEach(function (g) {
+        var sec = el("section", "doc-grupo");
+        var h = el("h2", null, g.nome);
+        h.appendChild(el("small", null, g.itens.length + (g.itens.length === 1 ? " arquivo" : " arquivos")));
+        sec.appendChild(h);
+        var ul = el("ul", "doc-lista");
+        g.itens.forEach(function (d) { ul.appendChild(linha(d)); });
+        sec.appendChild(ul);
+        lista.appendChild(sec);
+      });
+    }
+
+    busca.addEventListener("input", desenhar);
+    window.addEventListener("hashchange", function () {
+      var h = location.hash.replace("#", "");
+      if (cats.some(function (c) { return c.id === h; })) { atual = h; busca.value = ""; desenhar(); }
+    });
+    desenhar();
+  }
+
   /* Instagram em links soltos das páginas (data-instagram) */
   function ligarInstagram() {
     document.querySelectorAll("[data-instagram]").forEach(function (a) {
@@ -233,6 +340,7 @@ window.Site = (function () {
     ligarInstagram();
     if (pagina === "lista") montarLista();
     if (pagina === "painel") montarPainel();
+    if (pagina === "documentos") montarDocumentos();
   }
 
   return { iniciar: iniciar };
