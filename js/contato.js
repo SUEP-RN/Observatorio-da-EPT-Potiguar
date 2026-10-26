@@ -3,7 +3,7 @@
 window.CONTATO = {
   email: "suep@educar.rn.gov.br",
   endereco: ["Av. Senador Salgado Filho", "Lagoa Nova · Natal/RN", "CEP 59064-901"],
-  // Na revista aparece @suepseecrn; confira qual é o perfil certo
-  instagram: "https://www.instagram.com/suespseecrn/",
+  // Perfil oficial (o mesmo da revista da EPT)
+  instagram: "https://www.instagram.com/suepseecrn/",
   sitePublico: "https://suep-rn.github.io/Observatorio-da-EPT-Potiguar/"
 };
