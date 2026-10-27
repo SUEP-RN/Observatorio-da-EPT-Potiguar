@@ -71,25 +71,36 @@ window.Site = (function () {
           '<img src="' + raiz("img/logo-suep.png") + '" alt="SUEP">' +
           '<span class="marca-nome">' + nome + "<small>" + sub + "</small></span>" +
         "</a>" +
-        '<button class="menu-botao" type="button" aria-expanded="false" aria-controls="menu-principal">' +
-          '<span aria-hidden="true"><i></i><i></i><i></i></span>Menu</button>' +
-        '<nav class="menu" id="menu-principal" aria-label="Principal">' + menu +
+        '<button class="menu-botao" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir menu">' +
+          '<span aria-hidden="true"><i></i><i></i><i></i></span></button>' +
+        '<nav class="menu" id="menu-principal" aria-label="Principal">' +
+          '<div class="menu-cabeca"><span>Páginas</span>' +
+            '<button class="menu-fechar" type="button" aria-label="Fechar menu">' +
+              '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>' +
+          menu +
           (contato.instagram ? '<a class="menu-insta" href="' + contato.instagram + '" target="_blank" rel="noopener" aria-label="Instagram da SUEP">' + ICONES.instagram + "</a>" : "") +
           '<a class="menu-destaque" href="#contato">Contato</a>' +
         "</nav>" +
+        '<span class="menu-fundo" aria-hidden="true"></span>' +
       "</div>";
 
     lugar.appendChild(faixa);
     lugar.appendChild(topo);
 
-    // em telas menores o menu vira uma lista que abre pelo botão "Menu"
+    // no celular e no tablet o menu é uma gaveta que abre pela esquerda
     var botao = topo.querySelector(".menu-botao");
-    botao.addEventListener("click", function () {
-      var aberto = topo.classList.toggle("menu-aberto");
-      botao.setAttribute("aria-expanded", aberto ? "true" : "false");
-    });
+    function abrir(sim) {
+      topo.classList.toggle("menu-aberto", sim);
+      document.documentElement.classList.toggle("sem-rolagem", sim);
+      botao.setAttribute("aria-expanded", sim ? "true" : "false");
+      if (sim) topo.querySelector(".menu-fechar").focus(); else if (document.activeElement && topo.contains(document.activeElement)) botao.focus();
+    }
+    botao.addEventListener("click", function () { abrir(true); });
+    topo.querySelector(".menu-fechar").addEventListener("click", function () { abrir(false); });
+    topo.querySelector(".menu-fundo").addEventListener("click", function () { abrir(false); });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape" && topo.classList.contains("menu-aberto")) abrir(false); });
     topo.querySelector(".menu").addEventListener("click", function (e) {
-      if (e.target.closest("a")) { topo.classList.remove("menu-aberto"); botao.setAttribute("aria-expanded", "false"); }
+      if (e.target.closest("a")) abrir(false);
     });
   }
 

@@ -478,12 +478,10 @@ h1, h2, h3 { font-family: var(--titulo); line-height: 1.12; margin: 0; }
    ===================================================================== */
 
 /* ---------------------------------------------------------------- menu recolhível */
-.menu-botao { display: none; align-items: center; gap: 10px; font: 700 0.9375rem var(--titulo); color: var(--indigo); background: #eef2fb; border: 0; border-radius: 12px; padding: 10px 14px; cursor: pointer; }
-.menu-botao span { display: grid; gap: 4px; width: 18px; }
-.menu-botao i { display: block; height: 2px; border-radius: 2px; background: currentColor; transition: transform .2s ease, opacity .2s ease; }
-.menu-aberto .menu-botao i:nth-child(1) { transform: translateY(6px) rotate(45deg); }
-.menu-aberto .menu-botao i:nth-child(2) { opacity: 0; }
-.menu-aberto .menu-botao i:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+.menu-botao { display: none; place-items: center; width: 44px; height: 44px; padding: 0; color: var(--indigo); background: #eef2fb; border: 0; border-radius: 12px; cursor: pointer; }
+.menu-botao span { display: grid; gap: 5px; width: 20px; }
+.menu-botao i { display: block; height: 2.5px; border-radius: 2px; background: currentColor; }
+.menu-cabeca, .menu-fundo { display: none; }
 .menu a { padding: 10px 11px; }
 .menu a[aria-current="page"]::after { left: 11px; right: 11px; }
 @media (max-width: 1280px) { .marca-nome, .marca .divisor { display: none; } }
@@ -494,19 +492,29 @@ h1, h2, h3 { font-family: var(--titulo); line-height: 1.12; margin: 0; }
 .menu-longo .menu a { white-space: nowrap; padding: 10px 10px; }
 .menu-longo .menu a[aria-current="page"]::after { left: 10px; right: 10px; }
 @media (max-width: 1240px) { .menu-longo .menu a { font-size: 0.875rem; padding: 10px 8px; } .menu-longo .menu a[aria-current="page"]::after { left: 8px; right: 8px; } }
-@media (max-width: 1100px) { .menu-longo .conteiner { flex-wrap: wrap; } }
+/* celular e tablet: cabeçalho compacto (☰ + logos) e gaveta de páginas pela esquerda */
 @media (max-width: 1100px) {
-  .menu-botao { display: inline-flex; }
-  .menu { display: none; width: 100%; flex-direction: column; align-items: stretch; gap: 2px; padding: 6px 0 10px; border-top: 1px solid var(--cinza-claro); }
-  .menu-aberto .menu { display: flex; }
-  .menu a { padding: 12px 14px; font-size: 1rem; }
-  .menu a[aria-current="page"] { background: #eef2fb; }
-  .menu a[aria-current="page"]::after { left: 0; right: auto; top: 10px; bottom: 10px; width: 4px; height: auto; }
-  .menu .menu-insta { display: flex; align-items: center; width: auto; height: auto; padding: 12px 14px; }
+  .topo .conteiner { display: grid; grid-template-columns: 44px 1fr 44px; gap: 8px; min-height: 60px; padding-top: 6px; padding-bottom: 6px; }
+  .menu-botao { display: grid; grid-column: 1; grid-row: 1; }
+  .topo .marca { grid-column: 2; grid-row: 1; justify-self: center; margin: 0; gap: 10px; }
+  .topo .marca img { height: 36px; }
+  .topo .marca .divisor { display: block; height: 28px; }
+  .topo .menu { position: fixed; top: 0; left: 0; bottom: 0; z-index: 70; width: min(300px, 84vw); display: flex; flex-direction: column; align-items: stretch; gap: 2px; padding: 14px 14px 28px; background: var(--branco); overflow-y: auto; box-shadow: 12px 0 40px rgba(20, 26, 60, .25); transform: translateX(-105%); visibility: hidden; transition: transform .28s ease, visibility 0s linear .28s; }
+  .menu-aberto .menu { transform: none; visibility: visible; transition: transform .28s ease; }
+  .menu-fundo { display: block; position: fixed; inset: 0; z-index: 65; background: rgba(20, 26, 60, .45); opacity: 0; pointer-events: none; transition: opacity .25s ease; }
+  .menu-aberto .menu-fundo { opacity: 1; pointer-events: auto; }
+  .menu-cabeca { display: flex; align-items: center; justify-content: space-between; padding: 2px 2px 12px 6px; margin-bottom: 8px; border-bottom: 2px solid var(--cinza-claro); font: 800 1.125rem var(--titulo); color: var(--indigo); }
+  .menu-fechar { display: grid; place-items: center; width: 40px; height: 40px; border: 0; border-radius: 10px; background: #eef2fb; color: var(--indigo); cursor: pointer; }
+  .menu-fechar svg { width: 20px; height: 20px; }
+  .topo .menu a { padding: 12px 14px; font-size: 1rem; border-radius: 12px; white-space: normal; }
+  .topo .menu a[aria-current="page"] { background: #eef2fb; }
+  .topo .menu a[aria-current="page"]::after { left: 0; right: auto; top: 10px; bottom: 10px; width: 4px; height: auto; }
+  .topo .menu .menu-insta { display: flex; align-items: center; width: auto; height: auto; padding: 12px 14px; }
   .menu .menu-insta::after { content: "Instagram da SUEP"; font: 600 1rem var(--titulo); color: var(--indigo); margin-left: 10px; }
-  .menu .menu-destaque { margin: 6px 0 0; text-align: center; }
-  .topo { max-height: 100vh; overflow-y: auto; }
+  .topo .menu .menu-destaque { margin: 10px 0 0; text-align: center; }
+  html.sem-rolagem { overflow: hidden; }
 }
+@media (prefers-reduced-motion: reduce) { .topo .menu, .menu-fundo { transition: none; } }
 
 /* ---------------------------------------------------------------- abertura das abas (mesma da página A SUEP, com cor própria) */
 .sobre-abertura { background: var(--fundo, var(--azul)); }
