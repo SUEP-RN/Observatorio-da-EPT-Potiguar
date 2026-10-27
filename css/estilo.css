@@ -79,7 +79,8 @@ h1, h2, h3 { font-family: var(--titulo); line-height: 1.12; margin: 0; }
 .etiqueta { display: inline-block; background: var(--indigo); color: #fff; font: 800 clamp(1.6rem, 3.4vw, 2.6rem)/1.1 var(--titulo); padding: 0.45em 0.7em 0.5em; border-radius: 0.55em; }
 .etiqueta em { font-style: normal; color: var(--amarelo); }
 .etiqueta.pequena { font-size: clamp(1.25rem, 2.4vw, 1.7rem); }
-.sobretitulo { display: flex; width: fit-content; align-items: center; gap: 10px; font: 700 0.8125rem var(--titulo); letter-spacing: .12em; text-transform: uppercase; color: var(--coral); }
+/* contexto do título (data, parceiro, tema): só onde traz informação, em letra normal */
+.sobretitulo { display: flex; width: fit-content; align-items: center; gap: 10px; font: 600 0.9688rem var(--titulo); color: var(--coral); }
 .sobretitulo::before { content: ""; width: 34px; height: 3px; border-radius: 3px; background: currentColor; }
 
 /* Moldura de linha fina com canto arredondado (o contorno que abraça os textos na revista) */

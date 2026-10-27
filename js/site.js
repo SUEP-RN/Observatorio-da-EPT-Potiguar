@@ -187,7 +187,7 @@ window.Site = (function () {
     }
     var rodape = el("div", "painel-rodape");
     rodape.appendChild(el("small", null, (p.paginas || []).length + " páginas · " + (p.atualizado || "")));
-    var botao = el("a", "botao indigo", "Abrir painel →");
+    var botao = el("a", "botao indigo", "Abrir painel");
     botao.href = "painel.html?id=" + encodeURIComponent(p.id);
     rodape.appendChild(botao);
     corpo.appendChild(rodape);
