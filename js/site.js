@@ -1,6 +1,6 @@
 /* Monta as partes comuns (topo, rodapé) e as listas.
    O mesmo arquivo serve aos dois sites, que ficam em endereços separados:
-     - site público da SUEP/EPT: Site.iniciar("inicio" | "sobre")
+     - site público da SUEP/EPT: Site.iniciar("inicio" | "ept" | "sobre" | "acompanhamento" | "boas-praticas" | "agenda" | "documentos")
      - site dos painéis (uso interno): Site.iniciar("lista" | "painel", "paineis")
    Não precisa editar este arquivo: contato em js/contato.js e painéis em js/paineis.js. */
 window.Site = (function () {
@@ -42,11 +42,19 @@ window.Site = (function () {
     if (SITE === "paineis") {
       itens = [["index.html", "Painéis", "lista"]];
       if (contato.sitePublico) {
-        itens.push([contato.sitePublico, "Site da SUEP", ""], [contato.sitePublico + "sobre.html", "A SUEP e a EPT", ""]);
+        itens.push([contato.sitePublico, "Site da SUEP", ""], [contato.sitePublico + "ept.html", "EPT estadual", ""], [contato.sitePublico + "sobre.html", "A SUEP", ""]);
       }
       nome = "Painéis da EPT/RN"; sub = "Uso interno · SUEP/SEEC-RN"; inicio = "index.html";
     } else {
-      itens = [["index.html", "Início", "inicio"], ["sobre.html", "A SUEP e a EPT", "sobre"], ["documentos.html", "Documentos", "documentos"]];
+      itens = [
+        ["index.html", "Início", "inicio"],
+        ["ept.html", "EPT estadual", "ept"],
+        ["sobre.html", "A SUEP", "sobre"],
+        ["acompanhamento.html", "Acompanhamento", "acompanhamento"],
+        ["boas-praticas.html", "Boas práticas", "boas-praticas"],
+        ["agenda.html", "Agenda formativa", "agenda"],
+        ["documentos.html", "Documentos", "documentos"]
+      ];
       nome = "SUEP · EPT/RN"; sub = "Subcoordenadoria de Educação Profissional e Tecnológica"; inicio = "index.html";
     }
     var menu = itens.map(function (i) {
@@ -62,7 +70,9 @@ window.Site = (function () {
           '<img src="' + raiz("img/logo-suep.png") + '" alt="SUEP">' +
           '<span class="marca-nome">' + nome + "<small>" + sub + "</small></span>" +
         "</a>" +
-        '<nav class="menu" aria-label="Principal">' + menu +
+        '<button class="menu-botao" type="button" aria-expanded="false" aria-controls="menu-principal">' +
+          '<span aria-hidden="true"><i></i><i></i><i></i></span>Menu</button>' +
+        '<nav class="menu" id="menu-principal" aria-label="Principal">' + menu +
           (contato.instagram ? '<a class="menu-insta" href="' + contato.instagram + '" target="_blank" rel="noopener" aria-label="Instagram da SUEP">' + ICONES.instagram + "</a>" : "") +
           '<a class="menu-destaque" href="#contato">Contato</a>' +
         "</nav>" +
@@ -70,6 +80,16 @@ window.Site = (function () {
 
     lugar.appendChild(faixa);
     lugar.appendChild(topo);
+
+    // em telas menores o menu vira uma lista que abre pelo botão "Menu"
+    var botao = topo.querySelector(".menu-botao");
+    botao.addEventListener("click", function () {
+      var aberto = topo.classList.toggle("menu-aberto");
+      botao.setAttribute("aria-expanded", aberto ? "true" : "false");
+    });
+    topo.querySelector(".menu").addEventListener("click", function (e) {
+      if (e.target.closest("a")) { topo.classList.remove("menu-aberto"); botao.setAttribute("aria-expanded", "false"); }
+    });
   }
 
   /* ------------------------------------------------------------ rodapé */
@@ -347,6 +367,10 @@ window.Site = (function () {
   function ligarInstagram() {
     document.querySelectorAll("[data-instagram]").forEach(function (a) {
       if (contato.instagram) a.href = contato.instagram; else a.hidden = true;
+    });
+    document.querySelectorAll("[data-email]").forEach(function (a) {
+      if (contato.email) { a.href = "mailto:" + contato.email; if (a.hasAttribute("data-email-texto")) a.textContent = contato.email; }
+      else a.hidden = true;
     });
   }
 
