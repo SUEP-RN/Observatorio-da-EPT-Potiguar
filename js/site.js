@@ -61,7 +61,8 @@ window.Site = (function () {
       return '<a href="' + i[0] + '"' + (i[2] && i[2] === atual ? ' aria-current="page"' : "") + ">" + i[1] + "</a>";
     }).join("");
 
-    var topo = el("header", "topo");
+    // com muitas abas, o nome ao lado dos logos sai para o menu caber na mesma linha
+    var topo = el("header", "topo" + (itens.length > 3 ? " menu-longo" : ""));
     topo.innerHTML =
       '<div class="conteiner">' +
         '<a class="marca" href="' + inicio + '" aria-label="' + nome + ', página inicial">' +
