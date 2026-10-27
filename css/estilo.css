@@ -530,11 +530,32 @@ h1, h2, h3 { font-family: var(--titulo); line-height: 1.12; margin: 0; }
 .sobre-abertura .conteiner > div:first-child { --tam: clamp(2.6rem, 7vw, 5rem); }
 .sobre-abertura .conteiner > div:first-child:has(.etiqueta.media) { --tam: clamp(2.2rem, 5.4vw, 3.8rem); }
 .docs-abertura .conteiner { --tam: clamp(2rem, 4.6vw, 3.2rem); }
-.abertura .abertura-texto .etiqueta, .sobre-abertura .conteiner .etiqueta, .docs-abertura .conteiner .etiqueta { font-size: var(--tam); }
-.abertura .abertura-texto > :not(.etiqueta),
-.sobre-abertura .conteiner > div:first-child > :not(.etiqueta),
-.docs-abertura .conteiner > :not(.etiqueta) { margin-left: calc(var(--tam) * 0.7); }
-.abertura .abertura-texto p, .sobre-abertura .conteiner > div:first-child > p { max-width: 38ch; }
+/* painel da capa: título, texto e botões dentro da mesma caixa, com a moldura de linha da revista no canto.
+   Assim as bordas esquerda e direita do texto sempre coincidem com as do título. */
+.docs-abertura .capa-texto { --tam: clamp(2rem, 4.6vw, 3.2rem); max-width: 760px; }
+.abertura .abertura-texto, .sobre-abertura .conteiner > div:first-child, .docs-abertura .capa-texto {
+  position: relative; background: var(--painel, var(--indigo)); color: #fff;
+  border-radius: 34px; padding: clamp(26px, 3.4vw, 44px);
+  box-shadow: 0 18px 40px rgba(12, 18, 54, .22);
+}
+.abertura .abertura-texto::before, .sobre-abertura .conteiner > div:first-child::before, .docs-abertura .capa-texto::before {
+  content: ""; position: absolute; top: -14px; right: -14px; width: 58%; height: 72%;
+  border-top: var(--linha) solid var(--moldura, var(--amarelo)); border-right: var(--linha) solid var(--moldura, var(--amarelo));
+  border-top-right-radius: 46px; pointer-events: none;
+}
+.abertura .abertura-texto .etiqueta, .sobre-abertura .conteiner .etiqueta, .docs-abertura .capa-texto .etiqueta {
+  display: block; font-size: var(--tam); background: none; padding: 0; border-radius: 0;
+}
+.abertura .abertura-texto p, .sobre-abertura .conteiner > div:first-child > p, .docs-abertura .capa-texto p {
+  max-width: none; margin: 18px 0 0; color: #e6eaf8;
+}
+.abertura .abertura-texto .acoes { margin-top: 26px; }
+.sobre-abertura .conteiner > div:first-child .arroba, .sobre-abertura .conteiner > div:first-child .abertura-chips { margin-top: 20px; }
+.docs-abertura .capa-texto .docs-busca { margin-top: 22px; }
+.abertura { --painel: #3771ae; }
+.sobre-abertura.clara { --moldura: var(--coral); }
+.sobre-abertura.clara .conteiner > div:first-child, .sobre-abertura.clara .conteiner > div:first-child p { color: #fff; }
+.sobre-abertura.clara .conteiner > div:first-child p { color: #e6eaf8; }
 
 /* capa clara (amarela): textos em índigo */
 .sobre-abertura.clara { color: var(--indigo); }
