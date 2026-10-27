@@ -103,6 +103,8 @@ h1, h2, h3 { font-family: var(--titulo); line-height: 1.12; margin: 0; }
 .abertura .conteiner { position: relative; display: grid; grid-template-columns: 1.05fr 1fr; gap: 48px; align-items: center; padding-top: 64px; padding-bottom: 150px; }
 .abertura .etiqueta { font-size: clamp(2rem, 4.6vw, 3.4rem); background: #3771ae; }
 .abertura .colagem .contorno { border-color: var(--amarelo); }
+/* contorno branco no mapa: as linhas escuras (como a hélice de cima) não somem no fundo azul-escuro */
+.abertura .colagem .rn { filter: drop-shadow(2px 0 0 #fff) drop-shadow(-2px 0 0 #fff) drop-shadow(0 2px 0 #fff) drop-shadow(0 -2px 0 #fff) drop-shadow(0 8px 14px rgba(10, 14, 40, .35)); }
 .abertura .etiqueta em { display: block; } /* parte amarela sempre numa linha própria */
 .etiqueta .trecho { white-space: nowrap; } /* quebra de linha só entre os pares de palavras */
 .abertura-texto p { font-size: 1.1875rem; color: #eef2ff; max-width: 34ch; margin: 22px 0 28px; }
