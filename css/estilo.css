@@ -522,6 +522,18 @@ h1, h2, h3 { font-family: var(--titulo); line-height: 1.12; margin: 0; }
 .sobre-abertura .etiqueta.media { font-size: clamp(2.2rem, 5.4vw, 3.8rem); }
 .sobre-abertura .etiqueta.media em { display: block; }
 .sobre-abertura .bolha-coral { background: var(--bolha, var(--coral)); }
+/* alinhamento óptico das capas: o texto, os botões e a busca começam na mesma linha
+   da letra do título, e não na borda da caixa índigo (que tem margem interna de 0,7em) */
+.abertura-texto { --tam: clamp(2rem, 4.6vw, 3.4rem); }
+.sobre-abertura .conteiner > div:first-child { --tam: clamp(2.6rem, 7vw, 5rem); }
+.sobre-abertura .conteiner > div:first-child:has(.etiqueta.media) { --tam: clamp(2.2rem, 5.4vw, 3.8rem); }
+.docs-abertura .conteiner { --tam: clamp(2rem, 4.6vw, 3.2rem); }
+.abertura .abertura-texto .etiqueta, .sobre-abertura .conteiner .etiqueta, .docs-abertura .conteiner .etiqueta { font-size: var(--tam); }
+.abertura .abertura-texto > :not(.etiqueta),
+.sobre-abertura .conteiner > div:first-child > :not(.etiqueta),
+.docs-abertura .conteiner > :not(.etiqueta) { margin-left: calc(var(--tam) * 0.7); }
+.abertura .abertura-texto p, .sobre-abertura .conteiner > div:first-child > p { max-width: 38ch; }
+
 /* capa clara (amarela): textos em índigo */
 .sobre-abertura.clara { color: var(--indigo); }
 .sobre-abertura.clara p { color: var(--tinta); }
