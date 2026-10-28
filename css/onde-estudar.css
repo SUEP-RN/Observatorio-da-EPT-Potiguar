@@ -1,0 +1,62 @@
+/* =====================================================================
+   Encontre seu curso técnico (rascunho, ainda fora do menu)
+   ===================================================================== */
+.onde-abertura .conteiner { grid-template-columns: 0.9fr 1.1fr; align-items: center; }
+
+/* filtros dentro do painel da capa */
+.filtros { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 22px; }
+.campo { display: grid; gap: 6px; }
+.campo span { font: 600 0.875rem var(--titulo); color: #dfe4f8; }
+.campo input, .campo select { width: 100%; font: 500 1rem var(--texto); color: var(--tinta); background: #fff; border: 2px solid transparent; border-radius: 12px; padding: 11px 12px; min-height: 46px; }
+.campo input:focus, .campo select:focus { outline: none; border-color: var(--amarelo); }
+.limpar { grid-column: 1 / -1; justify-self: start; font: 700 0.9375rem var(--titulo); color: var(--amarelo); background: none; border: 0; padding: 4px 0; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+
+/* mapa: o elemento principal da página */
+.mapa-rn { position: relative; margin: 0; }
+.mapa-rn svg { width: 100%; height: auto; display: block; overflow: visible; filter: drop-shadow(0 16px 26px rgba(12, 30, 70, .28)); }
+/* cores por número de unidades: amarelo → laranja → vermelho da revista; sem oferta fica claro */
+.mapa-rn { --sem: #e6eef7; --c1: var(--amarelo); --c2: #f08a24; --c3: var(--vermelho); }
+.mapa-rn path { fill: var(--sem); stroke: #2f86c4; stroke-width: 1.2; stroke-linejoin: round; transition: fill .15s ease; }
+.mapa-rn path.n1 { fill: var(--c1); }
+.mapa-rn path.n2 { fill: var(--c2); }
+.mapa-rn path.n3 { fill: var(--c3); }
+.mapa-rn path.tem { cursor: pointer; }
+.mapa-rn path.tem:hover, .mapa-rn path.tem:focus { fill: var(--lima); outline: none; }
+.mapa-rn path.apagado { fill: #c9d6e6; }
+.mapa-rn path.escolhido { fill: var(--indigo); }
+.mapa-legenda { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 18px; margin-top: 16px; font: 500 0.875rem var(--texto); color: #fff; }
+.mapa-legenda span { display: inline-flex; align-items: center; gap: 6px; }
+.mapa-legenda i { width: 14px; height: 14px; border-radius: 4px; border: 1px solid rgba(255,255,255,.7); }
+.mapa-legenda .n1 { background: var(--c1); } .mapa-legenda .n2 { background: var(--c2); } .mapa-legenda .n3 { background: var(--c3); } .mapa-legenda .n0 { background: var(--sem); }
+.unid .a-confirmar { display: block; margin-top: 10px; font-size: 0.875rem; color: var(--suave); font-style: italic; }
+.mapa-dica { position: absolute; z-index: 5; pointer-events: none; transform: translate(-50%, calc(-100% - 12px)); background: var(--indigo); color: #fff; font: 600 0.875rem var(--titulo); padding: 6px 10px; border-radius: 8px; white-space: nowrap; }
+
+/* resultados */
+.resultados { padding-top: 48px; }
+.resumo { font-size: clamp(1.3rem, 2.4vw, 1.75rem); color: var(--indigo); margin-bottom: 22px; }
+.cidade { margin-bottom: 30px; }
+.cidade h3 { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; font-size: 1.25rem; color: var(--indigo); padding-bottom: 10px; border-bottom: 2px solid var(--cinza-claro); margin-bottom: 14px; }
+.cidade h3 small { font: 500 0.875rem var(--texto); color: var(--suave); }
+.unidades-lista { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 14px; }
+.unid { background: var(--branco); border-radius: 18px; padding: 16px 18px 18px; border-left: 6px solid var(--cor, var(--ceu)); }
+.unid[data-tipo="IERN"] { --cor: var(--coral); }
+.unid[data-tipo="CEEP"], .unid[data-tipo="CENEP"] { --cor: var(--amarelo); }
+.unid[data-tipo="Escola"] { --cor: var(--lima); }
+.unid strong { display: block; font: 700 1.0625rem/1.3 var(--titulo); color: var(--tinta); }
+.unid .meta { display: block; margin-top: 4px; font-size: 0.875rem; color: var(--suave); }
+.unid .cursos-unid { display: flex; flex-wrap: wrap; gap: 6px; margin: 12px 0 0; padding: 0; list-style: none; }
+.unid .cursos-unid button { font: 600 0.8125rem var(--titulo); color: var(--indigo); background: #eef2fb; border: 0; border-radius: 99px; padding: 5px 11px; cursor: pointer; }
+.unid .cursos-unid button:hover { background: #dfe7f8; }
+.unid .cursos-unid button[aria-pressed="true"] { background: var(--indigo); color: #fff; }
+.vazio-busca { background: var(--branco); border-radius: 18px; padding: 24px; color: var(--suave); }
+.vazio-busca b { color: var(--indigo); }
+
+@media (max-width: 960px) {
+  .onde-abertura .conteiner { grid-template-columns: 1fr; }
+  .mapa-rn { max-width: 680px; }
+}
+@media (max-width: 640px) {
+  .filtros { grid-template-columns: 1fr; }
+  .unidades-lista { grid-template-columns: 1fr; }
+  .mapa-rn path { stroke-width: 0.8; }
+}

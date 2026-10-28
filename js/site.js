@@ -49,6 +49,7 @@ window.Site = (function () {
       itens = [
         ["index.html", "Início", "inicio"],
         ["ept.html", "EPT estadual", "ept"],
+        ["onde-estudar.html", "Onde estudar", "onde-estudar"],
         ["sobre.html", "A SUEP", "sobre"],
         ["acompanhamento.html", "Acompanhamento", "acompanhamento"],
         ["boas-praticas.html", "Boas práticas", "boas-praticas"],

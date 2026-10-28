@@ -490,13 +490,15 @@ h1, h2, h3 { font-family: var(--titulo); line-height: 1.12; margin: 0; }
 @media (max-width: 1280px) { .marca-nome, .marca .divisor { display: none; } }
 /* site público: logos e menu sempre na mesma linha */
 .menu-longo .marca-nome { display: none; }
+.marca { flex-shrink: 0; } /* os logos nunca encolhem para o menu caber */
+.menu-longo .conteiner { max-width: 1360px; } /* com 8 abas, o cabeçalho usa mais largura que o conteúdo */
 .menu-longo .conteiner { flex-wrap: nowrap; }
 .menu-longo .menu { flex-wrap: nowrap; }
 .menu-longo .menu a { white-space: nowrap; padding: 10px 10px; }
 .menu-longo .menu a[aria-current="page"]::after { left: 10px; right: 10px; }
-@media (max-width: 1240px) { .menu-longo .menu a { font-size: 0.875rem; padding: 10px 8px; } .menu-longo .menu a[aria-current="page"]::after { left: 8px; right: 8px; } }
+@media (max-width: 1380px) { .menu-longo .menu a { font-size: 0.875rem; padding: 10px 8px; } .menu-longo .menu a[aria-current="page"]::after { left: 8px; right: 8px; } }
 /* celular e tablet: cabeçalho compacto (☰ + logos) e gaveta de páginas pela esquerda */
-@media (max-width: 1100px) {
+@media (max-width: 1240px) {
   .topo .conteiner { display: grid; grid-template-columns: 44px 1fr 44px; gap: 8px; min-height: 60px; padding-top: 6px; padding-bottom: 6px; }
   .menu-botao { display: grid; grid-column: 1; grid-row: 1; }
   .topo .marca { grid-column: 2; grid-row: 1; justify-self: center; margin: 0; gap: 10px; }
@@ -729,7 +731,8 @@ h1, h2, h3 { font-family: var(--titulo); line-height: 1.12; margin: 0; }
 .documento-destaque p { margin: 0 0 12px; color: var(--suave); }
 
 /* ---------------------------------------------------------------- início: atalhos para as abas */
-.atalhos { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+.atalhos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.atalho:nth-child(6) { --cor: var(--indigo); }
 .atalho { display: flex; flex-direction: column; gap: 8px; text-decoration: none; background: var(--branco); border-radius: 22px; padding: 22px 20px; box-shadow: 0 1px 0 var(--cinza-claro), 0 12px 26px rgba(34,43,99,.07); border-bottom: 6px solid var(--cor, var(--coral)); transition: transform .15s ease; }
 .atalho:hover { transform: translateY(-4px); }
 .atalho:nth-child(2) { --cor: var(--amarelo); }

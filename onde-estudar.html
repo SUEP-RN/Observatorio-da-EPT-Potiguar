@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Encontre seu curso técnico · SUEP/SEEC-RN</title>
+  <meta name="description" content="Busque por município ou curso as escolas, CEEPs e IERNs da rede estadual do RN que ofertam cursos técnicos.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Rubik:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/estilo.css?v=20261028">
+  <link rel="stylesheet" href="css/onde-estudar.css?v=2">
+</head>
+<body>
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+  <div id="topo"></div>
+
+  <main id="conteudo">
+    <section class="sobre-abertura onde-abertura" style="--fundo: #2f86c4; --bolha: var(--lima)">
+      <span class="bolha-coral" aria-hidden="true"></span>
+      <div class="conteiner">
+        <div>
+          <h1 class="etiqueta media">Encontre seu <em>curso técnico</em></h1>
+          <p>Veja onde a rede estadual oferta cada curso. Busque pelo seu município ou escolha um curso, e toque no mapa para ver as unidades de cada cidade.</p>
+          <form class="filtros" id="filtros" role="search" onsubmit="return false">
+            <label class="campo">
+              <span>Município ou escola</span>
+              <input id="f-texto" type="search" list="lista-municipios" placeholder="Ex.: Mossoró" autocomplete="off">
+              <datalist id="lista-municipios"></datalist>
+            </label>
+            <label class="campo">
+              <span>Curso</span>
+              <select id="f-curso"><option value="">Todos os cursos</option></select>
+            </label>
+            <button class="limpar" id="f-limpar" type="button" hidden>Limpar busca</button>
+          </form>
+        </div>
+        <figure class="mapa-rn" id="mapa">
+          <svg id="mapa-svg" role="img" aria-labelledby="mapa-titulo"><title id="mapa-titulo">Mapa do Rio Grande do Norte com os municípios que têm cursos técnicos da rede estadual</title></svg>
+          <figcaption class="mapa-legenda" aria-hidden="true">
+            <span><i class="n1"></i>1 unidade</span><span><i class="n2"></i>2 ou 3</span><span><i class="n3"></i>4 ou mais</span><span><i class="n0"></i>sem oferta</span>
+          </figcaption>
+          <div class="mapa-dica" id="mapa-dica" hidden></div>
+        </figure>
+      </div>
+      <div class="ondas" aria-hidden="true">
+        <svg viewBox="0 0 1440 130" preserveAspectRatio="none">
+          <path d="M0 60 C 220 10, 420 120, 700 70 S 1160 0, 1440 50 V130 H0 Z" fill="#fac133"/>
+          <path d="M0 88 C 260 50, 520 126, 820 90 S 1250 58, 1440 86 V130 H0 Z" fill="#a9c92b"/>
+          <path d="M0 102 C 300 80, 640 128, 960 104 S 1300 88, 1440 100 V130 H0 Z" fill="#e9584f"/>
+          <path d="M0 116 C 320 98, 660 132, 980 116 S 1320 104, 1440 114 V130 H0 Z" fill="#fbfaf6"/>
+        </svg>
+      </div>
+    </section>
+
+    <section class="secao fim-pagina resultados" aria-labelledby="resumo">
+      <div class="conteiner">
+        <h2 class="resumo" id="resumo" aria-live="polite"></h2>
+        <div id="lista"></div>
+        <p class="fonte">Unidades com EPT em 2026, conforme a pesquisa de visitas técnicas da SUEP. Os cursos de cada unidade são os de 2025, da planilha da SUEP. Antes de se matricular, confirme as vagas e o turno com a escola ou com a DIREC da sua região. Mapa: malha municipal do IBGE.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape" id="rodape"></footer>
+
+  <script src="js/contato.js?v=20261028"></script>
+  <script src="js/site.js?v=20261028"></script>
+  <script src="js/onde-estudar.js?v=2"></script>
+  <script src="js/onde-estudar-pagina.js?v=2"></script>
+  <script>Site.iniciar("onde-estudar");</script>
+</body>
+</html>
