@@ -5,6 +5,7 @@
 
 /* filtros dentro do painel da capa */
 .filtros { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 22px; }
+.filtros .campo:first-child { grid-column: 1 / -1; }
 .campo { display: grid; gap: 6px; }
 .campo span { font: 600 0.875rem var(--titulo); color: #dfe4f8; }
 .campo input, .campo select { width: 100%; font: 500 1rem var(--texto); color: var(--tinta); background: #fff; border: 2px solid transparent; border-radius: 12px; padding: 11px 12px; min-height: 46px; }
@@ -44,7 +45,29 @@
 .unid[data-tipo="Escola"] { --cor: var(--lima); }
 .unid strong { display: block; font: 700 1.0625rem/1.3 var(--titulo); color: var(--tinta); }
 .unid .meta { display: block; margin-top: 4px; font-size: 0.875rem; color: var(--suave); }
-.unid .cursos-unid { display: flex; flex-wrap: wrap; gap: 6px; margin: 12px 0 0; padding: 0; list-style: none; }
+/* cursos da unidade: um por linha, com as formas de oferta ao lado */
+.unid .cursos-unid { display: grid; gap: 6px; margin: 12px 0 0; padding: 0; list-style: none; }
+.unid .cursos-unid li { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.forma { font: 700 0.6875rem var(--titulo); padding: 3px 8px; border-radius: 6px; background: var(--fc, #eef4d6); color: var(--ft, #4f6f10); }
+.forma-ejatec { --fc: #fde7e5; --ft: #b4332b; }
+.forma-concomitante { --fc: #fdf1d2; --ft: #8a5d00; }
+.forma-subsequente { --fc: #e3f1fb; --ft: #1f5f8f; }
+
+/* quadro das formas de oferta */
+.formas-oferta { padding-bottom: 20px; }
+.formas { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.forma-cartao { display: flex; flex-direction: column; background: var(--branco); border-radius: 22px; padding: 22px 22px 20px; border-top: 6px solid var(--bc, var(--lima)); box-shadow: 0 1px 0 var(--cinza-claro), 0 12px 26px rgba(34,43,99,.07); }
+.forma-cartao[data-cor="ejatec"] { --bc: var(--coral); }
+.forma-cartao[data-cor="concomitante"] { --bc: var(--amarelo); }
+.forma-cartao[data-cor="subsequente"] { --bc: var(--ceu); }
+.forma-cartao h3 { font-size: 1.25rem; color: var(--indigo); }
+.forma-cartao .quem { font: 600 1rem/1.4 var(--titulo); color: var(--tinta); margin: 10px 0 8px; }
+.forma-cartao p { margin: 0 0 12px; color: var(--suave); font-size: 0.9688rem; }
+.forma-cartao dl { margin: 0 0 16px; font-size: 0.9375rem; }
+.forma-cartao dt { font: 700 0.8125rem var(--titulo); color: var(--indigo); }
+.forma-cartao dd { margin: 2px 0 0; color: var(--tinta); }
+.forma-cartao .botao { margin-top: auto; align-self: flex-start; padding: 10px 16px; font-size: 0.875rem; }
+.forma-cartao .botao span { font-weight: 500; }
 .unid .cursos-unid button { font: 600 0.8125rem var(--titulo); color: var(--indigo); background: #eef2fb; border: 0; border-radius: 99px; padding: 5px 11px; cursor: pointer; }
 .unid .cursos-unid button:hover { background: #dfe7f8; }
 .unid .cursos-unid button[aria-pressed="true"] { background: var(--indigo); color: #fff; }
@@ -52,11 +75,13 @@
 .vazio-busca b { color: var(--indigo); }
 
 @media (max-width: 960px) {
+  .formas { grid-template-columns: 1fr 1fr; }
   .onde-abertura .conteiner { grid-template-columns: 1fr; }
   .mapa-rn { max-width: 680px; }
 }
 @media (max-width: 640px) {
   .filtros { grid-template-columns: 1fr; }
+  .formas { grid-template-columns: 1fr; }
   .unidades-lista { grid-template-columns: 1fr; }
   .mapa-rn path { stroke-width: 0.8; }
 }

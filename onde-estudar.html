@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Rubik:wght@500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/estilo.css?v=20261028">
-  <link rel="stylesheet" href="css/onde-estudar.css?v=2">
+  <link rel="stylesheet" href="css/onde-estudar.css?v=3">
 </head>
 <body>
   <a class="pular" href="#conteudo">Pular para o conteúdo</a>
@@ -32,6 +32,16 @@
               <span>Curso</span>
               <select id="f-curso"><option value="">Todos os cursos</option></select>
             </label>
+            <label class="campo">
+              <span>Forma de oferta</span>
+              <select id="f-forma">
+                <option value="">Todas as formas</option>
+                <option value="integrado">Integrado ao ensino médio</option>
+                <option value="ejatec">EJATEC</option>
+                <option value="concomitante">Concomitante</option>
+                <option value="subsequente">Subsequente</option>
+              </select>
+            </label>
             <button class="limpar" id="f-limpar" type="button" hidden>Limpar busca</button>
           </form>
         </div>
@@ -53,11 +63,52 @@
       </div>
     </section>
 
+    <!-- As quatro formas de oferta -->
+    <section class="secao formas-oferta" id="formas" aria-labelledby="titulo-formas">
+      <div class="conteiner">
+        <div class="secao-cabeca">
+          <h2 id="titulo-formas" class="etiqueta pequena">Qual forma de curso é para você</h2>
+          <p>A rede estadual oferta os cursos técnicos de quatro formas. O que muda é em que etapa dos estudos você está.</p>
+        </div>
+        <div class="formas">
+          <article class="forma-cartao" data-cor="integrado">
+            <h3>Integrado ao ensino médio</h3>
+            <p class="quem">Para quem terminou o 9º ano do ensino fundamental.</p>
+            <p>Você faz o ensino médio e o curso técnico juntos, na mesma escola e com uma só matrícula, em 3 anos. Ao final, recebe o certificado do ensino médio e o diploma de técnico.</p>
+            <dl><dt>Carga horária</dt><dd>3.000h em tempo parcial, ou 4.000h e 4.500h em tempo integral</dd></dl>
+            <button class="botao contorno-indigo" type="button" data-forma="integrado">Ver onde tem <span data-conta="integrado"></span></button>
+          </article>
+          <article class="forma-cartao" data-cor="ejatec">
+            <h3>EJATEC</h3>
+            <p class="quem">Para jovens e adultos que não concluíram o ensino médio.</p>
+            <p>É a Educação de Jovens e Adultos (EJA) integrada ao curso técnico: você conclui o ensino médio e se forma técnico ao mesmo tempo, em módulos.</p>
+            <dl><dt>Carga horária</dt><dd>2.000h</dd></dl>
+            <button class="botao contorno-indigo" type="button" data-forma="ejatec">Ver onde tem <span data-conta="ejatec"></span></button>
+          </article>
+          <article class="forma-cartao" data-cor="concomitante">
+            <h3>Concomitante</h3>
+            <p class="quem">Para quem está cursando o ensino médio.</p>
+            <p>Você faz o curso técnico em outro turno, na mesma escola ou em outra, com matrículas separadas. Termina o ensino médio de um lado e o técnico do outro.</p>
+            <dl><dt>Carga horária</dt><dd>1.200h</dd></dl>
+            <button class="botao contorno-indigo" type="button" data-forma="concomitante">Ver onde tem <span data-conta="concomitante"></span></button>
+          </article>
+          <article class="forma-cartao" data-cor="subsequente">
+            <h3>Subsequente</h3>
+            <p class="quem">Para quem já concluiu o ensino médio.</p>
+            <p>Você faz só o curso técnico, organizado em períodos, para se profissionalizar depois da escola.</p>
+            <dl><dt>Carga horária</dt><dd>1.200h</dd></dl>
+            <button class="botao contorno-indigo" type="button" data-forma="subsequente">Ver onde tem <span data-conta="subsequente"></span></button>
+          </article>
+        </div>
+        <p class="fonte">As estruturas curriculares de cada forma de oferta estão em <a href="documentos.html#estruturas">Documentos</a>.</p>
+      </div>
+    </section>
+
     <section class="secao fim-pagina resultados" aria-labelledby="resumo">
       <div class="conteiner">
         <h2 class="resumo" id="resumo" aria-live="polite"></h2>
         <div id="lista"></div>
-        <p class="fonte">Unidades com EPT em 2026, conforme a pesquisa de visitas técnicas da SUEP. Os cursos de cada unidade são os de 2025, da planilha da SUEP. Antes de se matricular, confirme as vagas e o turno com a escola ou com a DIREC da sua região. Mapa: malha municipal do IBGE.</p>
+        <p class="fonte">Oferta de 2026, conforme a planilha “Oferta EPT 2026” da SUEP. Antes de se matricular, confirme as vagas e o turno com a escola ou com a DIREC da sua região. Mapa: malha municipal do IBGE.</p>
       </div>
     </section>
   </main>
@@ -66,8 +117,8 @@
 
   <script src="js/contato.js?v=20261028"></script>
   <script src="js/site.js?v=20261028"></script>
-  <script src="js/onde-estudar.js?v=2"></script>
-  <script src="js/onde-estudar-pagina.js?v=2"></script>
+  <script src="js/onde-estudar.js?v=3"></script>
+  <script src="js/onde-estudar-pagina.js?v=3"></script>
   <script>Site.iniciar("onde-estudar");</script>
 </body>
 </html>
