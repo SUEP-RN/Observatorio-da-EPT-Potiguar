@@ -1,0 +1,84 @@
+/* =====================================================================
+   Cursos técnicos e Como entrar
+   ===================================================================== */
+
+/* ---------------------------------------------------------------- lista dos 18 cursos */.lista-cursos { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 16px; }
+.curso-cartao { display: flex; flex-direction: column; gap: 8px; text-decoration: none; background: var(--branco); border-radius: 20px; padding: 20px 22px; border-left: 6px solid var(--cor, var(--lima)); box-shadow: 0 1px 0 var(--cinza-claro), 0 10px 24px rgba(34,43,99,.06); transition: transform .15s ease; }
+.curso-cartao:nth-child(4n+2) { --cor: var(--amarelo); }
+.curso-cartao:nth-child(4n+3) { --cor: var(--ceu); }
+.curso-cartao:nth-child(4n+4) { --cor: var(--coral); }
+.curso-cartao:hover { transform: translateY(-3px); }
+.curso-cartao h3 { font-size: 1.1875rem; color: var(--indigo); }
+.curso-cartao p { margin: 0; color: var(--suave); font-size: 0.9375rem; }
+.curso-onde { margin-top: auto; padding-top: 6px; font: 600 0.875rem var(--titulo); color: var(--azul-escuro); }
+
+/* ---------------------------------------------------------------- página de um curso */
+.curso-detalhe { scroll-margin-top: 100px; }
+.curso-detalhe .voltar { display: block; width: fit-content; margin-bottom: 14px; font: 700 0.9375rem var(--titulo); color: var(--azul-escuro); }
+.curso-grade { display: grid; grid-template-columns: 1.3fr 1fr; gap: 28px; margin-top: 24px; align-items: start; }
+.curso-texto h3 { font-size: 1.1875rem; color: var(--indigo); margin: 0 0 6px; }
+.curso-texto p { margin: 0 0 20px; font-size: 1.0625rem; max-width: 60ch; }
+.curso-texto .acoes { margin-top: 6px; }
+.curso-oferta { background: var(--branco); border-radius: 22px; padding: 22px 24px; box-shadow: 0 1px 0 var(--cinza-claro), 0 12px 26px rgba(34,43,99,.07); }
+.curso-oferta h3 { font-size: 1.125rem; color: var(--indigo); }
+.curso-oferta h4 { font: 700 0.875rem var(--titulo); color: var(--coral); margin: 18px 0 8px; }
+.curso-numeros { margin: 8px 0 0; color: var(--suave); }
+.curso-numeros strong { font: 800 2.2rem/1 var(--titulo); color: var(--indigo); }
+.curso-formas { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.curso-formas li { display: flex; justify-content: space-between; gap: 10px; border-bottom: 1px solid var(--cinza-claro); padding-bottom: 6px; }
+.curso-formas a { font: 600 0.9688rem var(--titulo); color: var(--azul-escuro); }
+.curso-formas span { color: var(--suave); font-size: 0.875rem; white-space: nowrap; }
+.curso-municipios { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.curso-municipios a { display: inline-block; font: 600 0.8125rem var(--titulo); color: var(--indigo); background: #eef2fb; border-radius: 99px; padding: 5px 11px; text-decoration: none; }
+.curso-municipios a:hover { background: #dfe7f8; }
+
+/* ---------------------------------------------------------------- passo a passo */
+.passos { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; counter-reset: passo; }
+.passos li { counter-increment: passo; background: var(--branco); border-radius: 22px; padding: 22px; box-shadow: 0 1px 0 var(--cinza-claro), 0 12px 26px rgba(34,43,99,.07); }
+.passos li::before { content: counter(passo); display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: var(--indigo); color: #fff; font: 800 1.125rem var(--titulo); margin-bottom: 14px; }
+.passos li:nth-child(2)::before { background: var(--coral); }
+.passos li:nth-child(3)::before { background: #c88a00; }
+.passos li:nth-child(4)::before { background: #6f9a1d; }
+.passos h3 { font-size: 1.125rem; color: var(--indigo); margin-bottom: 8px; }
+.passos p { margin: 0 0 10px; color: var(--suave); font-size: 0.9688rem; }
+.passo-links { display: flex; flex-wrap: wrap; gap: 6px 14px; }
+.passo-links a { font: 700 0.9375rem var(--titulo); color: var(--azul-escuro); }
+
+/* ---------------------------------------------------------------- tabela de comparação */
+.tabela-rolagem { overflow-x: auto; border-radius: 20px; box-shadow: 0 1px 0 var(--cinza-claro), 0 12px 26px rgba(34,43,99,.07); }
+.comparar { width: 100%; min-width: 760px; border-collapse: collapse; background: var(--branco); font-size: 0.9688rem; }
+.comparar th, .comparar td { text-align: left; vertical-align: top; padding: 14px 16px; border-bottom: 1px solid var(--cinza-claro); }
+.comparar thead th { background: var(--indigo); color: #fff; font: 700 0.875rem var(--titulo); }
+.comparar tbody th { font: 700 1rem var(--titulo); width: 18%; }
+.comparar tbody th a { color: var(--indigo); }
+.comparar tbody tr:last-child th, .comparar tbody tr:last-child td { border-bottom: 0; }
+
+/* ---------------------------------------------------------------- quem procurar */
+.procurar { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.procurar article { display: flex; flex-direction: column; background: var(--branco); border-radius: 22px; padding: 22px; border-top: 6px solid var(--cor, var(--coral)); box-shadow: 0 1px 0 var(--cinza-claro), 0 12px 26px rgba(34,43,99,.07); }
+.procurar article:nth-child(2) { --cor: var(--amarelo); }
+.procurar article:nth-child(3) { --cor: var(--indigo); }
+.procurar h3 { font-size: 1.1875rem; color: var(--indigo); margin-bottom: 8px; }
+.procurar p { margin: 0 0 14px; color: var(--suave); }
+.procurar a { margin-top: auto; font: 700 0.9375rem var(--titulo); color: var(--azul-escuro); }
+
+/* ---------------------------------------------------------------- perguntas frequentes */
+.perguntas { display: grid; gap: 10px; max-width: 860px; }
+.perguntas details { background: var(--branco); border-radius: 16px; box-shadow: 0 1px 0 var(--cinza-claro); }
+.perguntas summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 14px; padding: 16px 20px; font: 600 1.0625rem var(--titulo); color: var(--indigo); }
+.perguntas summary::-webkit-details-marker { display: none; }
+.perguntas summary::after { content: "+"; flex: none; display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: #eef2fb; font: 700 1.125rem var(--titulo); transition: transform .2s ease; }
+.perguntas details[open] summary::after { transform: rotate(45deg); }
+.perguntas details p { margin: 0; padding: 0 20px 18px; color: var(--tinta); max-width: 70ch; }
+.perguntas a { color: var(--azul-escuro); font-weight: 600; }
+
+@media (max-width: 960px) {
+  .curso-grade { grid-template-columns: 1fr; }
+  .passos { grid-template-columns: 1fr 1fr; }
+  .procurar { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .passos { grid-template-columns: 1fr; }
+  .perguntas summary { font-size: 1rem; padding: 14px 16px; }
+}
+@media (prefers-reduced-motion: reduce) { .curso-cartao, .perguntas summary::after { transition: none; } }

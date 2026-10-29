@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cursos técnicos · SUEP/SEEC-RN</title>
+  <meta name="description" content="Os 18 cursos técnicos da rede estadual do RN: o que cada técnico faz, onde pode trabalhar e onde o curso é ofertado.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Rubik:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/estilo.css?v=20261029b">
+  <link rel="stylesheet" href="css/estudar.css?v=2">
+</head>
+<body>
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+  <div id="topo"></div>
+
+  <main id="conteudo">
+    <section class="sobre-abertura clara" style="--fundo: var(--lima); --bolha: var(--amarelo)">
+      <span class="bolha-coral" aria-hidden="true"></span>
+      <div class="conteiner">
+        <div>
+          <h1 class="etiqueta media">Cursos <em>técnicos</em></h1>
+          <p>A rede estadual oferta 18 cursos técnicos. Escolha um para ver o que o técnico faz, onde pode trabalhar e em quais cidades o curso é ofertado.</p>
+        </div>
+        <div class="sobre-foto">
+          <span class="contorno" aria-hidden="true"></span>
+          <img src="img/fotos/laboratorio-quimica.jpg" alt="Estudante de jaleco operando equipamento de laboratório">
+        </div>
+      </div>
+      <div class="ondas" aria-hidden="true">
+        <svg viewBox="0 0 1440 130" preserveAspectRatio="none">
+          <path d="M0 60 C 220 10, 420 120, 700 70 S 1160 0, 1440 50 V130 H0 Z" fill="#fac133"/>
+          <path d="M0 88 C 260 50, 520 126, 820 90 S 1250 58, 1440 86 V130 H0 Z" fill="#e9584f"/>
+          <path d="M0 102 C 300 80, 640 128, 960 104 S 1300 88, 1440 100 V130 H0 Z" fill="#62b1e2"/>
+          <path d="M0 116 C 320 98, 660 132, 980 116 S 1320 104, 1440 114 V130 H0 Z" fill="#fbfaf6"/>
+        </svg>
+      </div>
+    </section>
+
+    <section class="secao fim-pagina">
+      <div class="conteiner">
+        <div id="catalogo">
+          <div class="lista-cursos" id="lista-cursos"></div>
+          <p class="fonte">Oferta de 2026, conforme a planilha “Oferta EPT 2026” da SUEP. Para saber como se inscrever, veja <a href="como-entrar.html">Como entrar</a>.</p>
+        </div>
+        <article id="detalhe" class="curso-detalhe" hidden></article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape" id="rodape"></footer>
+
+  <script src="js/contato.js?v=20261029b"></script>
+  <script src="js/site.js?v=20261029b"></script>
+  <script src="js/onde-estudar.js?v=3"></script>
+  <script src="js/cursos.js?v=1"></script>
+  <script src="js/cursos-pagina.js?v=1"></script>
+  <script>Site.iniciar("cursos");</script>
+</body>
+</html>

@@ -1,6 +1,6 @@
 /* Monta as partes comuns (topo, rodapé) e as listas.
    O mesmo arquivo serve aos dois sites, que ficam em endereços separados:
-     - site público da SUEP/EPT: Site.iniciar("inicio" | "ept" | "sobre" | "acompanhamento" | "boas-praticas" | "agenda" | "documentos")
+     - site público da SUEP/EPT: Site.iniciar("inicio" | "ept" | "sobre" | "onde-estudar" | "cursos" | "como-entrar" | "acompanhamento" | "boas-praticas" | "agenda" | "documentos")
      - site dos painéis (uso interno): Site.iniciar("lista" | "painel", "paineis")
    Não precisa editar este arquivo: contato em js/contato.js e painéis em js/paineis.js. */
 window.Site = (function () {
@@ -53,7 +53,11 @@ window.Site = (function () {
           ["sobre.html", "A SUEP", "sobre", "O setor, o que faz e a equipe"],
           ["ept.html", "A EPT no RN", "ept", "Governança, unidades, cursos e história"]
         ] },
-        ["onde-estudar.html", "Onde estudar", "onde-estudar"],
+        { grupo: "Onde estudar", itens: [
+          ["onde-estudar.html", "Encontre uma escola", "onde-estudar", "Busca por cidade e curso, com o mapa"],
+          ["cursos.html", "Cursos técnicos", "cursos", "O que faz cada técnico e onde tem"],
+          ["como-entrar.html", "Como entrar", "como-entrar", "Formas de oferta, matrícula e perguntas frequentes"]
+        ] },
         { grupo: "Escola e mundo do trabalho", itens: [
           ["boas-praticas.html", "Boas práticas", "boas-praticas", "Projetos premiados e experiências das escolas"],
           ["acompanhamento.html", "Acompanhamento da EPT", "acompanhamento", "Dados das visitas técnicas e do estágio"]
@@ -414,6 +418,9 @@ window.Site = (function () {
       var h = location.hash.replace("#", "");
       if (cats.some(function (c) { return c.id === h; })) { atual = h; busca.value = ""; desenhar(); }
     });
+    // busca vinda de outra página (ex.: documentos.html?busca=Informática, a partir da página do curso)
+    var pedida = new URLSearchParams(location.search).get("busca");
+    if (pedida) busca.value = pedida;
     desenhar();
   }
 

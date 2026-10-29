@@ -376,6 +376,8 @@ h1, h2, h3 { font-family: var(--titulo); line-height: 1.12; margin: 0; }
 .unidade div { padding: 18px 22px 22px; }
 .unidade h3 { font-size: 1.25rem; color: var(--indigo); margin-bottom: 6px; }
 .unidade p { margin: 0; color: var(--suave); }
+.cursos li a { color: inherit; text-decoration: none; }
+.cursos li a:hover { text-decoration: underline; }
 
 .cursos { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
 .cursos li { display: flex; align-items: center; gap: 12px; min-height: 56px; padding: 10px 16px; background: var(--branco); border-radius: 14px; font: 600 1rem var(--titulo); color: var(--indigo); box-shadow: 0 1px 0 var(--cinza-claro); }
