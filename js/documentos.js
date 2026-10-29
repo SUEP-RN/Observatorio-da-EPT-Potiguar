@@ -1,5 +1,5 @@
 /* Lista de documentos para download (gerada a partir das pastas do Drive da SUEP). */
-window.DOC_CATEGORIAS = [{"id":"orientadores","nome":"Documentos orientadores"},{"id":"legislacao","nome":"Legislação"},{"id":"estruturas","nome":"Estruturas curriculares"},{"id":"ppc","nome":"Projetos pedagógicos de curso (PPC)"}];
+window.DOC_CATEGORIAS = [{"id":"orientadores","nome":"Documentos orientadores"},{"id":"legislacao","nome":"Legislação"},{"id":"estruturas","nome":"Estruturas curriculares"},{"id":"ppc","nome":"Projetos Pedagógicos de Curso (PPC)"}];
 window.DOCUMENTOS = [
     {
         "cat":  "estruturas",

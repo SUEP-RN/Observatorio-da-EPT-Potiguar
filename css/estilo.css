@@ -491,14 +491,13 @@ h1, h2, h3 { font-family: var(--titulo); line-height: 1.12; margin: 0; }
 /* site público: logos e menu sempre na mesma linha */
 .menu-longo .marca-nome { display: none; }
 .marca { flex-shrink: 0; } /* os logos nunca encolhem para o menu caber */
-.menu-longo .conteiner { max-width: 1360px; } /* com 8 abas, o cabeçalho usa mais largura que o conteúdo */
 .menu-longo .conteiner { flex-wrap: nowrap; }
 .menu-longo .menu { flex-wrap: nowrap; }
 .menu-longo .menu a { white-space: nowrap; padding: 10px 10px; }
 .menu-longo .menu a[aria-current="page"]::after { left: 10px; right: 10px; }
-@media (max-width: 1380px) { .menu-longo .menu a { font-size: 0.875rem; padding: 10px 8px; } .menu-longo .menu a[aria-current="page"]::after { left: 8px; right: 8px; } }
+@media (max-width: 1240px) { .menu-longo .menu a { font-size: 0.875rem; padding: 10px 8px; } .menu-longo .menu a[aria-current="page"]::after { left: 8px; right: 8px; } }
 /* celular e tablet: cabeçalho compacto (☰ + logos) e gaveta de páginas pela esquerda */
-@media (max-width: 1240px) {
+@media (max-width: 1160px) {
   .topo .conteiner { display: grid; grid-template-columns: 44px 1fr 44px; gap: 8px; min-height: 60px; padding-top: 6px; padding-bottom: 6px; }
   .menu-botao { display: grid; grid-column: 1; grid-row: 1; }
   .topo .marca { grid-column: 2; grid-row: 1; justify-self: center; margin: 0; gap: 10px; }
@@ -520,6 +519,33 @@ h1, h2, h3 { font-family: var(--titulo); line-height: 1.12; margin: 0; }
   html.sem-rolagem { overflow: hidden; }
 }
 @media (prefers-reduced-motion: reduce) { .topo .menu, .menu-fundo { transition: none; } }
+
+/* ---------------------------------------------------------------- grupos do menu (Quem somos, Para as escolas...) */
+.menu-grupo { position: relative; }
+.menu-grupo-botao { display: inline-flex; align-items: center; gap: 6px; position: relative; font: 600 0.9375rem var(--titulo); color: var(--indigo); background: none; border: 0; border-radius: 12px; padding: 10px 11px; cursor: pointer; white-space: nowrap; }
+.menu-grupo-botao svg { width: 14px; height: 14px; transition: transform .2s ease; }
+.menu-grupo-botao:hover, .menu-grupo.aberto .menu-grupo-botao { background: #eef2fb; }
+.menu-grupo.aberto .menu-grupo-botao svg { transform: rotate(180deg); }
+.menu-grupo.atual .menu-grupo-botao::after { content: ""; position: absolute; left: 11px; right: 31px; bottom: 4px; height: 3px; border-radius: 3px; background: var(--coral); }
+.submenu { display: none; position: absolute; top: calc(100% + 8px); left: 0; z-index: 30; min-width: 300px; padding: 8px; background: var(--branco); border-radius: 16px; box-shadow: 0 0 0 1px var(--cinza-claro), 0 18px 40px rgba(20, 26, 60, .18); }
+.submenu::before { content: ""; position: absolute; left: 0; right: 0; top: -10px; height: 10px; } /* ponte para o mouse não "cair" entre o botão e a lista */
+.menu-grupo:last-of-type .submenu { left: auto; right: 0; }
+.menu-grupo.aberto .submenu { display: grid; gap: 2px; }
+@media (hover: hover) and (min-width: 1161px) { .menu-grupo:hover .submenu { display: grid; gap: 2px; } }
+.topo .submenu a { display: block; padding: 10px 12px; border-radius: 10px; white-space: normal; }
+.topo .submenu a b { display: block; font: 700 0.9688rem var(--titulo); color: var(--indigo); }
+.topo .submenu a span { display: block; margin-top: 2px; font: 400 0.8125rem/1.35 var(--texto); color: var(--suave); }
+.topo .submenu a[aria-current="page"] { background: #eef2fb; }
+.topo .submenu a[aria-current="page"]::after { left: 0; right: auto; top: 10px; bottom: 10px; width: 3px; height: auto; }
+
+/* na gaveta (celular e tablet), cada grupo vira um título com as páginas embaixo */
+@media (max-width: 1160px) {
+  .topo .menu-grupo { display: block; }
+  .topo .menu-grupo-botao { display: block; width: 100%; text-align: left; padding: 16px 14px 4px; font: 700 0.875rem var(--titulo); color: var(--coral); background: none; pointer-events: none; }
+  .topo .menu-grupo-botao svg, .topo .menu-grupo.atual .menu-grupo-botao::after { display: none; }
+  .topo .submenu { display: grid; gap: 2px; position: static; min-width: 0; padding: 0; box-shadow: none; background: none; }
+  .topo .submenu::before { display: none; }
+}
 
 /* ---------------------------------------------------------------- abertura das abas (mesma da página A SUEP, com cor própria) */
 .sobre-abertura { background: var(--fundo, var(--azul)); }

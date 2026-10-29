@@ -46,20 +46,36 @@ window.Site = (function () {
       }
       nome = "Painéis da EPT/RN"; sub = "Uso interno · SUEP/SEEC-RN"; inicio = "index.html";
     } else {
+      // poucos itens no topo; as páginas ficam agrupadas pelo que a pessoa procura
       itens = [
         ["index.html", "Início", "inicio"],
-        ["ept.html", "EPT estadual", "ept"],
+        { grupo: "Quem somos", itens: [
+          ["sobre.html", "A SUEP", "sobre", "O setor, o que faz e a equipe"],
+          ["ept.html", "A EPT no RN", "ept", "Governança, unidades, cursos e história"]
+        ] },
         ["onde-estudar.html", "Onde estudar", "onde-estudar"],
-        ["sobre.html", "A SUEP", "sobre"],
-        ["acompanhamento.html", "Acompanhamento", "acompanhamento"],
-        ["boas-praticas.html", "Boas práticas", "boas-praticas"],
-        ["agenda.html", "Agenda formativa", "agenda"],
-        ["documentos.html", "Documentos", "documentos"]
+        { grupo: "Escola e mundo do trabalho", itens: [
+          ["boas-praticas.html", "Boas práticas", "boas-praticas", "Projetos premiados e experiências das escolas"],
+          ["acompanhamento.html", "Acompanhamento da EPT", "acompanhamento", "Dados das visitas técnicas e do estágio"]
+        ] },
+        { grupo: "Para as escolas", itens: [
+          ["documentos.html", "Documentos", "documentos", "Orientações, legislação, estruturas e PPCs"],
+          ["agenda.html", "Agenda formativa", "agenda", "Formações para gestores e professores"]
+        ] }
       ];
       nome = "SUEP · EPT/RN"; sub = "Subcoordenadoria de Educação Profissional e Tecnológica"; inicio = "index.html";
     }
-    var menu = itens.map(function (i) {
-      return '<a href="' + i[0] + '"' + (i[2] && i[2] === atual ? ' aria-current="page"' : "") + ">" + i[1] + "</a>";
+    function link(i) {
+      return '<a href="' + i[0] + '"' + (i[2] && i[2] === atual ? ' aria-current="page"' : "") + ">" +
+        (i[3] ? "<b>" + i[1] + "</b><span>" + i[3] + "</span>" : i[1]) + "</a>";
+    }
+    var seta = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>';
+    var menu = itens.map(function (i, n) {
+      if (!i.grupo) return link(i);
+      var ativo = i.itens.some(function (s) { return s[2] === atual; });
+      return '<div class="menu-grupo' + (ativo ? " atual" : "") + '">' +
+        '<button class="menu-grupo-botao" type="button" aria-expanded="false" aria-controls="submenu-' + n + '">' + i.grupo + seta + "</button>" +
+        '<div class="submenu" id="submenu-' + n + '">' + i.itens.map(link).join("") + "</div></div>";
     }).join("");
 
     // com muitas abas, o nome ao lado dos logos sai para o menu caber na mesma linha
@@ -102,6 +118,31 @@ window.Site = (function () {
     document.addEventListener("keydown", function (e) { if (e.key === "Escape" && topo.classList.contains("menu-aberto")) abrir(false); });
     topo.querySelector(".menu").addEventListener("click", function (e) {
       if (e.target.closest("a")) abrir(false);
+    });
+
+    // grupos do menu: abrem ao clicar (e ao passar o mouse no computador); fecham ao clicar fora ou com Esc
+    var grupos = Array.prototype.slice.call(topo.querySelectorAll(".menu-grupo"));
+    function fecharGrupos(exceto) {
+      grupos.forEach(function (g) {
+        if (g === exceto) return;
+        g.classList.remove("aberto");
+        g.querySelector(".menu-grupo-botao").setAttribute("aria-expanded", "false");
+      });
+    }
+    grupos.forEach(function (g) {
+      var b = g.querySelector(".menu-grupo-botao");
+      b.addEventListener("click", function () {
+        var abre = !g.classList.contains("aberto");
+        fecharGrupos(g);
+        g.classList.toggle("aberto", abre);
+        b.setAttribute("aria-expanded", abre ? "true" : "false");
+      });
+    });
+    document.addEventListener("click", function (e) { if (!e.target.closest(".menu-grupo")) fecharGrupos(); });
+    document.addEventListener("keydown", function (e) {
+      if (e.key !== "Escape") return;
+      var aberto = grupos.filter(function (g) { return g.classList.contains("aberto"); })[0];
+      if (aberto) { fecharGrupos(); aberto.querySelector(".menu-grupo-botao").focus(); }
     });
   }
 
