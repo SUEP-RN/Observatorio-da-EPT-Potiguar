@@ -767,6 +767,9 @@ h1, h2, h3 { font-family: var(--titulo); line-height: 1.12; margin: 0; }
 .atalho:nth-child(3) { --cor: var(--lima); }
 .atalho:nth-child(4) { --cor: var(--ceu); }
 .atalho:nth-child(5) { --cor: var(--azul); }
+.atalhos.estudar .atalho:nth-child(1) { --cor: var(--ceu); }
+.atalhos.estudar .atalho:nth-child(2) { --cor: var(--lima); }
+.atalhos.estudar .atalho:nth-child(3) { --cor: var(--coral); }
 .atalho b { font: 800 1.125rem var(--titulo); color: var(--indigo); }
 .atalho span { color: var(--suave); font-size: 0.9375rem; }
 .atalho i { margin-top: auto; font: 700 0.875rem var(--titulo); font-style: normal; color: var(--azul-escuro); }
