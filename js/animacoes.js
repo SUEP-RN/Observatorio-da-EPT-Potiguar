@@ -179,6 +179,31 @@
     atualizar();
   }
 
-  function iniciar() { mapa(); abas(); preparar(); leitura(); }
+  /* ---------- engrenagens coloridas, como as da logo da SUEP ---------- */
+  // Uma engrenagem em anel com 12 dentes quadrados; o conjunto repete a posição e as cores da logo.
+  function engrenagem(cx, cy, raio, cor, sentido) {
+    var dentes = "", n = 12, larg = raio * 0.36, alt = raio * 0.3;
+    for (var i = 0; i < n; i++) dentes += '<rect x="' + (-larg / 2) + '" y="' + (-raio - alt + 1) + '" width="' + larg + '" height="' + (alt + 2) + '" rx="1.2" transform="rotate(' + (i * 360 / n) + ')"/>';
+    return '<g class="eng-roda ' + sentido + '" transform="translate(' + cx + ' ' + cy + ')"><g class="eng-giro" fill="' + cor + '">' + dentes +
+      '<circle r="' + (raio - raio * 0.16) + '" fill="none" stroke="' + cor + '" stroke-width="' + (raio * 0.32) + '"/></g></g>';
+  }
+  var CONJUNTO = '<svg viewBox="0 0 210 150" aria-hidden="true" focusable="false">' +
+    engrenagem(86, 80, 34, "#f39a1c", "horario") +
+    engrenagem(148, 44, 27, "#6fb7e6", "anti") +
+    engrenagem(142, 112, 22, "#a6ce39", "anti") +
+    engrenagem(34, 116, 17, "#d8204a", "anti") + "</svg>";
+  function engrenagens() {
+    function por(alvo, classe, depois) {
+      if (!alvo || alvo.querySelector(":scope > .engrenagens") || (depois && depois.nextElementSibling && depois.nextElementSibling.classList.contains("engrenagens"))) return;
+      var d = document.createElement("span"); d.className = "engrenagens " + classe; d.innerHTML = CONJUNTO;
+      if (depois) depois.insertAdjacentElement("afterend", d); else alvo.appendChild(d);
+    }
+    // capas: presas no canto da foto
+    document.querySelectorAll(".sobre-foto, .colagem, .docs-abertura .conteiner").forEach(function (h) { por(h, "na-capa"); });
+    // no máximo dois conjuntos por página: um na capa e um no rodapé
+    por(document.querySelector(".rodape"), "no-rodape");
+  }
+
+  function iniciar() { engrenagens(); mapa(); abas(); preparar(); leitura(); }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", iniciar); else iniciar();
 })();

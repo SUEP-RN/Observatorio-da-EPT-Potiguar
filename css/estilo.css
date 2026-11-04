@@ -971,7 +971,6 @@ h1, h2, h3 { font-family: var(--titulo); line-height: 1.12; margin: 0; }
 /* capa: ilustração flutuando e engrenagens girando devagar */
 @keyframes flutua { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
 @keyframes gira { to { transform: rotate(360deg); } }
-.colagem .rn { animation: flutua 6s ease-in-out infinite; }
 .engrenagem svg { animation: gira 24s linear infinite; }
 .sobre-foto img { transition: transform .6s cubic-bezier(.2,.7,.2,1); }
 .sobre-foto:hover img { transform: scale(1.02) rotate(-.5deg); }
@@ -981,7 +980,7 @@ h1, h2, h3 { font-family: var(--titulo); line-height: 1.12; margin: 0; }
 .marco { transition: transform .25s ease; }
 .marco:hover { transform: translateX(4px); }
 @media (prefers-reduced-motion: reduce) {
-  .colagem .rn, .engrenagem svg { animation: none; }
+  .engrenagem svg { animation: none; }
   .gov-item, .nivel, .modalidade, .formacao, .atribuicao, .acao-suep, .procurar article, .forma-cartao, .passos li, .marco, .sobre-foto img { transition: none; }
 }
 /* barra de leitura e botão de voltar ao topo */
@@ -992,3 +991,35 @@ h1, h2, h3 { font-family: var(--titulo); line-height: 1.12; margin: 0; }
 .ao-topo:hover { background: var(--coral); }
 .ao-topo:focus-visible { outline: 3px solid var(--amarelo); outline-offset: 3px; }
 @media (prefers-reduced-motion: reduce) { .ao-topo { transition: none; } }
+
+/* ---------------------------------------------------------------- engrenagens coloridas da logo (js/animacoes.js) */
+.engrenagem { display: none; }
+.engrenagens { position: absolute; pointer-events: none; z-index: 0; line-height: 0; }
+.engrenagens svg { width: 100%; height: auto; display: block; overflow: visible; }
+.eng-giro { transform-box: fill-box; transform-origin: center; animation: gira 34s linear infinite; }
+.eng-roda.anti .eng-giro { animation-direction: reverse; animation-duration: 26s; }
+.engrenagens.na-capa { width: 150px; left: -58px; bottom: -42px; z-index: 3; filter: drop-shadow(0 6px 10px rgba(10,14,40,.28)); }
+.colagem .engrenagens.na-capa { left: auto; right: -26px; bottom: 14%; width: 138px; }
+.docs-abertura .conteiner { position: relative; }
+.docs-abertura .engrenagens.na-capa { left: auto; right: 0; bottom: auto; top: -10px; width: 130px; }
+.engrenagens.no-titulo { position: relative; display: inline-block; vertical-align: middle; width: 72px; margin-left: 14px; top: -2px; }
+.secao-cabeca .engrenagens.no-titulo + p, .conteiner > .engrenagens.no-titulo + p { margin-top: 14px; }
+.rodape .engrenagens.no-rodape { width: 140px; right: 4%; top: -66px; z-index: 2; }
+@media (max-width: 960px) { .engrenagens.na-capa { width: 104px; left: -14px; bottom: -30px; } .colagem .engrenagens.na-capa { right: 0; } .rodape .engrenagens.no-rodape { width: 104px; top: -50px; } }
+@media (max-width: 560px) { .engrenagens.no-titulo { width: 54px; margin-left: 8px; } }
+@media (prefers-reduced-motion: reduce) { .eng-giro { animation: none; } }
+
+/* ---------------------------------------------------------------- ícones dos cursos (js/icones-cursos.js) */
+.curso-icone { display: grid; place-items: center; flex: none; width: 54px; height: 54px; border-radius: 16px; background: var(--cor, var(--lima)); color: var(--indigo); transition: transform .3s cubic-bezier(.2,.7,.2,1.4); }
+.curso-icone svg { width: 58%; height: 58%; }
+.curso-cartao .curso-icone { margin-bottom: 4px; }
+.curso-cartao:nth-child(4n+3) .curso-icone, .curso-cartao:nth-child(4n+4) .curso-icone { color: #fff; }
+.curso-cartao:nth-child(4n+3) .curso-icone { color: var(--indigo); }
+.curso-cartao:hover .curso-icone { transform: rotate(-8deg) scale(1.08); }
+.curso-cabeca { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.curso-icone.grande { width: 72px; height: 72px; border-radius: 22px; background: var(--amarelo); }
+.curso-icone.mini { width: 34px; height: 34px; border-radius: 10px; background: var(--cor, var(--coral)); }
+.cursos li:has(.curso-icone)::before { display: none; }
+.cursos li a:has(.curso-icone) { display: flex; align-items: center; gap: 12px; }
+.cursos li:nth-child(4n+1) .curso-icone.mini { color: #fff; }
+@media (prefers-reduced-motion: reduce) { .curso-icone { transition: none; } }

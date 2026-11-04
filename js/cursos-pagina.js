@@ -25,6 +25,7 @@
   // lista
   CURSOS.forEach(function (c) {
     var a = el("a", "curso-cartao"); a.href = "#" + c.id;
+    if (window.iconeCurso) { var ic = el("span", "curso-icone"); ic.innerHTML = window.iconeCurso(c.id); a.appendChild(ic); }
     a.appendChild(el("h3", null, c.nome));
     a.appendChild(el("p", null, c.faz));
     var n = Object.keys(c.municipios).length;
@@ -40,7 +41,10 @@
     document.title = "Técnico em " + c.nome + " · SUEP/SEEC-RN";
     detalhe.innerHTML = "";
     var voltar = el("a", "voltar", "Todos os cursos"); voltar.href = "#"; detalhe.appendChild(voltar);
-    detalhe.appendChild(el("h2", "etiqueta pequena", "Técnico em " + c.nome));
+    var cab = el("div", "curso-cabeca");
+    if (window.iconeCurso) { var ic = el("span", "curso-icone grande"); ic.innerHTML = window.iconeCurso(c.id); cab.appendChild(ic); }
+    cab.appendChild(el("h2", "etiqueta pequena", "Técnico em " + c.nome));
+    detalhe.appendChild(cab);
 
     var grade = el("div", "curso-grade");
     var txt = el("div", "curso-texto");
