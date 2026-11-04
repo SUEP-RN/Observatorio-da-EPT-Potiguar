@@ -160,6 +160,8 @@
   texto.addEventListener("change", function () { if (texto.value) atualizar(window.innerWidth < 960); });
   curso.addEventListener("change", function () { atualizar(window.innerWidth < 960); });
   forma.addEventListener("change", function () { atualizar(window.innerWidth < 960); });
+  // botão Pesquisar (e Enter no campo): aplica a busca e desce até as unidades
+  document.getElementById("filtros").addEventListener("submit", function (e) { e.preventDefault(); atualizar(true); });
   limpar.addEventListener("click", function () { texto.value = ""; curso.value = ""; forma.value = ""; atualizar(false); texto.focus(); });
   atualizar(false);
 })();

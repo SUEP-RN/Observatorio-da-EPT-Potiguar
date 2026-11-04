@@ -10,7 +10,9 @@
 .campo span { font: 600 0.875rem var(--titulo); color: #dfe4f8; }
 .campo input, .campo select { width: 100%; font: 500 1rem var(--texto); color: var(--tinta); background: #fff; border: 2px solid transparent; border-radius: 12px; padding: 11px 12px; min-height: 46px; }
 .campo input:focus, .campo select:focus { outline: none; border-color: var(--amarelo); }
-.limpar { grid-column: 1 / -1; justify-self: start; font: 700 0.9375rem var(--titulo); color: var(--amarelo); background: none; border: 0; padding: 4px 0; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+.filtros-acoes { grid-column: 1 / -1; display: flex; align-items: center; gap: 18px; flex-wrap: wrap; margin-top: 4px; }
+.filtros-acoes .pesquisar { display: inline-flex; align-items: center; gap: 8px; border: 0; cursor: pointer; }
+.limpar { justify-self: start; font: 700 0.9375rem var(--titulo); color: var(--amarelo); background: none; border: 0; padding: 4px 0; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
 
 /* mapa: o elemento principal da página */
 .mapa-rn { position: relative; margin: 0; }

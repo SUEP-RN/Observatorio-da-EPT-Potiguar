@@ -23,8 +23,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Rubik:wght@500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/estilo.css?v=20261104i">
-  <link rel="stylesheet" href="css/onde-estudar.css?v=3">
+  <link rel="stylesheet" href="css/estilo.css?v=20261104j">
+  <link rel="stylesheet" href="css/onde-estudar.css?v=4">
 </head>
 <body>
   <a class="pular" href="#conteudo">Pular para o conteúdo</a>
@@ -37,7 +37,7 @@
         <div>
           <h1 class="etiqueta media">Encontre seu <em>curso técnico</em></h1>
           <p>Veja onde a rede estadual oferta cada curso. Busque pelo seu município ou escolha um curso, e toque no mapa para ver as unidades de cada cidade.</p>
-          <form class="filtros" id="filtros" role="search" onsubmit="return false">
+          <form class="filtros" id="filtros" role="search">
             <label class="campo">
               <span>Município ou escola</span>
               <input id="f-texto" type="search" list="lista-municipios" placeholder="Ex.: Mossoró" autocomplete="off">
@@ -57,7 +57,13 @@
                 <option value="subsequente">Subsequente</option>
               </select>
             </label>
-            <button class="limpar" id="f-limpar" type="button" hidden>Limpar busca</button>
+            <div class="filtros-acoes">
+              <button class="botao amarelo pesquisar" id="f-pesquisar" type="submit">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+                Pesquisar
+              </button>
+              <button class="limpar" id="f-limpar" type="button" hidden>Limpar busca</button>
+            </div>
           </form>
         </div>
         <figure class="mapa-rn" id="mapa">
@@ -130,10 +136,10 @@
 
   <footer class="rodape" id="rodape"></footer>
 
-  <script src="js/contato.js?v=20261104i"></script>
-  <script src="js/site.js?v=20261104i"></script>
+  <script src="js/contato.js?v=20261104j"></script>
+  <script src="js/site.js?v=20261104j"></script>
   <script src="js/onde-estudar.js?v=3"></script>
-  <script src="js/onde-estudar-pagina.js?v=3"></script>
+  <script src="js/onde-estudar-pagina.js?v=4"></script>
   <script src="js/animacoes.js?v=9"></script>
   <script>Site.iniciar("onde-estudar");</script>
 </body>

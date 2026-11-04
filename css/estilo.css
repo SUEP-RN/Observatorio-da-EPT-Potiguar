@@ -1023,3 +1023,31 @@ h1, h2, h3 { font-family: var(--titulo); line-height: 1.12; margin: 0; }
 .cursos li a:has(.curso-icone) { display: flex; align-items: center; gap: 12px; }
 .cursos li:nth-child(4n+1) .curso-icone.mini { color: #fff; }
 @media (prefers-reduced-motion: reduce) { .curso-icone { transition: none; } }
+
+/* Inicial: o que é a EPT e como funciona */
+.oque-ept { background: var(--papel); padding: 64px 0 80px; }
+.oque-ept .conteiner { display: grid; grid-template-columns: 1fr 1.05fr; gap: 48px; align-items: start; }
+.oque-texto h2 { font-size: clamp(1.9rem, 3.6vw, 2.7rem); color: var(--indigo); margin: 12px 0 16px; }
+.oque-lead { font-size: 1.1875rem; color: var(--tinta); margin: 0 0 14px; }
+.oque-texto p { color: var(--suave); }
+.oque-lead strong { color: var(--indigo); }
+.oque-fatos { list-style: none; padding: 0; margin: 24px 0 28px; display: flex; gap: 12px; flex-wrap: wrap; }
+.oque-fatos li { background: #fff; border-radius: 16px; padding: 12px 18px; box-shadow: 0 6px 18px rgba(34, 43, 99, .08); border-bottom: 5px solid var(--cor, var(--amarelo)); }
+.oque-fatos li:nth-child(2) { --cor: var(--coral); }
+.oque-fatos li:nth-child(3) { --cor: var(--lima); }
+.oque-fatos strong { display: block; font: 800 1.5rem/1.1 var(--titulo); color: var(--indigo); }
+.oque-fatos span { font-size: 0.875rem; color: var(--suave); }
+.oque-passos { list-style: none; counter-reset: passo; padding: 0; margin: 0; display: grid; gap: 14px; }
+.oque-passos li { counter-increment: passo; position: relative; background: #fff; border-radius: 22px; padding: 20px 22px 20px 84px; box-shadow: 0 8px 24px rgba(34, 43, 99, .08); transition: transform .25s ease, box-shadow .25s ease; }
+.oque-passos li:hover { transform: translateX(6px); box-shadow: 0 12px 28px rgba(34, 43, 99, .14); }
+.oque-passos li::before { content: counter(passo); position: absolute; left: 20px; top: 20px; width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center; font: 800 1.375rem var(--titulo); color: var(--indigo); background: var(--cor, var(--amarelo)); }
+.oque-passos li:nth-child(2) { --cor: var(--ceu); }
+.oque-passos li:nth-child(3) { --cor: var(--lima); }
+.oque-passos li:nth-child(4) { --cor: var(--coral); }
+.oque-passos li:nth-child(4)::before { color: #fff; }
+.oque-passos h3 { font: 700 1.1875rem var(--titulo); color: var(--indigo); margin: 0 0 6px; }
+.oque-passos p { margin: 0; color: var(--suave); font-size: 0.9688rem; }
+.oque-passos b { color: var(--tinta); }
+@media (max-width: 900px) { .oque-ept .conteiner { grid-template-columns: 1fr; gap: 32px; } }
+@media (max-width: 520px) { .oque-passos li { padding: 76px 20px 20px; } }
+@media (prefers-reduced-motion: reduce) { .oque-passos li { transition: none; } }
