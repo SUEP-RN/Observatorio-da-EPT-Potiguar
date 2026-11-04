@@ -947,3 +947,14 @@ h1, h2, h3 { font-family: var(--titulo); line-height: 1.12; margin: 0; }
 @media (max-width: 960px) { .duas-barras { grid-template-columns: 1fr; } }
 @media (max-width: 520px) { .barras-h li { grid-template-columns: 1fr 34px; } .barras-h i { grid-column: 1 / -1; grid-row: 2; } }
 @media (prefers-reduced-motion: reduce) { .mapa-estagio path.com { animation: none; } .barras-h i { transition: none; } }
+
+/* vozes da rede em 3 colunas, mais compactas (Boas práticas) */
+.vozes-grade.tres { grid-template-columns: repeat(3, 1fr); gap: 26px 24px; }
+.vozes-grade.tres .voz { padding: 52px 22px 22px; margin: 14px 0 0 14px; }
+.vozes-grade.tres .voz::before { left: -14px; top: -14px; }
+.vozes-grade.tres .voz-titulo { left: 18px; top: 12px; font-size: 0.9375rem; gap: 10px; }
+.vozes-grade.tres .voz-titulo svg { width: 42px; height: 26px; }
+.vozes-grade.tres .voz blockquote { font-size: 0.9688rem; line-height: 1.5; }
+.vozes-grade.tres .voz figcaption { margin-top: 10px; font-size: 0.8125rem; line-height: 1.4; }
+@media (max-width: 1100px) { .vozes-grade.tres { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 720px) { .vozes-grade.tres { grid-template-columns: 1fr; } }
