@@ -958,3 +958,37 @@ h1, h2, h3 { font-family: var(--titulo); line-height: 1.12; margin: 0; }
 .vozes-grade.tres .voz figcaption { margin-top: 10px; font-size: 0.8125rem; line-height: 1.4; }
 @media (max-width: 1100px) { .vozes-grade.tres { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 720px) { .vozes-grade.tres { grid-template-columns: 1fr; } }
+
+/* ---------------------------------------------------------------- movimento nas demais páginas */
+.anima .grafico .barra b { transform-origin: bottom; transition: transform .9s cubic-bezier(.2,.7,.2,1), background .2s ease; }
+.anima .grafico .barra:nth-child(2) b { transition-delay: .06s; } .anima .grafico .barra:nth-child(3) b { transition-delay: .12s; }
+.anima .grafico .barra:nth-child(4) b { transition-delay: .18s; } .anima .grafico .barra:nth-child(5) b { transition-delay: .24s; }
+.anima .grafico .barra:nth-child(6) b { transition-delay: .3s; } .anima .grafico .barra:nth-child(7) b { transition-delay: .36s; }
+.anima .grafico .barra:nth-child(8) b { transition-delay: .42s; }
+.anima .grafico:not(.visivel) .barra b { transform: scaleY(0); }
+.anima .mosaico img.revela { transform: scale(.94); }
+.anima .mosaico img.revela.visivel { transform: none; }
+/* capa: ilustração flutuando e engrenagens girando devagar */
+@keyframes flutua { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+@keyframes gira { to { transform: rotate(360deg); } }
+.colagem .rn { animation: flutua 6s ease-in-out infinite; }
+.engrenagem svg { animation: gira 24s linear infinite; }
+.sobre-foto img { transition: transform .6s cubic-bezier(.2,.7,.2,1); }
+.sobre-foto:hover img { transform: scale(1.02) rotate(-.5deg); }
+/* cartões que sobem ao passar o mouse */
+.gov-item, .nivel, .modalidade, .formacao, .atribuicao, .acao-suep, .procurar article, .forma-cartao, .passos li { transition: transform .25s ease, box-shadow .25s ease; }
+.gov-item:hover, .nivel:hover, .modalidade:hover, .formacao:hover, .atribuicao:hover, .acao-suep:hover, .procurar article:hover, .forma-cartao:hover, .passos li:hover, .praticas article:hover, .tipos-estagio article:hover { transform: translateY(-4px); }
+.marco { transition: transform .25s ease; }
+.marco:hover { transform: translateX(4px); }
+@media (prefers-reduced-motion: reduce) {
+  .colagem .rn, .engrenagem svg { animation: none; }
+  .gov-item, .nivel, .modalidade, .formacao, .atribuicao, .acao-suep, .procurar article, .forma-cartao, .passos li, .marco, .sobre-foto img { transition: none; }
+}
+/* barra de leitura e botão de voltar ao topo */
+.progresso { position: fixed; left: 0; top: 0; width: 100%; height: 4px; z-index: 200; transform-origin: left; transform: scaleX(0); background: linear-gradient(90deg, var(--amarelo), var(--coral) 35%, var(--ceu) 70%, var(--lima)); pointer-events: none; }
+.ao-topo { position: fixed; right: 20px; bottom: 22px; z-index: 150; width: 48px; height: 48px; border-radius: 50%; background: var(--indigo); box-shadow: 0 10px 24px rgba(20,26,70,.3); display: grid; place-items: center; opacity: 0; transform: translateY(14px); pointer-events: none; transition: opacity .25s ease, transform .25s ease, background .2s ease; }
+.ao-topo::before { content: ""; width: 12px; height: 12px; border-left: 3px solid #fff; border-top: 3px solid #fff; transform: translateY(3px) rotate(45deg); }
+.ao-topo.mostra { opacity: 1; transform: none; pointer-events: auto; }
+.ao-topo:hover { background: var(--coral); }
+.ao-topo:focus-visible { outline: 3px solid var(--amarelo); outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) { .ao-topo { transition: none; } }

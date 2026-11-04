@@ -5,37 +5,55 @@
   var temObservador = "IntersectionObserver" in window;
 
   /* ---------- números que contam ---------- */
+  // Conta só o primeiro trecho de texto com número, para não apagar elementos internos (ex.: "11<small>centros</small>").
   function contar(el) {
-    var txt = el.textContent.trim();
-    var m = txt.match(/^([^\d]*)([\d.]+)(.*)$/);
+    var no = null, w = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null);
+    while (w.nextNode()) { if (/\d/.test(w.currentNode.nodeValue)) { no = w.currentNode; break; } }
+    if (!no) return;
+    var txt = no.nodeValue;
+    var m = txt.match(/^(\s*[^\d\s]*\s*)(\d{1,3}(?:\.\d{3})+|\d+)(.*)$/);
     if (!m) return;
     var alvo = parseInt(m[2].replace(/\./g, ""), 10);
-    if (!alvo || alvo < 2) return;
+    if (!alvo || alvo < 2 || (alvo >= 1900 && alvo <= 2100 && m[2].indexOf(".") < 0)) return; // não conta anos
     var ini = null, dur = Math.min(1600, 700 + alvo / 4);
     function passo(t) {
       if (!ini) ini = t;
       var p = Math.min(1, (t - ini) / dur), v = Math.round(alvo * (1 - Math.pow(1 - p, 3)));
-      el.textContent = m[1] + v.toLocaleString("pt-BR") + m[3];
-      if (p < 1) requestAnimationFrame(passo); else el.textContent = txt;
+      no.nodeValue = m[1] + v.toLocaleString("pt-BR") + m[3];
+      if (p < 1) requestAnimationFrame(passo); else no.nodeValue = txt;
     }
     requestAnimationFrame(passo);
   }
+  var CONTA = ".destaques strong, .cifra strong, .mais-destaques b, .rotulo b, .destaque-numero strong, .qtd, .pilula b, .barra small, .curso-numeros strong, .equipe-numero";
 
   /* ---------- surgimento ao rolar ---------- */
   function preparar() {
     if (calmo || !temObservador) return;
     document.documentElement.classList.add("anima");
-    var grupos = "main > section:not(:first-child) .secao-cabeca, .destaques > div, .praticas article, .egresso, .voz, .premio, .passos li, .tipos-estagio article, .relato > div, .ciclo li, .cifra, .indicadores li, .mais-destaques li, .escolas li, .abas, .mapa-estagio, .perguntas details, .convite, .selo-nacional, .parceiros li, .duas-barras > div";
+    var grupos = [
+      "main > section:not(:first-child) .secao-cabeca", ".destaques > div", ".praticas article", ".egresso", ".voz", ".premio",
+      ".passos li", ".tipos-estagio article", ".relato > div", ".ciclo li", ".cifra", ".indicadores li", ".mais-destaques li",
+      ".escolas li", ".abas", ".mapa-estagio", ".perguntas details", ".convite", ".selo-nacional", ".parceiros li", ".duas-barras > div",
+      // demais páginas
+      ".atalho", ".destaque-numero", ".grafico", ".mosaico img", ".acontece .conteiner > div", ".numeros-topo",
+      ".gov-item", ".gov-centro", ".rede-topo", ".nivel", ".modalidade", ".expansao > *", ".marco", ".cursos li",
+      ".atribuicao", ".acao-suep", ".articula > *", ".equipe > *", ".equipe-chefe",
+      ".formacao", ".metodo > div", ".documento-destaque", ".procurar article", ".tabela-rolagem",
+      ".curso-cartao", ".forma-cartao", ".filtros", ".mapa-rn", ".divisorias", ".pasta"
+    ].join(", ");
     var itens = document.querySelectorAll(grupos);
     var vistos = new IntersectionObserver(function (es) {
       es.forEach(function (e) {
         if (!e.isIntersecting) return;
         var el = e.target;
         el.classList.add("visivel");
+        // terminada a entrada, libera o elemento para os efeitos de passar o mouse
+        setTimeout(function () { el.classList.remove("revela"); }, 900 + (parseInt(el.style.getPropertyValue("--atraso"), 10) || 0));
         el.querySelectorAll(".trilho i[data-largura]").forEach(function (i) { i.style.width = i.dataset.largura; });
-        var n = el.matches("strong, b") ? [el] : el.querySelectorAll(".destaques strong, .cifra strong, .mais-destaques b, .rotulo b");
-        if (el.matches(".destaques > div, .cifra, .mais-destaques li, .indicadores li")) n = el.querySelectorAll("strong, b");
-        Array.prototype.forEach.call(n, function (x) { if (!x.dataset.contou) { x.dataset.contou = 1; contar(x); } });
+        var n = Array.prototype.slice.call(el.querySelectorAll(CONTA));
+        if (el.matches(CONTA)) n.push(el);
+        if (el.matches(".destaques > div, .cifra, .mais-destaques li, .indicadores li")) n = n.concat(Array.prototype.slice.call(el.querySelectorAll("strong, b")));
+        n.forEach(function (x) { if (!x.dataset.contou) { x.dataset.contou = 1; contar(x); } });
         vistos.unobserve(el);
       });
     }, { rootMargin: "0px 0px -8% 0px", threshold: 0.12 });
@@ -144,6 +162,23 @@
     aplicar("2025");
   }
 
-  function iniciar() { mapa(); abas(); preparar(); }
+  /* ---------- barra de leitura no topo e botão de voltar ao topo ---------- */
+  function leitura() {
+    var barra = document.createElement("div"); barra.className = "progresso"; barra.setAttribute("aria-hidden", "true");
+    var topo = document.createElement("a"); topo.className = "ao-topo"; topo.href = "#conteudo"; topo.setAttribute("aria-label", "Voltar ao topo da página");
+    topo.addEventListener("click", function (e) { e.preventDefault(); window.scrollTo({ top: 0, behavior: calmo ? "auto" : "smooth" }); });
+    document.body.appendChild(barra); document.body.appendChild(topo);
+    var pedido = false;
+    function atualizar() {
+      pedido = false;
+      var h = document.documentElement.scrollHeight - innerHeight, p = h > 0 ? scrollY / h : 0;
+      barra.style.transform = "scaleX(" + p.toFixed(4) + ")";
+      topo.classList.toggle("mostra", scrollY > innerHeight * 0.9);
+    }
+    addEventListener("scroll", function () { if (!pedido) { pedido = true; requestAnimationFrame(atualizar); } }, { passive: true });
+    atualizar();
+  }
+
+  function iniciar() { mapa(); abas(); preparar(); leitura(); }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", iniciar); else iniciar();
 })();
