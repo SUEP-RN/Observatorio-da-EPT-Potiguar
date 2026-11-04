@@ -25,7 +25,7 @@
   function preparar() {
     if (calmo || !temObservador) return;
     document.documentElement.classList.add("anima");
-    var grupos = "main > section:not(:first-child) .secao-cabeca, .destaques > div, .praticas article, .egresso, .voz, .premio, .passos li, .tipos-estagio article, .relato > div, .ciclo li, .cifra, .indicadores li, .mais-destaques li, .escolas li, .abas, .mapa-estagio, .perguntas details, .convite, .selo-nacional, .parceiros li";
+    var grupos = "main > section:not(:first-child) .secao-cabeca, .destaques > div, .praticas article, .egresso, .voz, .premio, .passos li, .tipos-estagio article, .relato > div, .ciclo li, .cifra, .indicadores li, .mais-destaques li, .escolas li, .abas, .mapa-estagio, .perguntas details, .convite, .selo-nacional, .parceiros li, .duas-barras > div";
     var itens = document.querySelectorAll(grupos);
     var vistos = new IntersectionObserver(function (es) {
       es.forEach(function (e) {
@@ -77,27 +77,56 @@
   function mapa() {
     var svg = document.getElementById("mapa-estagio"), m = window.MAPA_RN;
     if (!svg || !m) return;
-    var com = ["Areia Branca","Mossoró","Apodi","Severiano Melo","Upanema","Pendências","Alto do Rodrigues","Afonso Bezerra","Pedro Avelino","João Câmara","Ceará-Mirim","Extremoz","São Gonçalo do Amarante","Ielmo Marinho","Macaíba","Natal","Parnamirim","São José de Mipibu","Goianinha","Canguaretama","Nova Cruz","Santa Cruz","Currais Novos","Acari","Parelhas","Caicó","Jucurutu","Serra Negra do Norte"];
-    var info = document.getElementById("mapa-info"), padrao = info ? info.textContent : "";
+    // 2025: revista da EPT, p. 69. 2026: unidades com estudantes estagiando no dia da visita técnica (pesquisa da SUEP).
+    var anos = {
+      "2025": { lista: ["Areia Branca","Mossoró","Apodi","Severiano Melo","Upanema","Pendências","Alto do Rodrigues","Afonso Bezerra","Pedro Avelino","João Câmara","Ceará-Mirim","Extremoz","São Gonçalo do Amarante","Ielmo Marinho","Macaíba","Natal","Parnamirim","São José de Mipibu","Goianinha","Canguaretama","Nova Cruz","Santa Cruz","Currais Novos","Acari","Parelhas","Caicó","Jucurutu","Serra Negra do Norte"],
+        info: "28 municípios com estagiários em 2025", legenda: "Municípios com estagiários em 2025", nota: "Municípios com estagiários da rede ao longo de 2025, segundo a revista da EPT.", tem: "tem estagiários da rede em 2025" },
+      "2026": { lista: ["Natal","Mossoró","Apodi","São Gonçalo do Amarante","Acari","Canguaretama","Ceará-Mirim","Currais Novos","Extremoz","Goianinha","Jardim de Piranhas","João Câmara","Parelhas","Santa Cruz","São Bento do Norte","Severiano Melo"],
+        unidades: { "Natal": 10, "Mossoró": 5, "Apodi": 2, "São Gonçalo do Amarante": 2 },
+        info: "16 municípios com estudantes estagiando nas visitas de 2026", legenda: "Municípios com estudantes estagiando no dia da visita técnica de 2026", nota: "31 unidades tinham estudantes estagiando no dia da visita técnica de 2026. Outras 53 foram registradas como ainda não aptas a ter estagiários.", tem: "estudantes estagiando no dia da visita" }
+    };
+    var info = document.getElementById("mapa-info"), nota = document.getElementById("mapa-nota"), legenda = document.getElementById("mapa-legenda");
+    var ul = document.getElementById("lista-estagio"), atual = anos["2025"];
     svg.setAttribute("viewBox", "0 0 " + m.largura + " " + m.altura);
-    var ns = "http://www.w3.org/2000/svg", ordem = 0;
+    var ns = "http://www.w3.org/2000/svg", caminhos = {};
     Object.keys(m.municipios).forEach(function (nome) {
       var p = document.createElementNS(ns, "path");
       p.setAttribute("d", m.municipios[nome]);
-      var tem = com.indexOf(nome) >= 0;
-      if (tem) {
-        p.setAttribute("class", "com");
-        p.style.setProperty("--atraso", (ordem++ * 45) + "ms");
-        var t = document.createElementNS(ns, "title"); t.textContent = nome; p.appendChild(t);
+      var t = document.createElementNS(ns, "title"); t.textContent = nome; p.appendChild(t);
+      function mostrar() {
+        if (!info) return;
+        var tem = atual.lista.indexOf(nome) >= 0, n = atual.unidades && atual.unidades[nome];
+        info.textContent = tem ? nome + ": " + (n ? n + " unidades com " : "") + atual.tem : nome;
       }
-      function mostrar() { if (info) info.textContent = tem ? nome + ": tem estagiários da rede" : nome; }
       p.addEventListener("mouseenter", mostrar);
       p.addEventListener("click", mostrar);
-      p.addEventListener("mouseleave", function () { if (info) info.textContent = padrao; });
+      p.addEventListener("mouseleave", function () { if (info) info.textContent = atual.info; });
+      caminhos[nome] = p;
       svg.appendChild(p);
     });
-    var ul = document.getElementById("lista-estagio");
-    if (ul) com.slice().sort(function (a, b) { return a.localeCompare(b, "pt"); }).forEach(function (n) { var li = document.createElement("li"); li.textContent = n; ul.appendChild(li); });
+    function aplicar(ano) {
+      atual = anos[ano];
+      var ordem = 0;
+      Object.keys(caminhos).forEach(function (nome) {
+        var tem = atual.lista.indexOf(nome) >= 0;
+        caminhos[nome].setAttribute("class", tem ? "com" : "");
+        if (tem) caminhos[nome].style.setProperty("--atraso", (ordem++ * 45) + "ms");
+      });
+      if (info) info.textContent = atual.info;
+      if (nota) nota.textContent = atual.nota;
+      if (legenda) legenda.textContent = atual.legenda;
+      if (ul) {
+        ul.innerHTML = "";
+        atual.lista.slice().sort(function (a, b) { return a.localeCompare(b, "pt"); }).forEach(function (n) { var li = document.createElement("li"); li.textContent = n; ul.appendChild(li); });
+      }
+    }
+    aplicar("2025");
+    document.querySelectorAll(".anos-mapa [data-ano]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        document.querySelectorAll(".anos-mapa [data-ano]").forEach(function (x) { x.setAttribute("aria-pressed", x === b); });
+        aplicar(b.dataset.ano);
+      });
+    });
   }
 
   function iniciar() { mapa(); abas(); preparar(); }

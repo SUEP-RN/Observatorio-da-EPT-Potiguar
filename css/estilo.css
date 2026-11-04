@@ -923,3 +923,27 @@ h1, h2, h3 { font-family: var(--titulo); line-height: 1.12; margin: 0; }
 .premio:hover .medalha span { transform: rotate(-8deg) scale(1.06); }
 .relato-fotos.unica { grid-template-columns: 1fr; }
 .relato-fotos.unica img { aspect-ratio: 3 / 2; }
+
+/* estágio: números por ano, barras horizontais e escolha do ano no mapa */
+.numeros-ano { font-size: 1.125rem; color: var(--indigo); margin: 6px 0 12px; display: flex; align-items: center; gap: 10px; }
+.numeros-ano::before { content: ""; width: 26px; height: 4px; border-radius: 4px; background: var(--coral); }
+.numeros-ano + .destaques { margin-bottom: 26px; }
+.duas-barras { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+.duas-barras > div { background: var(--branco); border-radius: 24px; padding: 24px 26px; box-shadow: 0 1px 0 var(--cinza-claro), 0 12px 26px rgba(34,43,99,.07); }
+.duas-barras h3 { font-size: 1.125rem; color: var(--indigo); margin-bottom: 16px; }
+.barras-h { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.barras-h li { display: grid; grid-template-columns: minmax(130px, 40%) 1fr 34px; align-items: center; gap: 10px; font-size: 0.9375rem; color: var(--tinta); }
+.barras-h i { display: block; height: 14px; border-radius: 99px; background: var(--indigo); width: calc(var(--v) / var(--max) * 100%); transform-origin: left; transition: transform 1s cubic-bezier(.2,.7,.2,1) .15s; }
+.barras-h.coral i { background: var(--coral); }
+.barras-h b { font: 800 0.9688rem var(--titulo); color: var(--indigo); text-align: right; }
+.anima .revela:not(.visivel) .barras-h i { transform: scaleX(0); }
+.anos-mapa { display: inline-flex; background: var(--branco); border-radius: 99px; padding: 4px; margin: 6px 0 14px; box-shadow: 0 1px 0 var(--cinza-claro); }
+.anos-mapa button { font: 700 1rem var(--titulo); color: var(--indigo); background: transparent; border: 0; border-radius: 99px; padding: 9px 22px; cursor: pointer; transition: background .2s ease, color .2s ease; }
+.anos-mapa button[aria-pressed="true"] { background: var(--indigo); color: #fff; }
+.anos-mapa button:focus-visible { outline: 3px solid var(--amarelo); outline-offset: 2px; }
+.mapa-nota { margin: 12px 0 0; font-size: 0.9375rem; color: var(--suave); }
+.mapa-estagio path.com { animation: acende .5s ease both; animation-delay: var(--atraso, 0ms); }
+@keyframes acende { from { fill: #efe9dc; } }
+@media (max-width: 960px) { .duas-barras { grid-template-columns: 1fr; } }
+@media (max-width: 520px) { .barras-h li { grid-template-columns: 1fr 34px; } .barras-h i { grid-column: 1 / -1; grid-row: 2; } }
+@media (prefers-reduced-motion: reduce) { .mapa-estagio path.com { animation: none; } .barras-h i { transition: none; } }
