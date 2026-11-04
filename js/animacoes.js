@@ -120,13 +120,28 @@
         atual.lista.slice().sort(function (a, b) { return a.localeCompare(b, "pt"); }).forEach(function (n) { var li = document.createElement("li"); li.textContent = n; ul.appendChild(li); });
       }
     }
-    aplicar("2025");
-    document.querySelectorAll(".anos-mapa [data-ano]").forEach(function (b) {
-      b.addEventListener("click", function () {
-        document.querySelectorAll(".anos-mapa [data-ano]").forEach(function (x) { x.setAttribute("aria-pressed", x === b); });
-        aplicar(b.dataset.ano);
+    // Página Estágio e trabalho: os dois anos juntos (municípios com estágio em 2025 ou em 2026)
+    if (svg.dataset.modo === "juntos") {
+      var a = anos["2025"].lista, b = anos["2026"].lista;
+      var uniao = a.concat(b.filter(function (n) { return a.indexOf(n) < 0; }));
+      anos.juntos = { lista: uniao, info: uniao.length + " municípios com estágio em 2025 ou em 2026",
+        legenda: "Municípios com estagiários em 2025 ou em 2026",
+        nota: "2025: municípios com estagiários ao longo do ano, segundo a revista da EPT. 2026: municípios com estudantes estagiando no dia da visita técnica." };
+      aplicar("juntos");
+      Object.keys(caminhos).forEach(function (nome) {
+        var p = caminhos[nome];
+        p.addEventListener("mouseenter", mostrarJuntos);
+        p.addEventListener("click", mostrarJuntos);
+        function mostrarJuntos() {
+          if (!info) return;
+          var em25 = a.indexOf(nome) >= 0, em26 = b.indexOf(nome) >= 0, n = anos["2026"].unidades[nome];
+          if (!em25 && !em26) { info.textContent = nome; return; }
+          info.textContent = nome + ": estágio " + (em25 && em26 ? "em 2025 e em 2026" : em25 ? "em 2025" : "em 2026") + (n ? " (" + n + " unidades com estagiários na visita de 2026)" : "");
+        }
       });
-    });
+      return;
+    }
+    aplicar("2025");
   }
 
   function iniciar() { mapa(); abas(); preparar(); }

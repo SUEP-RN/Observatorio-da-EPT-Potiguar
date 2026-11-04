@@ -110,17 +110,13 @@
       <div class="conteiner estagio">
         <div>
           <h2 id="titulo-mapa" class="etiqueta pequena">Da capital ao interior</h2>
-          <p>O estágio leva a experiência prática para todas as regiões do estado e valoriza as vocações produtivas de cada lugar. Escolha o ano e passe o mouse ou toque no mapa para ver os municípios.</p>
-          <div class="anos-mapa" role="group" aria-label="Escolha o ano do mapa">
-            <button type="button" data-ano="2025" aria-pressed="true">2025</button>
-            <button type="button" data-ano="2026" aria-pressed="false">2026</button>
-          </div>
-          <p class="mapa-info" id="mapa-info" aria-live="polite">28 municípios com estagiários em 2025</p>
-          <p class="mapa-nota" id="mapa-nota">Municípios com estagiários da rede ao longo de 2025, segundo a revista da EPT.</p>
+          <p>O estágio leva a experiência prática para todas as regiões do estado e valoriza as vocações produtivas de cada lugar. O mapa junta os municípios com estágio em 2025 e em 2026. Passe o mouse ou toque no mapa para ver cada um.</p>
+          <p class="mapa-info" id="mapa-info" aria-live="polite">30 municípios com estágio em 2025 ou em 2026</p>
+          <p class="mapa-nota" id="mapa-nota">2025: municípios com estagiários ao longo do ano, segundo a revista da EPT. 2026: municípios com estudantes estagiando no dia da visita técnica.</p>
         </div>
         <figure class="mapa-estagio">
-          <svg id="mapa-estagio" role="img" aria-labelledby="mapa-titulo"><title id="mapa-titulo">Mapa do Rio Grande do Norte com os municípios que têm estagiários da rede estadual</title></svg>
-          <figcaption><span class="ponto"></span><span id="mapa-legenda">Municípios com estagiários em 2025</span></figcaption>
+          <svg id="mapa-estagio" data-modo="juntos" role="img" aria-labelledby="mapa-titulo"><title id="mapa-titulo">Mapa do Rio Grande do Norte com os municípios que têm estagiários da rede estadual</title></svg>
+          <figcaption><span class="ponto"></span><span id="mapa-legenda">Municípios com estagiários em 2025 ou em 2026</span></figcaption>
           <ul id="lista-estagio" class="lista-municipios"></ul>
         </figure>
       </div>
@@ -267,7 +263,7 @@
   <script src="js/contato.js?v=20261104d"></script>
   <script src="js/site.js?v=20261104d"></script>
   <script src="js/onde-estudar.js?v=3"></script>
-  <script src="js/animacoes.js?v=3"></script>
+  <script src="js/animacoes.js?v=4"></script>
   <script>Site.iniciar("estagio-trabalho");</script>
 </body>
 </html>
