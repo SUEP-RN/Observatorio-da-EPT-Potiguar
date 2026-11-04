@@ -50,8 +50,8 @@ window.Site = (function () {
       itens = [
         ["index.html", "Início", "inicio"],
         { grupo: "Quem somos", itens: [
-          ["sobre.html", "A SUEP", "sobre", "O setor, o que faz e a equipe"],
-          ["ept.html", "A EPT no RN", "ept", "Governança, unidades, cursos e história"]
+          ["ept.html", "A EPT no RN", "ept", "Governança, unidades, cursos e história"],
+          ["sobre.html", "A SUEP", "sobre", "O setor, o que faz e a equipe"]
         ] },
         { grupo: "Onde estudar", itens: [
           ["onde-estudar.html", "Encontre uma escola", "onde-estudar", "Busca por cidade e curso, com o mapa"],
@@ -60,7 +60,8 @@ window.Site = (function () {
         ] },
         { grupo: "Escola e mundo do trabalho", itens: [
           ["boas-praticas.html", "Boas práticas", "boas-praticas", "Projetos premiados e experiências das escolas"],
-          ["acompanhamento.html", "Acompanhamento da EPT", "acompanhamento", "Dados das visitas técnicas e do estágio"]
+          ["estagio-trabalho.html", "Estágio e trabalho", "estagio-trabalho", "Estágio, aprendizagem e empresas parceiras"],
+          ["acompanhamento.html", "Acompanhamento da EPT", "acompanhamento", "Dados das visitas técnicas"]
         ] },
         { grupo: "Para as escolas", itens: [
           ["documentos.html", "Documentos", "documentos", "Orientações, legislação, estruturas e PPCs"],

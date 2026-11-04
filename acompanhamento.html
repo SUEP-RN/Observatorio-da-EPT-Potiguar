@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Rubik:wght@500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/estilo.css?v=20261103a">
+  <link rel="stylesheet" href="css/estilo.css?v=20261104c">
 </head>
 <body>
   <a class="pular" href="#conteudo">Pular para o conteúdo</a>
@@ -112,18 +112,52 @@
       </div>
     </section>
 
-    <!-- Estágio (revista, p. 69) -->
-    <section class="secao cinza" aria-labelledby="titulo-estagio">
+    <!-- Práticas profissionais e mundo do trabalho (revista, p. 68) -->
+    <section class="secao cinza" aria-labelledby="titulo-mundo">
       <div class="conteiner">
         <div class="secao-cabeca">
+          <h2 id="titulo-mundo" class="etiqueta pequena">Práticas profissionais e mundo do trabalho</h2>
+          <p>A ligação com o mundo do trabalho é um eixo da proposta pedagógica da rede. O Núcleo do Mundo do Trabalho da SUEP acompanha as práticas profissionais em quatro polos regionais, junto com o setor produtivo e os parceiros institucionais.</p>
+        </div>
+        <div class="praticas">
+          <article><h3>Projetos integradores</h3><p>Os estudantes investigam problemas reais do território e propõem soluções, unindo a formação geral e a formação técnica.</p></article>
+          <article><h3>Estágio supervisionado</h3><p>A prática profissional em empresas e instituições, acompanhada pela escola e por agentes de integração.</p></article>
+          <article><h3>Aprendizagem profissional</h3><p>Contratos de aprendizagem regidos pela CLT, com o Programa Aprendiz Potiguar.</p></article>
+        </div>
+        <div class="parceiros">
+          <span>Parceiros:</span>
+          <ul>
+            <li>Ministério Público do Trabalho</li>
+            <li>Ministério do Trabalho e Emprego</li>
+            <li>Núcleo Brasileiro de Estágios (Nube)</li>
+            <li>Centro de Integração Empresa-Escola (CIEE)</li>
+            <li>Instituto Euvaldo Lodi (IEL)</li>
+            <li>Setor produtivo</li>
+          </ul>
+        </div>
+        <p class="fonte">Como funcionam as práticas em cada curso: veja o <a href="documentos.html#orientadores">Documento orientador de práticas profissionais</a>.</p>
+      </div>
+    </section>
+
+    <!-- Estágio (revista, p. 69) -->
+    <section class="secao" aria-labelledby="titulo-estagio">
+      <div class="conteiner estagio">
+        <div>
           <h2 id="titulo-estagio" class="etiqueta pequena">O estágio em números (2025)</h2>
-          <p>O estágio supervisionado não obrigatório leva a prática profissional da capital ao interior e valoriza as vocações produtivas de cada região.</p>
+          <p>O estágio supervisionado não obrigatório leva a prática profissional da capital ao interior e valoriza as vocações produtivas de cada região. O mapa mostra os municípios onde há estudantes da rede estagiando.</p>
+          <p class="mapa-info" id="mapa-info" aria-live="polite">Passe o mouse no mapa para ver os municípios</p>
+          <div class="destaques" style="--n: 1">
+            <div><strong>653</strong><span>estagiários em atividade</span></div>
+            <div><strong>35</strong><span>instituições: escolas estaduais, CEEPs e CENEP</span></div>
+            <div><strong>28</strong><span>municípios, de Areia Branca a Canguaretama</span></div>
+          </div>
+          <a class="seta" href="estagio-trabalho.html">Mais sobre estágio e aprendizagem</a>
         </div>
-        <div class="destaques" style="--n: 3">
-          <div><strong>653</strong><span>estagiários em atividade</span></div>
-          <div><strong>35</strong><span>instituições: escolas estaduais, CEEPs e CENEP</span></div>
-          <div><strong>28</strong><span>municípios, de Areia Branca a Canguaretama</span></div>
-        </div>
+        <figure class="mapa-estagio">
+          <svg id="mapa-estagio" role="img" aria-labelledby="mapa-estagio-titulo"><title id="mapa-estagio-titulo">Mapa do Rio Grande do Norte com os 28 municípios que têm estagiários da rede estadual em 2025</title></svg>
+          <figcaption><span class="ponto"></span>Municípios com estagiários em 2025</figcaption>
+          <ul id="lista-estagio" class="lista-municipios"></ul>
+        </figure>
       </div>
     </section>
 
@@ -140,8 +174,10 @@
 
   <footer class="rodape" id="rodape"></footer>
 
-  <script src="js/contato.js?v=20261103a"></script>
-  <script src="js/site.js?v=20261103a"></script>
+  <script src="js/contato.js?v=20261104c"></script>
+  <script src="js/site.js?v=20261104c"></script>
+  <script src="js/onde-estudar.js?v=3"></script>
+  <script src="js/animacoes.js?v=1"></script>
   <script>Site.iniciar("acompanhamento");</script>
 </body>
 </html>
