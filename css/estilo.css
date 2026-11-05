@@ -1314,3 +1314,14 @@ h1, h2, h3 { font-family: var(--titulo); line-height: 1.12; margin: 0; }
 .busca-site { pointer-events: none; } /* o cabeçalho continua clicável com a busca aberta */
 .busca-fundo, .busca-janela { pointer-events: auto; }
 .busca-campo > svg { width: 22px; height: 22px; flex: none; color: var(--indigo); }
+
+/* revista do Mulheres Mil, na página dos programas */
+.mm-revista { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 28px; align-items: center; margin-top: 34px; padding: 24px 28px; background: var(--branco); border-radius: var(--raio); box-shadow: var(--sombra); }
+.mm-revista img { display: block; width: 100%; height: auto; border-radius: var(--raio-p); box-shadow: 0 10px 22px rgba(12, 18, 54, .18); }
+.mm-revista h3 { font-size: 1.375rem; color: var(--indigo); margin: 0 0 8px; }
+.mm-revista p { margin: 0; color: var(--suave); max-width: 62ch; }
+.mm-revista-links { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 22px; margin-top: 16px; }
+.mm-revista-links small { font-weight: 500; opacity: .8; }
+.mm-revista-links a:not(.botao) { font: 700 0.9688rem var(--titulo); color: var(--azul-escuro); }
+.mm-revista .mm-revista-ppc { margin-top: 14px; font-size: 0.9375rem; }
+@media (max-width: 640px) { .mm-revista { grid-template-columns: 96px minmax(0, 1fr); gap: 16px; padding: 18px; } .mm-revista h3 { font-size: 1.1875rem; } }
