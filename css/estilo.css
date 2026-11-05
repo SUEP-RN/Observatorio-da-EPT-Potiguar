@@ -1190,3 +1190,21 @@ h1, h2, h3 { font-family: var(--titulo); line-height: 1.12; margin: 0; }
 .abertura .colagem .rn { width: 46%; top: -44px; }
 @media (max-width: 960px) { .abertura .colagem { min-height: 320px; } }
 @media (max-width: 600px) { .abertura .conteiner { padding-top: 32px; padding-bottom: 96px; } .abertura .colagem { min-height: 260px; } }
+
+/* Programas da EPT, versão simplificada (desde 2026-11-05) */
+.pronatec-acoes { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.pronatec-acoes li { background: #fff; border-radius: var(--raio); padding: 20px 22px; box-shadow: var(--sombra); border-top: 6px solid var(--cor, var(--ceu)); }
+.pronatec-acoes li:nth-child(2) { --cor: var(--amarelo); }
+.pronatec-acoes li:nth-child(3) { --cor: var(--lima); }
+.pronatec-acoes li:nth-child(4) { --cor: var(--coral); }
+.pronatec-acoes b { display: block; font: 700 1.125rem var(--titulo); color: var(--indigo); margin-bottom: 4px; }
+.pronatec-acoes span { color: var(--suave); font-size: 0.9688rem; }
+.tipos-estagio .exemplo { margin-top: 12px; font: 600 0.9375rem var(--titulo); color: var(--amarelo-claro); }
+.mm-fatos { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.mm-fatos li { background: rgba(255,255,255,.08); border: 2px solid rgba(255,255,255,.14); border-radius: var(--raio); padding: 16px 20px; color: #dfe4f8; font-size: 1.0625rem; }
+.mm-fatos b { font: 800 1.375rem var(--titulo); color: var(--amarelo); }
+.mm-fatos li:nth-child(2) b { color: var(--ceu); }
+.mm-fatos li:nth-child(3) b { color: var(--lima); }
+.mm-ciclo3.sozinho { margin-top: 22px; background: #fff; border-radius: var(--raio); padding: 24px 26px; box-shadow: var(--sombra); }
+@media (max-width: 900px) { .pronatec-acoes { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 520px) { .pronatec-acoes { grid-template-columns: 1fr; } }
