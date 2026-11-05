@@ -1064,6 +1064,7 @@ h1, h2, h3 { font-family: var(--titulo); line-height: 1.12; margin: 0; }
 .mm-topo { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
 .mm-topo h2 { font-size: clamp(2.2rem, 4.6vw, 3.4rem); color: #fff; margin: 12px 0 14px; }
 .mm-lead { font-size: 1.125rem; color: #dfe4f8; margin: 0; }
+.mm-mais { color: #cdd3ef; margin: 14px 0 0; max-width: 68ch; }
 .mm-numeros { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 .mm-numeros div { background: rgba(255,255,255,.07); border: 2px solid rgba(255,255,255,.12); border-radius: var(--raio); padding: 18px; }
 .mm-numeros strong { display: block; font: 800 clamp(1.6rem, 3vw, 2.2rem)/1 var(--titulo); color: var(--amarelo); }
@@ -1257,3 +1258,11 @@ h1, h2, h3 { font-family: var(--titulo); line-height: 1.12; margin: 0; }
 .rodape-logos i { align-self: stretch; width: 1px; background: #dfe3f1; }
 @media (max-width: 960px) { .rodape-grade { grid-template-columns: 1fr 1fr; } .rodape-grade > div:first-child { grid-column: 1 / -1; } }
 @media (max-width: 640px) { .rodape-grade { grid-template-columns: 1fr; } .rodape-logos { gap: 12px; padding: 12px 14px; } .rodape-logos img { height: 46px; } .rodape-logos img + i + img { height: 42px; } }
+
+/* Pronatec: texto e foto lado a lado */
+.pronatec-topo { display: grid; grid-template-columns: 1.15fr .85fr; gap: 48px; align-items: center; }
+.pronatec-topo .secao-cabeca { margin-bottom: 0; }
+.pronatec-foto { margin: 0; }
+.pronatec-foto img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--raio-g) 24px 80px 24px; box-shadow: var(--sombra); }
+.pronatec-topo + .pronatec-acoes { margin-top: 36px; }
+@media (max-width: 860px) { .pronatec-topo { grid-template-columns: 1fr; gap: 24px; } .pronatec-foto img { aspect-ratio: 16 / 9; } }
