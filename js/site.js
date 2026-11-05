@@ -211,17 +211,18 @@ window.Site = (function () {
       return carregando;
     }
 
-    var caixa = el("div", "busca");
+    var caixa = el("div", "busca-site"); // nome próprio: .busca já é o campo da lista de painéis
     caixa.hidden = true;
     caixa.innerHTML =
       '<div class="busca-fundo" data-fechar></div>' +
-      '<div class="busca-janela" role="dialog" aria-modal="true" aria-label="Pesquisar no site">' +
+      '<div class="busca-janela" role="dialog" aria-label="Pesquisar no site"><div class="conteiner">' +
         '<form class="busca-campo" role="search">' + ICONES.lupa +
-          '<input type="search" placeholder="O que você procura? Ex.: Administração, Mossoró" aria-label="Termo de busca" autocomplete="off" enterkeyhint="search">' +
+          '<input type="search" placeholder="O que você procura? Ex.: Administração, Mossoró, estágio" aria-label="Termo de busca" autocomplete="off" enterkeyhint="search">' +
+          '<button class="botao amarelo busca-ir" type="submit">Pesquisar</button>' +
           '<button class="busca-fechar" type="button" data-fechar aria-label="Fechar busca"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>' +
         "</form>" +
         '<div class="busca-corpo"><p class="busca-aviso" aria-live="polite"></p><ul class="busca-lista"></ul></div>' +
-      "</div>";
+      "</div></div>";
     document.body.appendChild(caixa);
     var campo = caixa.querySelector("input"), lista = caixa.querySelector(".busca-lista"), aviso = caixa.querySelector(".busca-aviso");
     var ativo = -1;
@@ -252,6 +253,7 @@ window.Site = (function () {
           nota += Math.min(5, i._x.split(t).length - 1);
         });
         if (i.k === "curso" && i._t.indexOf(termos[0]) >= 0) nota += 12;
+        if ((i.k === "curso" || i.k === "oferta") && /(em|de) (.+)$/.exec(i._t) && /(em|de) (.+)$/.exec(i._t)[2] === termos.join(" ")) nota += 8; // nome exato do curso primeiro
         if (i.k === "cidade" && i._t.indexOf(termos.join(" ")) >= 0) nota += 14;
         if (i.k === "oferta") nota += 10;
         if (i.k === "pagina") nota += 2;
@@ -286,18 +288,21 @@ window.Site = (function () {
     function abrir() {
       anterior = document.activeElement;
       caixa.hidden = false;
-      document.documentElement.classList.add("sem-rolagem-busca");
+      // a barra abre logo abaixo do cabeÃ§alho, com a pÃ¡gina visÃ­vel atrÃ¡s
+      var topo = document.querySelector(".topo");
+      caixa.style.setProperty("--topo-fim", (topo ? Math.max(0, topo.getBoundingClientRect().bottom) : 0) + "px");
+      botoes.forEach(function (b) { b.setAttribute("aria-expanded", "true"); });
       carregar();
       campo.select(); campo.focus();
       procurar();
     }
     function fechar() {
       caixa.hidden = true;
-      document.documentElement.classList.remove("sem-rolagem-busca");
+      botoes.forEach(function (b) { b.setAttribute("aria-expanded", "false"); });
       if (anterior && anterior.focus) anterior.focus();
     }
 
-    botoes.forEach(function (b) { b.addEventListener("click", abrir); b.addEventListener("pointerenter", carregar); });
+    botoes.forEach(function (b) { b.addEventListener("click", function () { if (caixa.hidden) abrir(); else fechar(); }); b.addEventListener("pointerenter", carregar); });
     caixa.addEventListener("click", function (e) {
       if (e.target.closest("[data-fechar]")) { fechar(); return; }
       var a = e.target.closest("a.busca-item");
