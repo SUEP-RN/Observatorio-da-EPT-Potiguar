@@ -1051,3 +1051,95 @@ h1, h2, h3 { font-family: var(--titulo); line-height: 1.12; margin: 0; }
 @media (max-width: 900px) { .oque-ept .conteiner { grid-template-columns: 1fr; gap: 32px; } }
 @media (max-width: 520px) { .oque-passos li { padding: 76px 20px 20px; } }
 @media (prefers-reduced-motion: reduce) { .oque-passos li { transition: none; } }
+
+/* Página Programas da EPT */
+.programas-atalhos .atalho:nth-child(1) { --cor: var(--ceu); }
+.programas-atalhos .atalho:nth-child(2) { --cor: var(--amarelo); }
+.programas-atalhos .atalho:nth-child(3) { --cor: var(--coral); }
+.nota-rn { margin-top: 20px; background: #fff; border-left: 6px solid var(--lima); border-radius: 0 18px 18px 0; padding: 16px 20px; }
+.nota-rn b { font: 700 1rem var(--titulo); color: var(--indigo); }
+.nota-rn p { margin: 6px 0 0; color: var(--suave); }
+.acoes-programa { background: var(--indigo); color: #fff; border-radius: 26px; padding: 28px 28px 22px; position: relative; overflow: hidden; }
+.acoes-programa::after { content: ""; position: absolute; right: -70px; bottom: -80px; width: 180px; height: 180px; border-radius: 50%; background: var(--amarelo); opacity: .9; }
+.acoes-programa h4 { font: 700 1.25rem var(--titulo); color: var(--amarelo); margin: 0 0 14px; position: relative; }
+.acoes-programa .checagem { position: relative; z-index: 1; }
+.acoes-programa .checagem li { color: #eef1fb; }
+.checagem.colunas { display: block; columns: 2; column-gap: 32px; }
+.checagem.colunas li { margin-bottom: 10px; }
+.checagem.colunas li { break-inside: avoid; }
+.comparar caption { text-align: left; font: 700 1.125rem var(--titulo); color: var(--indigo); padding-bottom: 12px; }
+
+.mulheres-mil { position: relative; overflow: hidden; background: var(--indigo); color: #fff; padding: 80px 0 88px; }
+.mulheres-mil .bolha-lima { position: absolute; right: -170px; bottom: -230px; width: 320px; height: 320px; border-radius: 50%; background: var(--lima); opacity: .9; }
+.mulheres-mil .conteiner { position: relative; }
+.mm-topo { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+.mm-topo h2 { font-size: clamp(2.2rem, 4.6vw, 3.4rem); color: #fff; margin: 12px 0 14px; }
+.mm-lead { font-size: 1.125rem; color: #dfe4f8; margin: 0; }
+.mm-numeros { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.mm-numeros div { background: rgba(255,255,255,.07); border: 2px solid rgba(255,255,255,.12); border-radius: 20px; padding: 18px; }
+.mm-numeros strong { display: block; font: 800 clamp(1.6rem, 3vw, 2.2rem)/1 var(--titulo); color: var(--amarelo); }
+.mm-numeros div:nth-child(2) strong { color: var(--ceu); }
+.mm-numeros div:nth-child(3) strong { color: var(--lima); }
+.mm-numeros div:nth-child(4) strong { color: #ff8a80; }
+.mm-numeros span { display: block; margin-top: 6px; font-size: 0.9063rem; color: #cfd6f2; line-height: 1.35; }
+.mm-grade { display: grid; grid-template-columns: 1fr 1.25fr; gap: 20px; margin-top: 40px; }
+.mm-cartao { background: #fff; color: var(--tinta); border-radius: 26px; padding: 26px 28px; }
+.mm-cartao h3 { font: 700 1.3125rem var(--titulo); color: var(--indigo); margin: 0 0 10px; }
+.mm-cartao p { margin: 0 0 10px; color: var(--suave); }
+.mm-cartao ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+.mm-cartao ul li { position: relative; padding-left: 26px; }
+.mm-cartao ul li::before { content: ""; position: absolute; left: 0; top: .45em; width: 12px; height: 12px; border-radius: 50%; background: var(--coral); }
+.mm-passos { margin: 0; padding: 0; list-style: none; counter-reset: mm; display: grid; gap: 12px; }
+.mm-passos li { counter-increment: mm; position: relative; padding-left: 46px; color: var(--suave); }
+.mm-passos li::before { content: counter(mm); position: absolute; left: 0; top: -2px; width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; font: 800 1rem var(--titulo); background: var(--amarelo); color: var(--indigo); }
+.mm-passos li:nth-child(2)::before { background: var(--ceu); }
+.mm-passos li:nth-child(3)::before { background: var(--lima); }
+.mm-passos li:nth-child(4)::before { background: var(--coral); color: #fff; }
+.mm-passos b { color: var(--indigo); }
+.mm-subtitulo { font: 700 1.375rem var(--titulo); color: #fff; margin: 48px 0 18px; }
+.mm-linha { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; position: relative; }
+.mm-linha::before { content: ""; position: absolute; left: 0; right: 0; top: 17px; height: 4px; border-radius: 4px; background: linear-gradient(90deg, var(--amarelo), var(--coral), var(--ceu), var(--lima)); }
+.mm-linha li { position: relative; padding-top: 0; }
+.mm-linha span { position: relative; display: inline-block; font: 800 1rem var(--titulo); background: var(--amarelo); color: var(--indigo); border-radius: 999px; padding: 7px 14px; }
+.mm-linha li:nth-child(2) span { background: var(--coral); color: #fff; }
+.mm-linha li:nth-child(3) span { background: var(--ceu); }
+.mm-linha li:nth-child(4) span { background: var(--lima); }
+.mm-linha li:nth-child(5) span { background: #fff; }
+.mm-linha li:nth-child(6) span { background: #ff8a80; }
+.mm-linha p { margin: 12px 0 0; color: #dfe4f8; font-size: 0.9688rem; }
+.mm-rn { margin-top: 44px; display: grid; grid-template-columns: 1.4fr 1fr; gap: 28px; align-items: center; background: #2d377a; border-radius: 28px; padding: 30px 32px; }
+.mm-rn h3 { font: 800 clamp(1.4rem, 2.6vw, 1.9rem) var(--titulo); color: #fff; margin: 10px 0 10px; }
+.mm-rn p { margin: 0; color: #dfe4f8; }
+.mm-rn-cursos { display: grid; gap: 12px; }
+.mm-rn-cursos span { display: flex; align-items: center; gap: 14px; background: #fff; color: var(--indigo); border-radius: 18px; padding: 14px 18px; font: 600 1rem var(--titulo); }
+.mm-rn-cursos b { font: 800 1.75rem var(--titulo); color: var(--coral); min-width: 2ch; }
+.mm-rn-cursos span:nth-child(2) b { color: #6c8f12; }
+@media (max-width: 900px) {
+  .mm-topo, .mm-grade, .mm-rn { grid-template-columns: 1fr; }
+  .mm-linha { grid-template-columns: 1fr 1fr 1fr; row-gap: 26px; }
+  .mm-linha::before { display: none; }
+  .checagem.colunas { columns: 1; }
+}
+@media (max-width: 520px) { .mm-numeros, .mm-linha { grid-template-columns: 1fr; } .mm-rn { padding: 24px 20px; } }
+
+/* Mulheres Mil na rede estadual */
+.mm-ciclos { display: grid; grid-template-columns: 0.8fr 1.4fr; gap: 22px; margin-top: 26px; }
+.mm-ciclos-grafico, .mm-ciclo3 { background: #fff; border-radius: 26px; padding: 24px 26px; box-shadow: 0 1px 0 var(--cinza-claro), 0 12px 26px rgba(34,43,99,.07); }
+.mm-ciclos h3 { font: 700 1.1875rem var(--titulo); color: var(--indigo); margin: 0 0 12px; }
+.mm-ciclo3 p { margin: 0; color: var(--suave); }
+.mm-ciclo3 h4 { font: 700 0.9375rem var(--titulo); color: var(--indigo); margin: 18px 0 8px; }
+.mm-barras { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; align-items: end; height: 230px; padding-top: 10px; }
+.mm-barras div { display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; }
+.mm-barras small { font: 800 1.0625rem var(--titulo); color: var(--indigo); margin-bottom: 6px; }
+.mm-barras b { display: block; width: 100%; max-width: 74px; height: calc(var(--h) * 1.6px); border-radius: 12px 12px 4px 4px; background: linear-gradient(180deg, var(--amarelo), #f08a24); }
+.mm-barras div:nth-child(2) b { background: linear-gradient(180deg, #f8a35a, var(--coral)); }
+.mm-barras div:nth-child(3) b { background: linear-gradient(180deg, #f17a8f, #d8204a); }
+.mm-barras span { margin-top: 8px; font: 600 0.875rem var(--titulo); color: var(--suave); }
+.mm-chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.mm-chips li { background: var(--indigo); color: #fff; border-radius: 999px; padding: 6px 13px; font: 600 0.875rem var(--titulo); }
+.mm-chips.claro li { background: #eef1fb; color: var(--indigo); }
+.mm-fotos { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 26px; }
+.mm-fotos figure { margin: 0; background: #fff; border-radius: 22px; overflow: hidden; box-shadow: 0 12px 26px rgba(34,43,99,.08); }
+.mm-fotos img { display: block; width: 100%; aspect-ratio: 5 / 2; object-fit: cover; }
+.mm-fotos figcaption { padding: 12px 16px 14px; font-size: 0.9063rem; color: var(--suave); }
+@media (max-width: 900px) { .mm-ciclos, .mm-fotos { grid-template-columns: 1fr; } }
