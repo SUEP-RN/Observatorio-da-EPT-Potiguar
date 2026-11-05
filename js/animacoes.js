@@ -26,20 +26,15 @@
   }
   var CONTA = ".destaques strong, .cifra strong, .mais-destaques b, .rotulo b, .destaque-numero strong, .qtd, .pilula b, .barra small, .curso-numeros strong, .equipe-numero";
 
-  /* ---------- surgimento ao rolar ---------- */
+  /* ---------- dados que se movem ao aparecer ---------- */
+  // Só se move o que mostra dado: números que contam, barras que crescem e o mapa do estágio.
+  // Textos, títulos e cartões aparecem prontos.
   function preparar() {
     if (calmo || !temObservador) return;
     document.documentElement.classList.add("anima");
     var grupos = [
-      "main > section:not(:first-child) .secao-cabeca", ".destaques > div", ".praticas article", ".egresso", ".voz", ".premio",
-      ".passos li", ".tipos-estagio article", ".relato > div", ".ciclo li", ".cifra", ".indicadores li", ".mais-destaques li",
-      ".escolas li", ".abas", ".mapa-estagio", ".perguntas details", ".convite", ".selo-nacional", ".parceiros li", ".duas-barras > div",
-      // demais páginas
-      ".atalho", ".destaque-numero", ".grafico", ".mosaico img", ".acontece .conteiner > div", ".numeros-topo",
-      ".gov-item", ".gov-centro", ".rede-topo", ".nivel", ".modalidade", ".expansao > *", ".marco", ".cursos li",
-      ".atribuicao", ".acao-suep", ".articula > *", ".equipe > *", ".equipe-chefe",
-      ".formacao", ".metodo > div", ".documento-destaque", ".procurar article", ".tabela-rolagem",
-      ".curso-cartao", ".forma-cartao", ".filtros", ".mapa-rn", ".divisorias", ".pasta"
+      ".destaques > div", ".cifra", ".indicadores li", ".mais-destaques li", ".duas-barras > div",
+      ".destaque-numero", ".grafico", ".mapa-estagio", ".rede-topo", ".nivel", ".modalidade", ".curso-numeros", ".equipe-numero", ".mm-ciclos-grafico"
     ].join(", ");
     var itens = document.querySelectorAll(grupos);
     var vistos = new IntersectionObserver(function (es) {
@@ -47,8 +42,6 @@
         if (!e.isIntersecting) return;
         var el = e.target;
         el.classList.add("visivel");
-        // terminada a entrada, libera o elemento para os efeitos de passar o mouse
-        setTimeout(function () { el.classList.remove("revela"); }, 900 + (parseInt(el.style.getPropertyValue("--atraso"), 10) || 0));
         el.querySelectorAll(".trilho i[data-largura]").forEach(function (i) { i.style.width = i.dataset.largura; });
         var n = Array.prototype.slice.call(el.querySelectorAll(CONTA));
         if (el.matches(CONTA)) n.push(el);
@@ -57,13 +50,7 @@
         vistos.unobserve(el);
       });
     }, { rootMargin: "0px 0px -8% 0px", threshold: 0.12 });
-    Array.prototype.forEach.call(itens, function (el) {
-      // atraso em cascata entre irmãos
-      var irmaos = el.parentNode ? Array.prototype.indexOf.call(el.parentNode.children, el) : 0;
-      el.style.setProperty("--atraso", Math.min(irmaos, 6) * 70 + "ms");
-      el.classList.add("revela");
-      vistos.observe(el);
-    });
+    Array.prototype.forEach.call(itens, function (el) { vistos.observe(el); });
     document.querySelectorAll(".trilho i").forEach(function (i) { i.dataset.largura = i.style.width; i.style.width = "0"; });
   }
 
