@@ -191,6 +191,40 @@
     por(document.querySelector(".rodape"), "no-rodape");
   }
 
-  function iniciar() { engrenagens(); mapa(); abas(); preparar(); leitura(); }
+  /* ---------- carrossel de fotos: só anda quando a pessoa clica nas setas ou arrasta ---------- */
+  function carrosseis() {
+    document.querySelectorAll("[data-carrossel]").forEach(function (c) {
+      var trilho = c.querySelector(".carrossel-trilho"), itens = trilho.children, conta = c.querySelector(".carrossel-conta");
+      var setas = c.querySelectorAll(".carrossel-seta");
+      var gap = function () { return parseFloat(getComputedStyle(trilho).columnGap) || 0; };
+      function passo() { return itens.length ? itens[0].getBoundingClientRect().width + gap() : trilho.clientWidth; }
+      function porTela() { return Math.max(1, Math.round((trilho.clientWidth + gap()) / (passo() || 1))); }
+      var atual = 0; // primeira foto visível
+      function atualizar() {
+        var ultimo = Math.min(itens.length, atual + porTela());
+        if (conta) conta.textContent = (porTela() > 1 ? (atual + 1) + "–" + ultimo : ultimo) + " de " + itens.length;
+        setas[0].disabled = atual <= 0;
+        setas[1].disabled = atual + porTela() >= itens.length;
+      }
+      function ir(i) {
+        atual = Math.max(0, Math.min(i, itens.length - porTela()));
+        var alvo = itens[atual].offsetLeft - itens[0].offsetLeft;
+        trilho.scrollTo({ left: alvo, behavior: calmo ? "auto" : "smooth" });
+        // se o navegador não fizer a rolagem suave, vai direto
+        clearTimeout(c._garante); c._garante = setTimeout(function () { if (Math.abs(trilho.scrollLeft - alvo) > 4) trilho.scrollLeft = alvo; }, 550);
+        atualizar();
+      }
+      setas.forEach(function (b) { b.addEventListener("click", function () { ir(atual + Number(b.dataset.dir) * porTela()); }); });
+      trilho.addEventListener("keydown", function (e) {
+        if (e.key === "ArrowRight" || e.key === "ArrowLeft") { e.preventDefault(); ir(atual + (e.key === "ArrowRight" ? 1 : -1) * porTela()); }
+      });
+      // quando a pessoa arrasta com o dedo, a contagem acompanha
+      var t; trilho.addEventListener("scroll", function () { clearTimeout(t); t = setTimeout(function () { atual = Math.round(trilho.scrollLeft / (passo() || 1)); atualizar(); }, 120); });
+      window.addEventListener("resize", atualizar);
+      atualizar();
+    });
+  }
+
+  function iniciar() { engrenagens(); mapa(); abas(); carrosseis(); preparar(); leitura(); }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", iniciar); else iniciar();
 })();
