@@ -51,28 +51,27 @@
     cab.appendChild(tit);
     detalhe.appendChild(cab);
 
+    // texto em uma coluna só, com o mesmo estilo em todas as partes
     var grade = el("div", "curso-grade");
     var txt = el("div", "curso-texto");
+    function parte(titulo, conteudo) {
+      var s = el("section", "curso-parte");
+      s.appendChild(el("h3", null, titulo));
+      s.appendChild(conteudo);
+      txt.appendChild(s);
+    }
     if (c.aprende && c.aprende.length) {
-      txt.appendChild(el("h3", null, "O que você vai aprender"));
       var ap = el("ul", "curso-aprende");
       c.aprende.forEach(function (a) { ap.appendChild(el("li", null, a)); });
-      txt.appendChild(ap);
+      parte("O que você vai aprender", ap);
     }
-    var duas = el("div", "curso-duas");
-    var faz = el("div", "curso-bloco"); faz.appendChild(el("h3", null, "O que o técnico faz")); faz.appendChild(el("p", null, c.faz)); duas.appendChild(faz);
-    var atua = el("div", "curso-bloco"); atua.appendChild(el("h3", null, "Onde pode trabalhar")); atua.appendChild(el("p", null, c.atua)); duas.appendChild(atua);
-    txt.appendChild(duas);
-    if (c.combina) {
-      var comb = el("p", "curso-combina");
-      comb.appendChild(el("b", null, "Combina com você se: "));
-      comb.appendChild(document.createTextNode(c.combina.charAt(0).toLowerCase() + c.combina.slice(1)));
-      txt.appendChild(comb);
-    }
-    var acoes = el("div", "acoes");
+    parte("O que o técnico faz", el("p", null, c.faz));
+    parte("Onde pode trabalhar", el("p", null, c.atua));
+    if (c.combina) parte("Combina com você se", el("p", null, c.combina));
+    var acoes = el("div", "curso-acoes");
     var mapa = el("a", "botao indigo", "Ver escolas que oferecem o curso"); mapa.href = "onde-estudar.html#curso=" + encodeURIComponent(c.nome);
-    var entrar = el("a", "botao contorno-indigo", "Como entrar"); entrar.href = "como-entrar.html";
-    var est = el("a", "botao contorno-indigo", "Estrutura curricular"); est.href = "documentos.html?busca=" + encodeURIComponent(c.nome) + "#estruturas";
+    var entrar = el("a", null, "Como entrar"); entrar.href = "como-entrar.html";
+    var est = el("a", null, "Estrutura curricular"); est.href = "documentos.html?busca=" + encodeURIComponent(c.nome) + "#estruturas";
     acoes.appendChild(mapa); acoes.appendChild(entrar); acoes.appendChild(est); txt.appendChild(acoes);
     grade.appendChild(txt);
 
@@ -96,14 +95,17 @@
       oferta.appendChild(ul);
     }
     if (nMun) {
-      oferta.appendChild(el("h4", null, "Municípios"));
+      // a lista de cidades fica recolhida, para o quadro não ficar carregado
+      var det = el("details", "curso-cidades");
+      det.appendChild(el("summary", null, "Ver " + (nMun === 1 ? "o município" : "os " + nMun + " municípios")));
       var ms = el("ul", "curso-municipios");
       Object.keys(c.municipios).sort(function (a, b) { return a.localeCompare(b, "pt"); }).forEach(function (m) {
         var li = el("li"); var a = el("a", null, m);
         a.href = "onde-estudar.html#municipio=" + encodeURIComponent(m) + "&curso=" + encodeURIComponent(c.nome);
         li.appendChild(a); ms.appendChild(li);
       });
-      oferta.appendChild(ms);
+      det.appendChild(ms);
+      oferta.appendChild(det);
     }
     grade.appendChild(oferta);
     detalhe.appendChild(grade);
