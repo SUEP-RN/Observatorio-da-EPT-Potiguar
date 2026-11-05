@@ -87,3 +87,17 @@
   .unidades-lista { grid-template-columns: 1fr; }
   .mapa-rn path { stroke-width: 0.8; }
 }
+
+/* capa mais baixa (desde 2026-11-05) */
+.onde-abertura .conteiner { padding-top: 40px; padding-bottom: 116px; gap: 40px; }
+.onde-abertura .conteiner > div:first-child:has(.etiqueta.media) { --tam: clamp(2rem, 3.8vw, 2.9rem); }
+.onde-abertura .conteiner > div:first-child > p { font-size: 1.0625rem; margin-top: 12px; }
+.onde-abertura .filtros { margin-top: 18px; }
+.onde-abertura .mapa-rn { max-width: 600px; justify-self: center; width: 100%; }
+.formas-link { padding: 10px 16px; }
+@media (max-width: 960px) { .onde-abertura .conteiner { padding-bottom: 100px; } }
+
+/* chamada para os programas, depois das formas de oferta */
+.chamada-programas { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin-top: 26px; background: #fff; border-radius: var(--raio); padding: 20px 24px; box-shadow: var(--sombra); border-left: 6px solid var(--coral); }
+.chamada-programas b { display: block; font: 700 1.125rem var(--titulo); color: var(--indigo); }
+.chamada-programas span { display: block; margin-top: 4px; color: var(--suave); max-width: 64ch; }

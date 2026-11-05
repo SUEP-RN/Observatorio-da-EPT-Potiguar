@@ -1159,15 +1159,15 @@ h1, h2, h3 { font-family: var(--titulo); line-height: 1.12; margin: 0; }
 .sobre-abertura:not(.onde-abertura) { overflow: visible; z-index: 2; }
 .sobre-abertura:not(.onde-abertura) .bolha-coral { width: 150px; height: 200px; bottom: 30px; }
 .sobre-abertura:not(.onde-abertura) .ondas { height: 46px; }
-.sobre-abertura:not(.onde-abertura) .conteiner { grid-template-columns: 1.3fr .7fr; gap: 36px; align-items: stretch; padding-top: 56px; padding-bottom: 0; }
+.sobre-abertura:not(.onde-abertura) .conteiner { grid-template-columns: 1.18fr .82fr; gap: 36px; align-items: end; padding-top: 56px; padding-bottom: 0; }
 .sobre-abertura:not(.onde-abertura) .conteiner > * { margin-bottom: -56px; z-index: 3; }
-.sobre-abertura:not(.onde-abertura) .conteiner > div:first-child:has(.etiqueta) { --tam: clamp(1.9rem, 3.6vw, 2.8rem); }
-.sobre-abertura:not(.onde-abertura) .conteiner > div:first-child { --tam: clamp(1.9rem, 3.6vw, 2.8rem); padding: 26px 32px 28px; box-shadow: 0 22px 44px rgba(12, 18, 54, .28); }
+.sobre-abertura:not(.onde-abertura) .conteiner > div:first-child:has(.etiqueta) { --tam: clamp(1.9rem, 3.4vw, 2.6rem); }
+.sobre-abertura:not(.onde-abertura) .conteiner > div:first-child { --tam: clamp(1.9rem, 3.4vw, 2.6rem); padding: 26px 32px 28px; box-shadow: 0 22px 44px rgba(12, 18, 54, .28); }
 .sobre-abertura:not(.onde-abertura) .etiqueta.media { text-wrap: balance; }
 .sobre-abertura:not(.onde-abertura) .etiqueta.media em { display: inline; }
 .sobre-abertura:not(.onde-abertura) .conteiner > div:first-child > p { font-size: 1.0625rem; margin-top: 10px; }
-.sobre-abertura:not(.onde-abertura) .sobre-foto { min-height: 200px; }
-.sobre-abertura:not(.onde-abertura) .sobre-foto img { position: absolute; inset: 0; width: 100%; height: 100%; aspect-ratio: auto; border-radius: var(--raio-g) 24px 80px 24px; box-shadow: 0 22px 44px rgba(12, 18, 54, .28); }
+.sobre-abertura:not(.onde-abertura) .sobre-foto { align-self: end; }
+.sobre-abertura:not(.onde-abertura) .sobre-foto img { width: 100%; aspect-ratio: 16 / 10; border-radius: var(--raio-g) 24px 80px 24px; box-shadow: 0 22px 44px rgba(12, 18, 54, .28); }
 .sobre-abertura:not(.onde-abertura) .sobre-foto .contorno { inset: -12px -12px 35% 35%; }
 .sobre-abertura:not(.onde-abertura) .engrenagens.na-capa { width: 104px; left: -40px; bottom: -30px; }
 .sobre-abertura:not(.onde-abertura) + section { padding-top: 112px; }
