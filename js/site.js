@@ -59,7 +59,7 @@ window.Site = (function () {
         ] },
         { grupo: "Onde estudar", itens: [
           ["onde-estudar.html", "Encontre sua escola", "onde-estudar", "Busca por cidade e curso, com o mapa"],
-          ["cursos.html", "Cursos técnicos", "cursos", "O que faz cada técnico e onde tem"],
+          ["cursos.html", "Cursos técnicos", "cursos", "O que faz cada técnico e onde há oferta"],
           ["como-entrar.html", "Como entrar", "como-entrar", "Formas de oferta, matrícula e perguntas frequentes"],
           ["programas.html", "Programas da EPT", "programas", "Pronatec, Bolsa-Formação e Mulheres Mil"]
         ] },
@@ -241,7 +241,7 @@ window.Site = (function () {
       if (!termos.length) termos = [semAcento(q)];
       var achados = [];
       indice.forEach(function (i) {
-        // cidades e "onde tem" só aparecem pelo nome (senão um curso traria dezenas de cidades)
+        // cidades e "onde há oferta" só aparecem pelo nome (senão um curso traria dezenas de cidades)
         var tudo = i._t + " " + i._n + " " + i._x;
         if ((i.k === "cidade" || i.k === "oferta") && !termos.some(function (t) { return i._t.indexOf(t) >= 0; })) return;
         if (!termos.every(function (t) { return tudo.indexOf(t) >= 0; })) return;

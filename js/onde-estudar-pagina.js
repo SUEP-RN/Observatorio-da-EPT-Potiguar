@@ -140,10 +140,10 @@
     if (rolar) resumo.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
-  // botões "Ver onde tem" do quadro das formas de oferta, com o número de unidades de cada forma
+  // botões "Ver as N unidades" do quadro das formas de oferta, com o número de unidades de cada forma
   document.querySelectorAll("[data-conta]").forEach(function (s) {
     var n = UNID.filter(function (u) { return cursosQueAtendem(u, "", s.dataset.conta).length; }).length;
-    s.textContent = "(" + n + (n === 1 ? " unidade)" : " unidades)");
+    s.textContent = String(n);
   });
   document.querySelectorAll("[data-forma]").forEach(function (b) {
     b.addEventListener("click", function () { forma.value = b.dataset.forma; texto.value = ""; atualizar(true); });

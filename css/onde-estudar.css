@@ -101,3 +101,4 @@
 .chamada-programas { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin-top: 26px; background: #fff; border-radius: var(--raio); padding: 20px 24px; box-shadow: var(--sombra); border-left: 6px solid var(--coral); }
 .chamada-programas b { display: block; font: 700 1.125rem var(--titulo); color: var(--indigo); }
 .chamada-programas span { display: block; margin-top: 4px; color: var(--suave); max-width: 64ch; }
+.forma-cartao button[data-forma] { gap: .28em; } /* "Ver as 133 unidades" sem espaço sobrando */

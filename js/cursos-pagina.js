@@ -70,7 +70,7 @@
       txt.appendChild(comb);
     }
     var acoes = el("div", "acoes");
-    var mapa = el("a", "botao indigo", "Ver no mapa onde tem"); mapa.href = "onde-estudar.html#curso=" + encodeURIComponent(c.nome);
+    var mapa = el("a", "botao indigo", "Ver escolas que oferecem o curso"); mapa.href = "onde-estudar.html#curso=" + encodeURIComponent(c.nome);
     var entrar = el("a", "botao contorno-indigo", "Como entrar"); entrar.href = "como-entrar.html";
     var est = el("a", "botao contorno-indigo", "Estrutura curricular"); est.href = "documentos.html?busca=" + encodeURIComponent(c.nome) + "#estruturas";
     acoes.appendChild(mapa); acoes.appendChild(entrar); acoes.appendChild(est); txt.appendChild(acoes);
