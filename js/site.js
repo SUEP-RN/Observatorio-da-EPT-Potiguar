@@ -9,7 +9,11 @@ window.Site = (function () {
   var BASE = "";
   var SITE = "publico";
 
+  // versão do site.js (?v=...), usada também na lista da busca para o navegador não guardar uma lista velha
+  var VERSAO = (function () { var s = document.currentScript; var m = s && /[?&]v=([^&]+)/.exec(s.src); return m ? m[1] : ""; })();
+
   var ICONES = {
+    lupa: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></svg>',
     instagram: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>'
   };
 
@@ -101,10 +105,14 @@ window.Site = (function () {
             '<button class="menu-fechar" type="button" aria-label="Fechar menu">' +
               '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>' +
           menu +
-          (contato.instagram ? '<a class="menu-insta" href="' + contato.instagram + '" target="_blank" rel="noopener" aria-label="Instagram da SUEP">' + ICONES.instagram + "</a>" : "") +
+          // site público: a lupa fica no lugar do Instagram (que continua no rodapé, em Contato)
+          (SITE === "publico"
+            ? '<button class="busca-botao no-menu" type="button" aria-haspopup="dialog" aria-label="Pesquisar no site">' + ICONES.lupa + "</button>"
+            : (contato.instagram ? '<a class="menu-insta" href="' + contato.instagram + '" target="_blank" rel="noopener" aria-label="Instagram da SUEP">' + ICONES.instagram + "</a>" : "")) +
           '<a class="menu-destaque" href="#contato">Contato</a>' +
         "</nav>" +
         '<span class="menu-fundo" aria-hidden="true"></span>' +
+        (SITE === "publico" ? '<button class="busca-botao fora-menu" type="button" aria-haspopup="dialog" aria-label="Pesquisar no site">' + ICONES.lupa + "</button>" : "") +
       "</div>";
 
     lugar.appendChild(faixa);
@@ -152,6 +160,180 @@ window.Site = (function () {
     });
   }
 
+  /* ------------------------------------------------------------ busca no site (lupa do topo)
+     A lista com o texto das páginas, dos cursos e das cidades fica em js/busca-indice.js,
+     gerada por gerar-busca.ps1, e só é baixada quando a pessoa abre a busca. */
+  var PALAVRAS_VAZIAS = ["a", "o", "as", "os", "de", "da", "do", "das", "dos", "e", "em", "no", "na", "nos", "nas", "um", "uma", "para", "por", "com", "que", "como", "sobre", "ao"];
+  var SUGESTOES = ["Administração", "Mossoró", "Mulheres Mil", "estágio", "matrícula", "Informática"];
+
+  function semAcentoMesmoTamanho(t) {
+    // tira acentos sem mudar o tamanho do texto, para achar a posição do termo no texto original
+    var r = "";
+    for (var i = 0; i < t.length; i++) r += (semAcento(t[i]) || t[i]).charAt(0) || t[i];
+    return r;
+  }
+  function escapar(t) { return t.replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+  function marcar(texto, termos) {
+    var norm = semAcentoMesmoTamanho(texto), faixas = [];
+    termos.forEach(function (t) { var i = norm.indexOf(t); while (i >= 0) { faixas.push([i, i + t.length]); i = norm.indexOf(t, i + t.length); } });
+    faixas.sort(function (a, b) { return a[0] - b[0]; });
+    var out = "", pos = 0;
+    faixas.forEach(function (f) { if (f[0] < pos) return; out += escapar(texto.slice(pos, f[0])) + "<mark>" + escapar(texto.slice(f[0], f[1])) + "</mark>"; pos = f[1]; });
+    return out + escapar(texto.slice(pos));
+  }
+  function trecho(texto, termos) {
+    var norm = semAcentoMesmoTamanho(texto), i = -1;
+    termos.some(function (t) { i = norm.indexOf(t); return i >= 0; });
+    if (i < 0 || texto.length <= 170) return texto.slice(0, 170) + (texto.length > 170 ? "…" : "");
+    var ini = Math.max(0, i - 60); ini = texto.lastIndexOf(" ", ini) + 1;
+    var fim = Math.min(texto.length, ini + 170); if (fim < texto.length) fim = texto.lastIndexOf(" ", fim);
+    return (ini > 0 ? "…" : "") + texto.slice(ini, fim) + (fim < texto.length ? "…" : "");
+  }
+
+  function montarBusca() {
+    var botoes = Array.prototype.slice.call(document.querySelectorAll(".busca-botao"));
+    if (!botoes.length) return;
+    var indice = null, carregando = null;
+    function carregar() {
+      if (indice || carregando) return carregando;
+      carregando = new Promise(function (ok, erro) {
+        var s = document.createElement("script");
+        s.src = raiz("js/busca-indice.js") + (VERSAO ? "?v=" + VERSAO : "");
+        s.onload = function () {
+          indice = (window.BUSCA_INDICE || []).map(function (i) {
+            i._t = semAcento(i.t); i._n = semAcento(i.n); i._x = semAcento(i.x || ""); return i;
+          });
+          ok();
+        };
+        s.onerror = function () { carregando = null; erro(); };
+        document.head.appendChild(s);
+      });
+      return carregando;
+    }
+
+    var caixa = el("div", "busca");
+    caixa.hidden = true;
+    caixa.innerHTML =
+      '<div class="busca-fundo" data-fechar></div>' +
+      '<div class="busca-janela" role="dialog" aria-modal="true" aria-label="Pesquisar no site">' +
+        '<form class="busca-campo" role="search">' + ICONES.lupa +
+          '<input type="search" placeholder="O que você procura? Ex.: Administração, Mossoró" aria-label="Termo de busca" autocomplete="off" enterkeyhint="search">' +
+          '<button class="busca-fechar" type="button" data-fechar aria-label="Fechar busca"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>' +
+        "</form>" +
+        '<div class="busca-corpo"><p class="busca-aviso" aria-live="polite"></p><ul class="busca-lista"></ul></div>' +
+      "</div>";
+    document.body.appendChild(caixa);
+    var campo = caixa.querySelector("input"), lista = caixa.querySelector(".busca-lista"), aviso = caixa.querySelector(".busca-aviso");
+    var ativo = -1;
+
+    function sugerir() {
+      aviso.textContent = "Pesquise páginas, cursos técnicos e cidades com escola.";
+      lista.innerHTML = '<li class="busca-sugestoes">' + SUGESTOES.map(function (s) { return '<button type="button">' + s + "</button>"; }).join("") + "</li>";
+      lista.querySelectorAll("button").forEach(function (b) { b.addEventListener("click", function () { campo.value = b.textContent; procurar(); campo.focus(); }); });
+    }
+
+    function procurar() {
+      var q = campo.value.trim();
+      ativo = -1;
+      if (q.length < 2) { sugerir(); return; }
+      if (!indice) { aviso.textContent = "Carregando…"; carregar().then(procurar, function () { aviso.textContent = "Não foi possível carregar a busca. Verifique a conexão e tente de novo."; }); return; }
+      var termos = semAcento(q).split(/[^a-z0-9ºª]+/).filter(function (t) { return t && (t.length > 1 || /\d/.test(t)) && PALAVRAS_VAZIAS.indexOf(t) < 0; });
+      if (!termos.length) termos = [semAcento(q)];
+      var achados = [];
+      indice.forEach(function (i) {
+        // cidades e "onde tem" só aparecem pelo nome (senão um curso traria dezenas de cidades)
+        var tudo = i._t + " " + i._n + " " + i._x;
+        if ((i.k === "cidade" || i.k === "oferta") && !termos.some(function (t) { return i._t.indexOf(t) >= 0; })) return;
+        if (!termos.every(function (t) { return tudo.indexOf(t) >= 0; })) return;
+        var nota = 0;
+        termos.forEach(function (t) {
+          if (i._t.indexOf(t) >= 0) nota += 10;
+          if (i._n.indexOf(t) >= 0) nota += 4;
+          nota += Math.min(5, i._x.split(t).length - 1);
+        });
+        if (i.k === "curso" && i._t.indexOf(termos[0]) >= 0) nota += 12;
+        if (i.k === "cidade" && i._t.indexOf(termos.join(" ")) >= 0) nota += 14;
+        if (i.k === "oferta") nota += 10;
+        if (i.k === "pagina") nota += 2;
+        achados.push({ i: i, nota: nota });
+      });
+      achados.sort(function (a, b) { return b.nota - a.nota; });
+      // a mesma seção não aparece duas vezes, e no máximo 10 resultados
+      var vistos = {}, mostrar = [];
+      achados.forEach(function (r) { var c = r.i.p + "#" + (r.i.a || "") + r.i.t; if (!vistos[c] && mostrar.length < 10) { vistos[c] = 1; mostrar.push(r.i); } });
+
+      aviso.textContent = mostrar.length
+        ? (achados.length > 10 ? "Os 10 resultados mais próximos de “" + q + "”" : mostrar.length + (mostrar.length === 1 ? " resultado" : " resultados") + " para “" + q + "”")
+        : "Nada encontrado para “" + q + "”. Tente outra palavra ou procure nos documentos.";
+      lista.innerHTML = mostrar.map(function (i) {
+        var href = raiz(i.p) + (i.a ? "#" + i.a : "");
+        var tipo = i.k === "curso" ? "Curso técnico" : (i.k === "cidade" || i.k === "oferta") ? "Onde estudar" : i.n;
+        return '<li><a class="busca-item tipo-' + i.k + '" href="' + escapar(href) + '"><small>' + escapar(tipo) + "</small><b>" + marcar(i.t, termos) + "</b>" +
+          (i.x ? "<span>" + marcar(trecho(i.x, termos), termos) + "</span>" : "") + "</a></li>";
+      }).join("") +
+        '<li><a class="busca-item busca-docs" href="' + raiz("documentos.html") + "?busca=" + encodeURIComponent(q) + '"><small>Documentos</small><b>Procurar “' + escapar(q) + '” nos documentos</b><span>Orientações, legislação, estruturas curriculares e PPCs para baixar.</span></a></li>';
+    }
+
+    function itens() { return Array.prototype.slice.call(lista.querySelectorAll(".busca-item")); }
+    function destacar(n) {
+      var todos = itens(); if (!todos.length) return;
+      ativo = (n + todos.length) % todos.length;
+      todos.forEach(function (a, k) { a.classList.toggle("ativo", k === ativo); });
+      todos[ativo].scrollIntoView({ block: "nearest" });
+    }
+
+    var anterior = null;
+    function abrir() {
+      anterior = document.activeElement;
+      caixa.hidden = false;
+      document.documentElement.classList.add("sem-rolagem-busca");
+      carregar();
+      campo.select(); campo.focus();
+      procurar();
+    }
+    function fechar() {
+      caixa.hidden = true;
+      document.documentElement.classList.remove("sem-rolagem-busca");
+      if (anterior && anterior.focus) anterior.focus();
+    }
+
+    botoes.forEach(function (b) { b.addEventListener("click", abrir); b.addEventListener("pointerenter", carregar); });
+    caixa.addEventListener("click", function (e) {
+      if (e.target.closest("[data-fechar]")) { fechar(); return; }
+      var a = e.target.closest("a.busca-item");
+      if (!a) return;
+      // link para a mesma página: fecha a busca; a página de escolas só lê o filtro ao carregar
+      var destino = new URL(a.href, location.href);
+      if (destino.pathname === location.pathname) {
+        fechar();
+        if (destino.hash && /municipio=|curso=/.test(destino.hash)) { e.preventDefault(); location.hash = destino.hash; location.reload(); }
+      }
+    });
+    caixa.querySelector("form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      var todos = itens(); var alvo = todos[ativo >= 0 ? ativo : 0];
+      if (alvo) alvo.click();
+    });
+    campo.addEventListener("input", procurar);
+    campo.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowDown") { e.preventDefault(); destacar(ativo + 1); }
+      if (e.key === "ArrowUp") { e.preventDefault(); destacar(ativo - 1); }
+    });
+    document.addEventListener("keydown", function (e) {
+      if (!caixa.hidden && e.key === "Escape") { fechar(); return; }
+      if (!caixa.hidden && e.key === "Tab") {
+        // o foco fica dentro da janela de busca
+        var foco = Array.prototype.slice.call(caixa.querySelectorAll("input, button, a")).filter(function (x) { return x.offsetParent; });
+        var i = foco.indexOf(document.activeElement);
+        if (e.shiftKey && i <= 0) { e.preventDefault(); foco[foco.length - 1].focus(); }
+        else if (!e.shiftKey && i === foco.length - 1) { e.preventDefault(); foco[0].focus(); }
+      }
+      // atalho: Ctrl+K ou "/" abrem a busca (fora de campos de texto)
+      var digitando = /input|textarea|select/i.test((document.activeElement || {}).tagName || "");
+      if (caixa.hidden && ((e.key === "k" && (e.ctrlKey || e.metaKey)) || (e.key === "/" && !digitando))) { e.preventDefault(); abrir(); }
+    });
+  }
+
   /* ------------------------------------------------------------ rodapé */
   function montarRodape() {
     var r = document.getElementById("rodape");
@@ -161,16 +343,6 @@ window.Site = (function () {
         '<path d="M0 40 C 240 0, 480 70, 760 34 S 1200 10, 1440 44 V70 H0 Z" fill="#a9c92b"/>' +
         '<path d="M0 52 C 300 22, 560 74, 860 46 S 1240 30, 1440 56 V70 H0 Z" fill="#222b63"/>' +
       "</svg></div>";
-
-    /* chamada de fechamento, antes das colunas */
-    var topo = el("div", "conteiner rodape-topo");
-    if (SITE === "paineis") {
-      topo.innerHTML = '<p class="rodape-frase">Dados abertos para <em>decidir melhor</em> a EPT potiguar.</p>';
-    } else {
-      topo.innerHTML = '<p class="rodape-frase">Educação profissional pública e gratuita, <em>perto de você.</em></p>' +
-        '<a class="botao amarelo" href="' + raiz("onde-estudar.html") + '">Encontre sua escola</a>';
-    }
-    r.appendChild(topo);
 
     var grade = el("div", "conteiner rodape-grade");
     grade.id = "contato";
@@ -450,6 +622,7 @@ window.Site = (function () {
   function iniciar(pagina, site) {
     SITE = site === "paineis" ? "paineis" : "publico";
     montarTopo(pagina);
+    montarBusca();
     montarRodape();
     ligarInstagram();
     if (pagina === "lista") montarLista();
