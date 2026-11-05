@@ -54,7 +54,7 @@ window.Site = (function () {
           ["sobre.html", "A SUEP", "sobre", "O setor, o que faz e a equipe"]
         ] },
         { grupo: "Onde estudar", itens: [
-          ["onde-estudar.html", "Encontre uma escola", "onde-estudar", "Busca por cidade e curso, com o mapa"],
+          ["onde-estudar.html", "Encontre sua escola", "onde-estudar", "Busca por cidade e curso, com o mapa"],
           ["cursos.html", "Cursos técnicos", "cursos", "O que faz cada técnico e onde tem"],
           ["como-entrar.html", "Como entrar", "como-entrar", "Formas de oferta, matrícula e perguntas frequentes"],
           ["programas.html", "Programas da EPT", "programas", "Pronatec, Bolsa-Formação e Mulheres Mil"]
