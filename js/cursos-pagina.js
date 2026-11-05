@@ -27,7 +27,7 @@
     var a = el("a", "curso-cartao"); a.href = "#" + c.id;
     if (window.iconeCurso) { var ic = el("span", "curso-icone"); ic.innerHTML = window.iconeCurso(c.id); a.appendChild(ic); }
     a.appendChild(el("h3", null, c.nome));
-    a.appendChild(el("p", null, c.faz));
+    a.appendChild(el("p", null, c.faz.split(/\.\s/)[0].replace(/\.?$/, "."))); // só a primeira frase no cartão
     var n = Object.keys(c.municipios).length;
     a.appendChild(el("span", "curso-onde", c.unidades.length ? plural(c.unidades.length, "unidade", "unidades") + " em " + plural(n, "município", "municípios") : "Sem turmas em 2026"));
     lista.appendChild(a);
@@ -41,21 +41,39 @@
     document.title = "Técnico em " + c.nome + " · SUEP/SEEC-RN";
     detalhe.innerHTML = "";
     var voltar = el("a", "voltar", "Todos os cursos"); voltar.href = "#"; detalhe.appendChild(voltar);
+
+    // cabeça: ícone, nome e a apresentação do curso
     var cab = el("div", "curso-cabeca");
     if (window.iconeCurso) { var ic = el("span", "curso-icone grande"); ic.innerHTML = window.iconeCurso(c.id); cab.appendChild(ic); }
-    cab.appendChild(el("h2", "etiqueta pequena", "Técnico em " + c.nome));
+    var tit = el("div");
+    tit.appendChild(el("h2", "etiqueta pequena", "Técnico em " + c.nome));
+    if (c.sobre) tit.appendChild(el("p", "curso-sobre", c.sobre));
+    cab.appendChild(tit);
     detalhe.appendChild(cab);
 
     var grade = el("div", "curso-grade");
     var txt = el("div", "curso-texto");
-    txt.appendChild(el("h3", null, "O que faz"));
-    txt.appendChild(el("p", null, c.faz));
-    txt.appendChild(el("h3", null, "Onde pode trabalhar"));
-    txt.appendChild(el("p", null, c.atua));
+    if (c.aprende && c.aprende.length) {
+      txt.appendChild(el("h3", null, "O que você vai aprender"));
+      var ap = el("ul", "curso-aprende");
+      c.aprende.forEach(function (a) { ap.appendChild(el("li", null, a)); });
+      txt.appendChild(ap);
+    }
+    var duas = el("div", "curso-duas");
+    var faz = el("div", "curso-bloco"); faz.appendChild(el("h3", null, "O que o técnico faz")); faz.appendChild(el("p", null, c.faz)); duas.appendChild(faz);
+    var atua = el("div", "curso-bloco"); atua.appendChild(el("h3", null, "Onde pode trabalhar")); atua.appendChild(el("p", null, c.atua)); duas.appendChild(atua);
+    txt.appendChild(duas);
+    if (c.combina) {
+      var comb = el("p", "curso-combina");
+      comb.appendChild(el("b", null, "Combina com você se: "));
+      comb.appendChild(document.createTextNode(c.combina.charAt(0).toLowerCase() + c.combina.slice(1)));
+      txt.appendChild(comb);
+    }
     var acoes = el("div", "acoes");
     var mapa = el("a", "botao indigo", "Ver no mapa onde tem"); mapa.href = "onde-estudar.html#curso=" + encodeURIComponent(c.nome);
+    var entrar = el("a", "botao contorno-indigo", "Como entrar"); entrar.href = "como-entrar.html";
     var est = el("a", "botao contorno-indigo", "Estrutura curricular"); est.href = "documentos.html?busca=" + encodeURIComponent(c.nome) + "#estruturas";
-    acoes.appendChild(mapa); acoes.appendChild(est); txt.appendChild(acoes);
+    acoes.appendChild(mapa); acoes.appendChild(entrar); acoes.appendChild(est); txt.appendChild(acoes);
     grade.appendChild(txt);
 
     var oferta = el("aside", "curso-oferta");
@@ -89,6 +107,14 @@
     }
     grade.appendChild(oferta);
     detalhe.appendChild(grade);
+
+    // curso anterior e próximo, para quem quer conhecer vários
+    var i = CURSOS.indexOf(c), ant = CURSOS[(i - 1 + CURSOS.length) % CURSOS.length], prox = CURSOS[(i + 1) % CURSOS.length];
+    var nav = el("nav", "curso-vizinhos"); nav.setAttribute("aria-label", "Outros cursos");
+    var a1 = el("a", "anterior"); a1.href = "#" + ant.id; a1.appendChild(el("small", null, "Curso anterior")); a1.appendChild(el("b", null, ant.nome));
+    var a2 = el("a", "proximo"); a2.href = "#" + prox.id; a2.appendChild(el("small", null, "Próximo curso")); a2.appendChild(el("b", null, prox.nome));
+    nav.appendChild(a1); nav.appendChild(a2);
+    detalhe.appendChild(nav);
     detalhe.scrollIntoView({ block: "start" });
   }
   window.addEventListener("hashchange", mostrar);

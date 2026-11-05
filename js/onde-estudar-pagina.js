@@ -112,10 +112,10 @@
         var cs = el("ul", "cursos-unid"); cs.setAttribute("aria-label", "Cursos técnicos");
         u.cursos.forEach(function (x) {
           var item = el("li");
-          var b = el("button", "curso-nome", x.nome); b.type = "button";
-          b.setAttribute("aria-pressed", x.nome === c ? "true" : "false");
-          b.title = x.nome === c ? "Mostrar todos os cursos" : "Ver onde mais tem " + x.nome;
-          b.addEventListener("click", function () { curso.value = x.nome === c ? "" : x.nome; if (x.nome !== c) texto.value = ""; atualizar(true); });
+          // o nome do curso leva à página dele (cursos.html#administracao)
+          var b = el("a", "curso-nome" + (x.nome === c ? " filtrado" : ""), x.nome);
+          b.href = "cursos.html#" + sem(x.nome).replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+          b.title = "Ver a página do curso técnico em " + x.nome;
           item.appendChild(b);
           x.formas.forEach(function (fm) { item.appendChild(el("span", "forma forma-" + fm, FORMA[fm])); });
           cs.appendChild(item);

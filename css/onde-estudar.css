@@ -70,9 +70,9 @@
 .forma-cartao dd { margin: 2px 0 0; color: var(--tinta); }
 .forma-cartao .botao { margin-top: auto; align-self: flex-start; padding: 10px 16px; font-size: 0.875rem; }
 .forma-cartao .botao span { font-weight: 500; }
-.unid .cursos-unid button { font: 600 0.8125rem var(--titulo); color: var(--indigo); background: #eef2fb; border: 0; border-radius: 99px; padding: 5px 11px; cursor: pointer; }
-.unid .cursos-unid button:hover { background: #dfe7f8; }
-.unid .cursos-unid button[aria-pressed="true"] { background: var(--indigo); color: #fff; }
+.unid .cursos-unid button, .unid .cursos-unid a.curso-nome { text-decoration: none; font: 600 0.8125rem var(--titulo); color: var(--indigo); background: #eef2fb; border: 0; border-radius: 99px; padding: 5px 11px; cursor: pointer; }
+.unid .cursos-unid button:hover, .unid .cursos-unid a.curso-nome:hover { text-decoration: underline; background: #dfe7f8; }
+.unid .cursos-unid button[aria-pressed="true"], .unid .cursos-unid a.filtrado { background: var(--indigo); color: #fff; }
 .vazio-busca { background: var(--branco); border-radius: 18px; padding: 24px; color: var(--suave); }
 .vazio-busca b { color: var(--indigo); }
 

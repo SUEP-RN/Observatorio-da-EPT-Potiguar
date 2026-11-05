@@ -82,3 +82,37 @@
   .perguntas summary { font-size: 1rem; padding: 14px 16px; }
 }
 @media (prefers-reduced-motion: reduce) { .curso-cartao, .perguntas summary::after { transition: none; } }
+
+/* página de um curso, mais completa (desde 2026-11-05) */
+.curso-detalhe .curso-cabeca { align-items: flex-start; gap: 20px; flex-wrap: nowrap; padding-bottom: 26px; border-bottom: 2px solid var(--cinza-claro); }
+.curso-detalhe .curso-icone.grande { width: 84px; height: 84px; }
+.curso-sobre { margin: 14px 0 0; font-size: 1.1875rem; line-height: 1.55; color: var(--tinta); max-width: 62ch; }
+.curso-grade { margin-top: 30px; gap: 36px; grid-template-columns: 1.45fr 1fr; }
+.curso-texto h3 { font-size: 1.25rem; margin: 0 0 12px; }
+.curso-aprende { list-style: none; margin: 0 0 28px; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px 22px; }
+.curso-aprende li { position: relative; padding-left: 30px; font-size: 1rem; line-height: 1.45; }
+.curso-aprende li::before { content: ""; position: absolute; left: 0; top: 2px; width: 20px; height: 20px; border-radius: 50%; background: var(--lima) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23222b63' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 12.5 4 4 8-9'/%3E%3C/svg%3E") center / 13px no-repeat; }
+.curso-duas { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 18px; }
+.curso-bloco { background: var(--branco); border-radius: var(--raio); padding: 20px 22px; box-shadow: var(--sombra); border-top: 5px solid var(--ceu); }
+.curso-bloco + .curso-bloco { border-top-color: var(--coral); }
+.curso-bloco h3 { font-size: 1.0625rem; margin-bottom: 8px; }
+.curso-texto .curso-bloco p { margin: 0; font-size: 0.9688rem; color: var(--suave); }
+.curso-texto .curso-combina { margin: 0 0 22px; padding: 16px 20px; border-radius: var(--raio-p); background: #fdf1d2; border-left: 6px solid var(--amarelo); font-size: 1.0625rem; max-width: none; }
+.curso-combina b { color: var(--indigo); }
+.curso-texto .acoes { display: flex; flex-wrap: wrap; gap: 10px; }
+.curso-oferta { position: sticky; top: 96px; }
+.curso-vizinhos { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 40px; padding-top: 26px; border-top: 2px solid var(--cinza-claro); }
+.curso-vizinhos a { display: block; padding: 16px 20px; border-radius: var(--raio); background: var(--branco); box-shadow: var(--sombra); text-decoration: none; }
+.curso-vizinhos a:hover { background: #f1f4fc; }
+.curso-vizinhos .proximo { text-align: right; }
+.curso-vizinhos small { display: block; font: 600 0.8125rem var(--titulo); color: var(--suave); }
+.curso-vizinhos b { display: block; margin-top: 2px; font: 700 1.0625rem var(--titulo); color: var(--indigo); }
+.curso-vizinhos .anterior b::before { content: "‹ "; } .curso-vizinhos .proximo b::after { content: " ›"; }
+@media (max-width: 960px) { .curso-grade { grid-template-columns: 1fr; } .curso-oferta { position: static; } }
+@media (max-width: 640px) {
+  .curso-detalhe .curso-cabeca { flex-direction: column; gap: 12px; }
+  .curso-detalhe .curso-icone.grande { width: 64px; height: 64px; }
+  .curso-sobre { font-size: 1.0625rem; }
+  .curso-aprende, .curso-duas { grid-template-columns: 1fr; }
+  .curso-vizinhos { grid-template-columns: 1fr; } .curso-vizinhos .proximo { text-align: left; }
+}
