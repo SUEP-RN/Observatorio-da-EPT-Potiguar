@@ -1244,3 +1244,16 @@ h1, h2, h3 { font-family: var(--titulo); line-height: 1.12; margin: 0; }
 .carrossel-conta { min-width: 7em; text-align: center; font: 600 0.9375rem var(--titulo); color: var(--suave); }
 @media (max-width: 800px) { .carrossel-trilho { grid-auto-columns: 86%; gap: 12px; } }
 @media (prefers-reduced-motion: reduce) { .carrossel-trilho { scroll-behavior: auto; } .carrossel-seta { transition: none; } }
+
+/* rodapé com chamada de fechamento e logos maiores (desde 2026-11-05) */
+.rodape-topo { display: flex; align-items: center; justify-content: space-between; gap: 24px 40px; flex-wrap: wrap; padding-top: 34px; padding-bottom: 30px; border-bottom: 1px solid rgba(255,255,255,.12); }
+.rodape-frase { margin: 0; font: 700 clamp(1.5rem, 3vw, 2.25rem)/1.15 var(--titulo); color: #fff; max-width: 22ch; text-wrap: balance; }
+.rodape-frase em { font-style: normal; color: var(--amarelo); }
+.rodape-topo .botao { padding: 14px 24px; font-size: 1rem; }
+.rodape-grade { grid-template-columns: 1.45fr 1fr 1fr 1fr; padding-top: 34px; }
+.rodape-logos { display: flex; width: max-content; max-width: 100%; align-items: center; gap: 18px; padding: 14px 20px; border-radius: var(--raio-p); box-shadow: 0 10px 26px rgba(8, 12, 40, .35); margin-bottom: 16px; }
+.rodape-logos img { height: 58px; width: auto; max-width: 100%; }
+.rodape-logos img + i + img { height: 54px; }
+.rodape-logos i { align-self: stretch; width: 1px; background: #dfe3f1; }
+@media (max-width: 960px) { .rodape-grade { grid-template-columns: 1fr 1fr; } .rodape-grade > div:first-child { grid-column: 1 / -1; } }
+@media (max-width: 640px) { .rodape-grade { grid-template-columns: 1fr; } .rodape-logos { gap: 12px; padding: 12px 14px; } .rodape-logos img { height: 46px; } .rodape-logos img + i + img { height: 42px; } }

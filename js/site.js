@@ -162,11 +162,21 @@ window.Site = (function () {
         '<path d="M0 52 C 300 22, 560 74, 860 46 S 1240 30, 1440 56 V70 H0 Z" fill="#222b63"/>' +
       "</svg></div>";
 
+    /* chamada de fechamento, antes das colunas */
+    var topo = el("div", "conteiner rodape-topo");
+    if (SITE === "paineis") {
+      topo.innerHTML = '<p class="rodape-frase">Dados abertos para <em>decidir melhor</em> a EPT potiguar.</p>';
+    } else {
+      topo.innerHTML = '<p class="rodape-frase">Educação profissional pública e gratuita, <em>perto de você.</em></p>' +
+        '<a class="botao amarelo" href="' + raiz("onde-estudar.html") + '">Encontre sua escola</a>';
+    }
+    r.appendChild(topo);
+
     var grade = el("div", "conteiner rodape-grade");
     grade.id = "contato";
 
     var c1 = el("div");
-    c1.innerHTML = '<span class="rodape-logos"><img src="' + raiz("img/logo-governo-rn.png") + '" alt="Governo do Rio Grande do Norte"><img src="' + raiz("img/logo-suep.png") + '" alt="SUEP"></span>';
+    c1.innerHTML = '<span class="rodape-logos"><img src="' + raiz("img/logo-governo-rn.png") + '" alt="Governo do Rio Grande do Norte"><i aria-hidden="true"></i><img src="' + raiz("img/logo-suep.png") + '" alt="SUEP"></span>';
     c1.appendChild(el("p", null, SITE === "paineis"
       ? "Painéis de dados da Rede Estadual de Educação Profissional e Tecnológica do Rio Grande do Norte."
       : "Educação Profissional e Tecnológica na rede pública estadual do Rio Grande do Norte."));
