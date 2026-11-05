@@ -1177,3 +1177,16 @@ h1, h2, h3 { font-family: var(--titulo); line-height: 1.12; margin: 0; }
   .sobre-abertura:not(.onde-abertura) .sobre-foto img { position: static; height: auto; aspect-ratio: 16 / 8; }
   .sobre-abertura:not(.onde-abertura) + section { padding-top: 96px; }
 }
+
+/* Capa da inicial um pouco mais baixa (desde 2026-11-05) */
+.abertura .conteiner { padding-top: 44px; padding-bottom: 116px; }
+.abertura .abertura-texto { --tam: clamp(1.9rem, 3.8vw, 2.9rem); }
+.abertura .abertura-texto p { font-size: 1.0625rem; margin-top: 14px; }
+.abertura .abertura-texto .acoes { margin-top: 20px; }
+.abertura .ondas { height: 100px; }
+.abertura .colagem { min-height: 360px; }
+.abertura .colagem .foto-grande { width: 74%; top: 24px; }
+.abertura .colagem .foto-pequena { width: 40%; }
+.abertura .colagem .rn { width: 46%; top: -44px; }
+@media (max-width: 960px) { .abertura .colagem { min-height: 320px; } }
+@media (max-width: 600px) { .abertura .conteiner { padding-top: 32px; padding-bottom: 96px; } .abertura .colagem { min-height: 260px; } }
