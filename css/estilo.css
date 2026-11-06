@@ -1335,3 +1335,6 @@ h1, h2, h3 { font-family: var(--titulo); line-height: 1.12; margin: 0; }
 
 /* painel do Power BI: aviso curto acima da moldura */
 .quadro-nota { position: relative; margin: 0 0 10px; font-size: 0.9375rem; color: #eef2ff; } /* fica sobre o fundo azul da abertura */
+
+/* carga horária anterior, ao lado da nova (ex.: EJATEC 2.400h a partir de 2027) */
+.carga-antes { display: block; font-size: 0.8125rem; color: var(--suave); font-weight: 400; }
