@@ -464,11 +464,14 @@ window.Site = (function () {
 
     var quadro = document.getElementById("quadro");
     if (linkValido(p.link)) {
+      // aviso acima do painel: o Power BI cobre a moldura com a própria tela de carregamento
+      quadro.parentNode.insertBefore(el("p", "quadro-nota", "O painel é carregado pelo Power BI. Na primeira abertura, pode levar até 20 segundos; nas seguintes, fica mais rápido."), quadro);
       var caixa = el("div", "quadro-proporcao");
       var iframe = el("iframe");
       iframe.title = p.titulo;
-      iframe.src = p.link.trim();
+      iframe.setAttribute("fetchpriority", "high");
       iframe.setAttribute("allowfullscreen", "true");
+      iframe.src = p.link.trim();
       caixa.appendChild(iframe);
       quadro.appendChild(caixa);
       var cheia = document.getElementById("tela-cheia");

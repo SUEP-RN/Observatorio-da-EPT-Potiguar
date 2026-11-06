@@ -1332,3 +1332,6 @@ h1, h2, h3 { font-family: var(--titulo); line-height: 1.12; margin: 0; }
 .fotos-trio img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--raio); }
 .fotos-trio figcaption { margin-top: 8px; font-size: 0.875rem; color: var(--suave); }
 @media (max-width: 760px) { .fotos-trio { grid-template-columns: 1fr 1fr; } .fotos-trio figure:first-child { grid-column: 1 / -1; } }
+
+/* painel do Power BI: aviso curto acima da moldura */
+.quadro-nota { position: relative; margin: 0 0 10px; font-size: 0.9375rem; color: #eef2ff; } /* fica sobre o fundo azul da abertura */
