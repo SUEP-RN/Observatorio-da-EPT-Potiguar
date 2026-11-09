@@ -1153,7 +1153,7 @@ h1, h2, h3 { font-family: var(--titulo); line-height: 1.12; margin: 0; }
 @media (max-width: 520px) { .oque-formas li { grid-template-columns: 1fr; gap: 0; } }
 
 /* =====================================================================
-   Capa das páginas internas (desde 2026-11-05): faixa colorida curta, com a caixa
+   Capa das páginas internas: faixa colorida curta, com a caixa
    do título e a foto lado a lado, descendo até o começo do conteúdo.
    Não vale para a inicial (.abertura), Onde estudar (.onde-abertura) e Documentos (.docs-abertura).
    ===================================================================== */
@@ -1179,7 +1179,7 @@ h1, h2, h3 { font-family: var(--titulo); line-height: 1.12; margin: 0; }
   .sobre-abertura:not(.onde-abertura) + section { padding-top: 96px; }
 }
 
-/* Capa da inicial um pouco mais baixa (desde 2026-11-05) */
+/* Capa da inicial um pouco mais baixa */
 .abertura .conteiner { padding-top: 44px; padding-bottom: 116px; }
 .abertura .abertura-texto { --tam: clamp(1.9rem, 3.8vw, 2.9rem); }
 .abertura .abertura-texto p { font-size: 1.0625rem; margin-top: 14px; }
@@ -1192,7 +1192,7 @@ h1, h2, h3 { font-family: var(--titulo); line-height: 1.12; margin: 0; }
 @media (max-width: 960px) { .abertura .colagem { min-height: 320px; } }
 @media (max-width: 600px) { .abertura .conteiner { padding-top: 32px; padding-bottom: 96px; } .abertura .colagem { min-height: 260px; } }
 
-/* Programas da EPT, versão simplificada (desde 2026-11-05) */
+/* Programas da EPT, versão simplificada */
 .pronatec-acoes { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
 .pronatec-acoes li { background: #fff; border-radius: var(--raio); padding: 20px 22px; box-shadow: var(--sombra); border-top: 6px solid var(--cor, var(--ceu)); }
 .pronatec-acoes li:nth-child(2) { --cor: var(--amarelo); }
@@ -1210,7 +1210,7 @@ h1, h2, h3 { font-family: var(--titulo); line-height: 1.12; margin: 0; }
 @media (max-width: 900px) { .pronatec-acoes { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 520px) { .pronatec-acoes { grid-template-columns: 1fr; } }
 
-/* Inicial: atalhos de Onde estudar dentro do "O que é a EPT?" (desde 2026-11-05) */
+/* Inicial: atalhos de Onde estudar dentro do "O que é a EPT?" */
 .oque-estudar-titulo { font: 800 1.375rem var(--titulo); color: var(--indigo); margin: 28px 0 14px; }
 .atalhos.empilhados { grid-template-columns: 1fr; gap: 12px; }
 .atalhos.empilhados .atalho { flex-direction: row; align-items: baseline; gap: 14px; padding: 16px 20px; border-bottom-width: 0; border-left: 6px solid var(--cor, var(--coral)); }
@@ -1218,7 +1218,7 @@ h1, h2, h3 { font-family: var(--titulo); line-height: 1.12; margin: 0; }
 .atalhos.empilhados .atalho:hover { transform: translateX(4px); }
 @media (max-width: 520px) { .atalhos.empilhados .atalho { flex-direction: column; gap: 4px; } .atalhos.empilhados .atalho b { flex: none; } }
 
-/* Programas: galeria das turmas do Mulheres Mil (desde 2026-11-05) */
+/* Programas: galeria das turmas do Mulheres Mil */
 .mm-galeria-titulo { font: 700 1.25rem var(--titulo); color: var(--indigo); margin: 30px 0 14px; }
 .mm-galeria { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
 .mm-galeria figure { position: relative; margin: 0; border-radius: var(--raio); overflow: hidden; background: var(--cinza-claro); }
@@ -1246,7 +1246,7 @@ h1, h2, h3 { font-family: var(--titulo); line-height: 1.12; margin: 0; }
 @media (max-width: 800px) { .carrossel-trilho { grid-auto-columns: 86%; gap: 12px; } }
 @media (prefers-reduced-motion: reduce) { .carrossel-trilho { scroll-behavior: auto; } .carrossel-seta { transition: none; } }
 
-/* rodapé com logos maiores (desde 2026-11-05) */
+/* rodapé com logos maiores */
 .rodape-grade { grid-template-columns: 1.45fr 1fr 1fr 1fr; padding-top: 34px; }
 .rodape-logos { display: flex; width: max-content; max-width: 100%; align-items: center; gap: 18px; padding: 14px 20px; border-radius: var(--raio-p); box-shadow: 0 10px 26px rgba(8, 12, 40, .35); margin-bottom: 16px; }
 .rodape-logos img { height: 58px; width: auto; max-width: 100%; }

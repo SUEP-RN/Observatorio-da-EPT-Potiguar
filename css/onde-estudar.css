@@ -1,5 +1,5 @@
 /* =====================================================================
-   Encontre seu curso técnico (rascunho, ainda fora do menu)
+   Encontre sua escola: filtros, mapa clicável e lista de unidades
    ===================================================================== */
 .onde-abertura .conteiner { grid-template-columns: 0.9fr 1.1fr; align-items: center; }
 
@@ -88,7 +88,7 @@
   .mapa-rn path { stroke-width: 0.8; }
 }
 
-/* capa mais baixa (desde 2026-11-05) */
+/* capa mais baixa */
 .onde-abertura .conteiner { padding-top: 40px; padding-bottom: 116px; gap: 40px; }
 .onde-abertura .conteiner > div:first-child:has(.etiqueta.media) { --tam: clamp(2rem, 3.8vw, 2.9rem); }
 .onde-abertura .conteiner > div:first-child > p { font-size: 1.0625rem; margin-top: 12px; }

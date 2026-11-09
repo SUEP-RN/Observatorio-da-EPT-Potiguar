@@ -83,7 +83,7 @@
 }
 @media (prefers-reduced-motion: reduce) { .curso-cartao, .perguntas summary::after { transition: none; } }
 
-/* página de um curso: uma coluna de texto com um só estilo, e o quadro da oferta ao lado (desde 2026-11-05) */
+/* página de um curso: uma coluna de texto com um só estilo, e o quadro da oferta ao lado */
 .curso-detalhe .curso-cabeca { align-items: flex-start; gap: 20px; flex-wrap: nowrap; }
 .curso-sobre { margin: 14px 0 0; font-size: 1.1875rem; line-height: 1.55; color: var(--tinta); max-width: 60ch; }
 .curso-grade { margin-top: 36px; gap: 56px; grid-template-columns: minmax(0, 1fr) 340px; }

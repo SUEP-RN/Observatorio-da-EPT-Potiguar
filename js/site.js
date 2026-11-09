@@ -1,6 +1,6 @@
 /* Monta as partes comuns (topo, rodapé) e as listas.
    O mesmo arquivo serve aos dois sites, que ficam em endereços separados:
-     - site público da SUEP/EPT: Site.iniciar("inicio" | "ept" | "sobre" | "onde-estudar" | "cursos" | "como-entrar" | "acompanhamento" | "boas-praticas" | "agenda" | "documentos")
+     - site público da SUEP/EPT: Site.iniciar("inicio" | "ept" | "sobre" | "onde-estudar" | "cursos" | "como-entrar" | "programas" | "acompanhamento" | "boas-praticas" | "estagio-trabalho" | "agenda" | "documentos")
      - site dos painéis (uso interno): Site.iniciar("lista" | "painel", "paineis")
    Não precisa editar este arquivo: contato em js/contato.js e painéis em js/paineis.js. */
 window.Site = (function () {
