@@ -112,9 +112,9 @@
         var cs = el("ul", "cursos-unid"); cs.setAttribute("aria-label", "Cursos técnicos");
         u.cursos.forEach(function (x) {
           var item = el("li");
-          // o nome do curso leva à página dele (cursos.html#administracao)
+          // o nome do curso leva à página dele (curso-administracao.html)
           var b = el("a", "curso-nome" + (x.nome === c ? " filtrado" : ""), x.nome);
-          b.href = "cursos.html#" + sem(x.nome).replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+          b.href = "curso-" + sem(x.nome).replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") + ".html";
           b.title = "Ver a página do curso técnico em " + x.nome;
           item.appendChild(b);
           x.formas.forEach(function (fm) { item.appendChild(el("span", "forma forma-" + fm, FORMA[fm])); });

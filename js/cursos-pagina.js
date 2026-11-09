@@ -1,13 +1,23 @@
-/* Página dos cursos: lista os 18 cursos e mostra a página de cada um pelo endereço (cursos.html#informatica). */
+/* Cursos técnicos. Em cursos.html, lista os 18 cursos. Cada curso tem sua página (curso-informatica.html),
+   gerada por gerar-cursos.ps1 com <body data-curso="informatica">; este script completa essa página.
+   Os endereços antigos (cursos.html#informatica) levam à página nova. */
 (function () {
   var CURSOS = window.CURSOS || [], UNID = window.UNIDADES || [];
   var FORMA = { integrado: "Integrado ao ensino médio", ejatec: "EJATEC", concomitante: "Concomitante", subsequente: "Subsequente" };
   var lista = document.getElementById("lista-cursos");
   var detalhe = document.getElementById("detalhe");
-  var catalogo = document.getElementById("catalogo");
+  var PAGINA = document.body.getAttribute("data-curso");
 
   function el(tag, cls, txt) { var e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; }
   function plural(n, um, varios) { return n + " " + (n === 1 ? um : varios); }
+  function endereco(c) { return "curso-" + c.id + ".html"; }
+  function achar(id) { return CURSOS.filter(function (x) { return x.id === id; })[0]; }
+
+  // endereço antigo: cursos.html#informatica
+  if (!PAGINA) {
+    var antigo = achar(location.hash.replace("#", ""));
+    if (antigo) { location.replace(endereco(antigo)); return; }
+  }
 
   // oferta de cada curso a partir das unidades de 2026
   CURSOS.forEach(function (c) {
@@ -23,8 +33,8 @@
   });
 
   // lista
-  CURSOS.forEach(function (c) {
-    var a = el("a", "curso-cartao"); a.href = "#" + c.id;
+  if (lista) CURSOS.forEach(function (c) {
+    var a = el("a", "curso-cartao"); a.href = endereco(c);
     if (window.iconeCurso) { var ic = el("span", "curso-icone"); ic.innerHTML = window.iconeCurso(c.id); a.appendChild(ic); }
     a.appendChild(el("h3", null, c.nome));
     a.appendChild(el("p", null, c.faz.split(/\.\s/)[0].replace(/\.?$/, "."))); // só a primeira frase no cartão
@@ -33,20 +43,17 @@
     lista.appendChild(a);
   });
 
+  // página de um curso: o texto já vem no HTML (para o Google); aqui ela ganha a oferta, os ícones e os links
   function mostrar() {
-    var id = location.hash.replace("#", "");
-    var c = CURSOS.filter(function (x) { return x.id === id; })[0];
-    if (!c) { detalhe.hidden = true; catalogo.hidden = false; document.title = "Cursos técnicos · SUEP/SEEC-RN"; return; }
-    catalogo.hidden = true; detalhe.hidden = false;
-    document.title = "Técnico em " + c.nome + " · SUEP/SEEC-RN";
+    var c = achar(PAGINA);
+    if (!c || !detalhe) return;
     detalhe.innerHTML = "";
-    var voltar = el("a", "voltar", "Todos os cursos"); voltar.href = "#"; detalhe.appendChild(voltar);
+    var voltar = el("a", "voltar", "Todos os cursos"); voltar.href = "cursos.html"; detalhe.appendChild(voltar);
 
-    // cabeça: ícone, nome e a apresentação do curso
+    // cabeça: ícone e a apresentação do curso (o nome está no título da página)
     var cab = el("div", "curso-cabeca");
     if (window.iconeCurso) { var ic = el("span", "curso-icone grande"); ic.innerHTML = window.iconeCurso(c.id); cab.appendChild(ic); }
     var tit = el("div");
-    tit.appendChild(el("h2", "etiqueta pequena", "Técnico em " + c.nome));
     if (c.sobre) tit.appendChild(el("p", "curso-sobre", c.sobre));
     cab.appendChild(tit);
     detalhe.appendChild(cab);
@@ -113,12 +120,10 @@
     // curso anterior e próximo, para quem quer conhecer vários
     var i = CURSOS.indexOf(c), ant = CURSOS[(i - 1 + CURSOS.length) % CURSOS.length], prox = CURSOS[(i + 1) % CURSOS.length];
     var nav = el("nav", "curso-vizinhos"); nav.setAttribute("aria-label", "Outros cursos");
-    var a1 = el("a", "anterior"); a1.href = "#" + ant.id; a1.appendChild(el("small", null, "Curso anterior")); a1.appendChild(el("b", null, ant.nome));
-    var a2 = el("a", "proximo"); a2.href = "#" + prox.id; a2.appendChild(el("small", null, "Próximo curso")); a2.appendChild(el("b", null, prox.nome));
+    var a1 = el("a", "anterior"); a1.href = endereco(ant); a1.appendChild(el("small", null, "Curso anterior")); a1.appendChild(el("b", null, ant.nome));
+    var a2 = el("a", "proximo"); a2.href = endereco(prox); a2.appendChild(el("small", null, "Próximo curso")); a2.appendChild(el("b", null, prox.nome));
     nav.appendChild(a1); nav.appendChild(a2);
     detalhe.appendChild(nav);
-    detalhe.scrollIntoView({ block: "start" });
   }
-  window.addEventListener("hashchange", mostrar);
-  mostrar();
+  if (PAGINA) mostrar();
 })();

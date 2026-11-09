@@ -25,8 +25,8 @@ window.iconeCurso = function (id) {
 };
 // Na página "A EPT no RN", coloca o ícone ao lado do nome de cada curso.
 document.addEventListener("DOMContentLoaded", function () {
-  document.querySelectorAll('.cursos li a[href^="cursos.html#"]').forEach(function (a) {
-    var id = a.getAttribute("href").split("#")[1];
+  document.querySelectorAll('.cursos li a[href^="curso-"]').forEach(function (a) {
+    var id = a.getAttribute("href").replace(/^curso-|\.html$/g, "");
     if (!window.ICONES_CURSOS[id] || a.querySelector(".curso-icone")) return;
     var s = document.createElement("span"); s.className = "curso-icone mini"; s.innerHTML = window.iconeCurso(id); a.insertBefore(s, a.firstChild);
   });
