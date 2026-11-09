@@ -5,5 +5,5 @@ window.CONTATO = {
   endereco: ["Av. Senador Salgado Filho", "Lagoa Nova · Natal/RN", "CEP 59064-901"],
   // Perfil oficial (o mesmo da revista da EPT)
   instagram: "https://www.instagram.com/suepseecrn/",
-  sitePublico: "https://suep-rn.github.io/Observatorio-da-EPT-Potiguar/"
+  sitePublico: "https://suepept.educacao.rn.gov.br/"
 };
