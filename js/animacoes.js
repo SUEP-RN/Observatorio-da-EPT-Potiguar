@@ -149,6 +149,51 @@
     aplicar("2025");
   }
 
+  /* ---------- mapa do Mulheres Mil (programas.html) ---------- */
+  // Dados em js/mulheres-mil.js. Os botões de curso acendem só os municípios que tiveram aquele curso.
+  function mapaMulheres() {
+    var svg = document.getElementById("mapa-mm"), m = window.MAPA_RN, dados = window.MULHERES_MIL;
+    if (!svg || !m || !dados) return;
+    var info = document.getElementById("mm-mapa-info"), legenda = document.getElementById("mm-legenda");
+    var ns = "http://www.w3.org/2000/svg", caminhos = {}, curso = "", resumo = "";
+    function lista(xs) { return xs.length > 1 ? xs.slice(0, -1).join(", ") + " e " + xs[xs.length - 1] : xs[0]; }
+    function vagas(n) { return n.toLocaleString("pt-BR") + " vagas"; }
+    svg.setAttribute("viewBox", "0 0 " + m.largura + " " + m.altura);
+    Object.keys(m.municipios).forEach(function (nome) {
+      var p = document.createElementNS(ns, "path");
+      p.setAttribute("d", m.municipios[nome]);
+      var t = document.createElementNS(ns, "title"); t.textContent = nome; p.appendChild(t);
+      function mostrar() {
+        var d = dados[nome];
+        if (info) info.textContent = d ? nome + ": " + vagas(d.vagas) + " em " + lista(d.cursos).toLowerCase() : nome + ": sem turmas";
+      }
+      p.addEventListener("mouseenter", mostrar);
+      p.addEventListener("click", mostrar);
+      p.addEventListener("mouseleave", function () { if (info) info.textContent = resumo; });
+      caminhos[nome] = p;
+      svg.appendChild(p);
+    });
+    function aplicar() {
+      var ordem = 0, n = 0;
+      Object.keys(caminhos).forEach(function (nome) {
+        var d = dados[nome], tem = !!d && (!curso || d.cursos.indexOf(curso) >= 0), p = caminhos[nome];
+        p.setAttribute("class", tem ? "com" : "");
+        if (tem) { n++; p.style.setProperty("--atraso", (ordem++ * 25) + "ms"); }
+      });
+      resumo = curso ? curso + ": turmas em " + n + (n === 1 ? " município" : " municípios") : n + " municípios com turmas";
+      if (info) info.textContent = resumo;
+      if (legenda) legenda.textContent = curso ? "Municípios com turmas de " + curso.toLowerCase() : "Municípios com turmas de 2024 a 2026";
+    }
+    document.querySelectorAll("#mm-cursos button").forEach(function (b) {
+      b.addEventListener("click", function () {
+        curso = b.getAttribute("data-curso") || "";
+        document.querySelectorAll("#mm-cursos button").forEach(function (x) { x.classList.toggle("ativo", x === b); x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
+        aplicar();
+      });
+    });
+    aplicar();
+  }
+
   /* ---------- barra de leitura no topo e botão de voltar ao topo ---------- */
   function leitura() {
     var barra = document.createElement("div"); barra.className = "progresso"; barra.setAttribute("aria-hidden", "true");
@@ -225,6 +270,6 @@
     });
   }
 
-  function iniciar() { engrenagens(); mapa(); abas(); carrosseis(); preparar(); leitura(); }
+  function iniciar() { engrenagens(); mapa(); mapaMulheres(); abas(); carrosseis(); preparar(); leitura(); }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", iniciar); else iniciar();
 })();

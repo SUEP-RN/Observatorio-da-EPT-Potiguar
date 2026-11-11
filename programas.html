@@ -25,7 +25,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Rubik:wght@500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/estilo.css?v=20261109a">
+  <link rel="stylesheet" href="css/estilo.css?v=20261110a">
   <link rel="stylesheet" href="css/estudar.css?v=4">
 </head>
 <body>
@@ -158,7 +158,7 @@
       </div>
     </section>
 
-    <!-- Mulheres Mil na rede estadual (revista Mulheres Mil RN, 2ª edição, 2026) -->
+    <!-- Mulheres Mil na rede estadual (revista Mulheres Mil RN, 2ª edição, 2026; vagas e cursos por município: tabela da SUEP em js/mulheres-mil.js) -->
     <section class="secao" aria-labelledby="titulo-mm-rn">
       <div class="conteiner">
         <div class="secao-cabeca">
@@ -166,23 +166,47 @@
           <p>No RN, a rede estadual executa o programa desde 2024, com as prefeituras. As turmas vão aonde há potencial de trabalho, com preferência para comunidades rurais, indígenas e quilombolas.</p>
         </div>
         <div class="destaques numeros-trabalho" style="--n: 3">
-          <div><strong>3.040</strong><span>vagas na rede estadual entre 2023 e 2025</span></div>
-          <div><strong>42</strong><span>municípios com turmas</span></div>
+          <div><strong>3.040</strong><span>vagas na rede estadual de 2024 a 2026</span></div>
+          <div><strong>46</strong><span>municípios com turmas</span></div>
           <div><strong>+90%</strong><span>das alunas ficaram até o fim do curso no último ciclo</span></div>
         </div>
 
-        <div class="mm-ciclo3 sozinho">
-          <h3>Cursos e cidades</h3>
-          <p>Cada curso tem 192 horas. No último ciclo, de dezembro de 2025 a março de 2026, 858 mulheres se formaram em 19 turmas.</p>
-          <h4>Cursos já ofertados</h4>
-          <ul class="mm-chips">
-            <li>Cuidadora de idosos</li><li>Cuidadora infantil</li><li>Horticultura orgânica</li><li>Eletricista predial</li><li>Assistente de costura</li><li>Microempreendedorismo</li><li>Salgadeira</li>
-          </ul>
-          <h4>Alguns municípios com turmas</h4>
-          <ul class="mm-chips claro">
-            <li>Alexandria</li><li>Almino Afonso</li><li>Assú</li><li>Brejinho</li><li>Francisco Dantas</li><li>Montanhas</li><li>Natal</li><li>Parnamirim</li><li>Rio do Fogo</li><li>São Gonçalo do Amarante</li><li>São Tomé</li><li>Serra de São Bento</li><li>Touros</li>
-          </ul>
+        <div class="mm-ciclo3 sozinho mm-com-mapa">
+          <div>
+            <h3>Cursos e cidades</h3>
+            <p>Cada curso tem 192 horas. No último ciclo, de dezembro de 2025 a março de 2026, 858 mulheres se formaram em 19 turmas.</p>
+            <h4>Cursos já ofertados</h4>
+            <p class="mm-dica">Escolha um curso para ver no mapa onde houve turma.</p>
+            <ul class="mm-chips mm-filtro" id="mm-cursos">
+              <li><button type="button" class="ativo" aria-pressed="true">Todos os cursos</button></li>
+              <li><button type="button" data-curso="Horticultura orgânica" aria-pressed="false">Horticultura orgânica</button></li>
+              <li><button type="button" data-curso="Agente de alimentação escolar" aria-pressed="false">Agente de alimentação escolar</button></li>
+              <li><button type="button" data-curso="Cuidadora de idosos" aria-pressed="false">Cuidadora de idosos</button></li>
+              <li><button type="button" data-curso="Agricultura orgânica" aria-pressed="false">Agricultura orgânica</button></li>
+              <li><button type="button" data-curso="Eletricista predial" aria-pressed="false">Eletricista predial</button></li>
+              <li><button type="button" data-curso="Agente de limpeza e conservação" aria-pressed="false">Agente de limpeza e conservação</button></li>
+              <li><button type="button" data-curso="Cuidadora infantil" aria-pressed="false">Cuidadora infantil</button></li>
+              <li><button type="button" data-curso="Assistente de costura" aria-pressed="false">Assistente de costura</button></li>
+              <li><button type="button" data-curso="Vendedora" aria-pressed="false">Vendedora</button></li>
+              <li><button type="button" data-curso="Microempreendedora individual" aria-pressed="false">Microempreendedora individual</button></li>
+              <li><button type="button" data-curso="Agricultura familiar" aria-pressed="false">Agricultura familiar</button></li>
+              <li><button type="button" data-curso="Trabalhadora doméstica" aria-pressed="false">Trabalhadora doméstica</button></li>
+              <li><button type="button" data-curso="Agente cultural" aria-pressed="false">Agente cultural</button></li>
+              <li><button type="button" data-curso="Artesã em cerâmica" aria-pressed="false">Artesã em cerâmica</button></li>
+              <li><button type="button" data-curso="Assistente administrativa" aria-pressed="false">Assistente administrativa</button></li>
+              <li><button type="button" data-curso="Confeccionadora de bolsas de tecido" aria-pressed="false">Confeccionadora de bolsas de tecido</button></li>
+              <li><button type="button" data-curso="Manicure e pedicure" aria-pressed="false">Manicure e pedicure</button></li>
+              <li><button type="button" data-curso="Maquiadora" aria-pressed="false">Maquiadora</button></li>
+              <li><button type="button" data-curso="Salgadeira" aria-pressed="false">Salgadeira</button></li>
+            </ul>
+            <p class="mapa-info" id="mm-mapa-info" aria-live="polite">46 municípios com turmas</p>
+          </div>
+          <figure class="mapa-estagio mm-mapa">
+            <svg id="mapa-mm" role="img" aria-labelledby="mm-mapa-titulo"><title id="mm-mapa-titulo">Mapa do Rio Grande do Norte com os 46 municípios que tiveram turmas do Mulheres Mil de 2024 a 2026</title></svg>
+            <figcaption><span class="ponto"></span><span id="mm-legenda">Municípios com turmas de 2024 a 2026</span></figcaption>
+          </figure>
         </div>
+        <p class="fonte">Vagas e cursos por município: SUEP/SEEC-RN, turmas realizadas de 2024 a 2026. Passe o mouse ou toque em um município para ver as vagas e os cursos.</p>
 
         <h3 class="mm-galeria-titulo" id="titulo-galeria">As turmas em 2026</h3>
         <div class="carrossel" data-carrossel role="region" aria-roledescription="carrossel" aria-labelledby="titulo-galeria">
@@ -292,9 +316,11 @@
 
   <footer class="rodape" id="rodape"></footer>
 
-  <script src="js/contato.js?v=20261109a"></script>
-  <script src="js/site.js?v=20261109a"></script>
-  <script src="js/animacoes.js?v=13"></script>
+  <script src="js/contato.js?v=20261110a"></script>
+  <script src="js/site.js?v=20261110a"></script>
+  <script src="js/onde-estudar.js?v=3"></script>
+  <script src="js/mulheres-mil.js?v=1"></script>
+  <script src="js/animacoes.js?v=15"></script>
   <script>Site.iniciar("programas");</script>
 </body>
 </html>

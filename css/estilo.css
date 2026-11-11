@@ -1018,8 +1018,8 @@ h1, h2, h3 { font-family: var(--titulo); line-height: 1.12; margin: 0; }
 .oque-ept { background: var(--papel); padding: 64px 0 80px; }
 .oque-ept .conteiner { display: grid; grid-template-columns: 1fr 1.05fr; gap: 48px; align-items: start; }
 .oque-texto h2 { font-size: clamp(1.9rem, 3.6vw, 2.7rem); color: var(--indigo); margin: 12px 0 16px; }
-.oque-lead { font-size: 1.1875rem; color: var(--tinta); margin: 0 0 14px; }
-.oque-texto p { color: var(--suave); }
+.oque-lead { font-size: 1.125rem; color: var(--tinta); margin: 0 0 14px; }
+.oque-texto p { color: var(--suave); font-size: 1.125rem; }
 .oque-lead strong { color: var(--indigo); }
 .oque-fatos { list-style: none; padding: 0; margin: 24px 0 28px; display: flex; gap: 12px; flex-wrap: wrap; }
 .oque-fatos li { background: #fff; border-radius: var(--raio); padding: 12px 18px; box-shadow: var(--sombra); border-bottom: 5px solid var(--cor, var(--amarelo)); }
@@ -1338,3 +1338,16 @@ h1, h2, h3 { font-family: var(--titulo); line-height: 1.12; margin: 0; }
 
 /* carga horária anterior, ao lado da nova (ex.: EJATEC 2.400h a partir de 2027) */
 .carga-antes { display: block; font-size: 0.8125rem; color: var(--suave); font-weight: 400; }
+
+/* Mulheres Mil: cursos ao lado do mapa dos municípios com turmas */
+.mm-com-mapa { display: grid; grid-template-columns: 1fr minmax(260px, 440px); gap: 28px; align-items: center; }
+.mm-com-mapa .mapa-info { margin-top: 22px; font-size: 0.9375rem; }
+.mm-mapa path { fill: #e4e8f4; }
+.mm-mapa path.com { cursor: pointer; }
+@media (max-width: 760px) { .mm-com-mapa { grid-template-columns: 1fr; gap: 18px; } }
+.mm-dica { margin: -2px 0 10px; font-size: 0.875rem; }
+.mm-filtro li { background: none; padding: 0; }
+.mm-filtro button { font: 600 0.8125rem var(--titulo); color: var(--indigo); background: #eef1fb; border: 0; border-radius: 999px; padding: 6px 12px; cursor: pointer; transition: background .15s ease; }
+.mm-filtro button:hover { background: #dfe4f7; }
+.mm-filtro button.ativo { background: var(--indigo); color: #fff; }
+.mm-filtro button:focus-visible { outline: 3px solid var(--amarelo); outline-offset: 2px; }
