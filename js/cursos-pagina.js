@@ -39,7 +39,7 @@
     a.appendChild(el("h3", null, c.nome));
     a.appendChild(el("p", null, c.faz.split(/\.\s/)[0].replace(/\.?$/, "."))); // só a primeira frase no cartão
     var n = Object.keys(c.municipios).length;
-    a.appendChild(el("span", "curso-onde", c.unidades.length ? plural(c.unidades.length, "unidade", "unidades") + " em " + plural(n, "município", "municípios") : "Sem turmas em 2026"));
+    a.appendChild(el("span", "curso-onde", c.unidades.length ? plural(c.unidades.length, "instituição", "instituições") + " em " + plural(n, "município", "municípios") : "Sem turmas em 2026"));
     lista.appendChild(a);
   });
 
@@ -87,7 +87,7 @@
     var nMun = Object.keys(c.municipios).length;
     var num = el("p", "curso-numeros");
     num.appendChild(el("strong", null, String(c.unidades.length)));
-    num.appendChild(document.createTextNode(" " + (c.unidades.length === 1 ? "unidade" : "unidades") + " em " + plural(nMun, "município", "municípios")));
+    num.appendChild(document.createTextNode(" " + (c.unidades.length === 1 ? "instituição" : "instituições") + " em " + plural(nMun, "município", "municípios")));
     oferta.appendChild(num);
     var fs = Object.keys(FORMA).filter(function (f) { return c.formas[f]; });
     if (fs.length) {
@@ -96,7 +96,7 @@
       fs.forEach(function (f) {
         var li = el("li");
         var a = el("a", null, FORMA[f]); a.href = "onde-estudar.html#curso=" + encodeURIComponent(c.nome) + "&forma=" + f;
-        li.appendChild(a); li.appendChild(el("span", null, plural(c.formas[f], "unidade", "unidades")));
+        li.appendChild(a); li.appendChild(el("span", null, plural(c.formas[f], "instituição", "instituições")));
         ul.appendChild(li);
       });
       oferta.appendChild(ul);
