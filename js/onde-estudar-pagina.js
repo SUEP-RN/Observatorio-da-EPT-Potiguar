@@ -35,25 +35,23 @@
   var dl = document.getElementById("lista-municipios");
   Object.keys(porMapa).sort(function (a, b) { return a.localeCompare(b, "pt"); }).forEach(function (m) { var o = el("option"); o.value = m; dl.appendChild(o); });
 
-  // mapa
+  // mapa: a cor e a contagem de cada município mudam com o filtro de curso e de forma (veja desenhar)
   svg.setAttribute("viewBox", "0 0 " + MAPA.largura + " " + MAPA.altura);
-  var caminhos = {};
+  var caminhos = {}, contagem = {};
   Object.keys(MAPA.municipios).forEach(function (nome) {
     var p = document.createElementNS(NS, "path");
     p.setAttribute("d", MAPA.municipios[nome]);
-    var n = porMapa[nome] || 0;
-    if (n) {
-      p.classList.add("tem", n === 1 ? "n1" : n <= 3 ? "n2" : "n3");
+    if (porMapa[nome]) {
+      p.classList.add("tem");
       p.setAttribute("tabindex", "0");
       p.setAttribute("role", "button");
-      p.setAttribute("aria-label", nome + ": " + plural(n, "unidade", "unidades") + " com curso técnico");
       p.addEventListener("click", function () { escolherMunicipio(nome); });
       p.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); escolherMunicipio(nome); } });
     }
     p.addEventListener("mousemove", function (e) {
-      var r = svg.getBoundingClientRect();
+      var r = svg.getBoundingClientRect(), n = contagem[nome] || 0;
       dica.hidden = false;
-      dica.textContent = nome + (n ? " · " + plural(n, "unidade", "unidades") : " · sem oferta");
+      dica.textContent = nome + (n ? " · " + plural(n, "instituição", "instituições") : " · sem oferta" + (porMapa[nome] ? " deste curso" : ""));
       dica.style.left = (e.clientX - r.left) + "px"; dica.style.top = (e.clientY - r.top) + "px";
     });
     p.addEventListener("mouseleave", function () { dica.hidden = true; });
@@ -75,12 +73,16 @@
 
   function desenhar(vis) {
     var c = curso.value, f = forma.value, t = sem(texto.value);
-    var atende = {};
-    UNID.forEach(function (u) { if (!(c || f) || cursosQueAtendem(u, c, f).length) atende[u.mapa] = 1; });
+    // conta, em cada município, só as instituições que oferecem o curso/forma escolhidos
+    contagem = {};
+    UNID.forEach(function (u) { if (!(c || f) || cursosQueAtendem(u, c, f).length) contagem[u.mapa] = (contagem[u.mapa] || 0) + 1; });
+    var oferta = [c, f ? FORMA[f].toLowerCase() : ""].filter(Boolean).join(", ");
     Object.keys(caminhos).forEach(function (nome) {
-      var p = caminhos[nome];
+      var p = caminhos[nome], n = contagem[nome] || 0;
       p.classList.toggle("escolhido", !!t && sem(nome) === t);
-      p.classList.toggle("apagado", !!(c || f) && p.classList.contains("tem") && !atende[nome]);
+      p.classList.toggle("apagado", p.classList.contains("tem") && !n);
+      p.classList.toggle("n1", n === 1); p.classList.toggle("n2", n >= 2 && n <= 3); p.classList.toggle("n3", n >= 4);
+      if (p.classList.contains("tem")) p.setAttribute("aria-label", nome + ": " + (n ? plural(n, "instituição", "instituições") : "nenhuma instituição") + (oferta ? " com " + oferta : " com curso técnico"));
     });
 
     lista.innerHTML = "";
